@@ -74,7 +74,7 @@ bool StartScene::init()
     this->addChild(pSprite, 0);
     
 	animationTag = 0;
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("IronManAnimation.ExportJson", this, schedule_selector(StartScene::dataLoaded));
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("IMRun.ExportJson", this, schedule_selector(StartScene::dataLoaded));
     
 
     return true;
@@ -82,7 +82,7 @@ bool StartScene::init()
 void StartScene::dataLoaded(float t)
 {
 	armature = NULL;
-	armature = CCArmature::create("IronManAnimation");
+	armature = CCArmature::create("IMRun");
 	armature->getAnimation()->playByIndex(animationTag);
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(0.6f);
