@@ -17,9 +17,12 @@ public:
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
     
-	void ImCrouch(float t);
-	void IMRun(float t);
-	CCArmature *armature;
+	void dataLoaded(float t);
+	void ImCrouch();
+	void IMRun();
+	void IMJump();
+	void jumpActionCallBack(CCNode* sender, void* data);
+	CCArmature *imManArmature;
 	CCPoint amaturePosition;
 
 	CCPoint m_tBeginPos;
@@ -30,6 +33,16 @@ public:
     virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
     virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
     virtual void ccTouchesCancelled(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+
+	
+	int actionNum;
+	int touchTime;
+	enum
+	{
+		ACTION_CROUCH = 0,
+		 ACTION_RUN,
+		ACTION_JUMP,
+	};
 
     // implement the "static node()" method manually
     CREATE_FUNC(StartScene);
