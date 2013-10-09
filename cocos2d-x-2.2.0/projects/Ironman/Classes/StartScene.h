@@ -17,10 +17,19 @@ public:
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
     
-	int animationTag;
-	void dataLoaded(float t);
+	void ImCrouch(float t);
+	void IMRun(float t);
 	CCArmature *armature;
 	CCPoint amaturePosition;
+
+	CCPoint m_tBeginPos;
+	CCPoint s_tCurPos;
+	
+    virtual void registerWithTouchDispatcher(void);
+    virtual void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesCancelled(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
 
     // implement the "static node()" method manually
     CREATE_FUNC(StartScene);

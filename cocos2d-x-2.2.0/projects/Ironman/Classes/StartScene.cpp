@@ -26,90 +26,51 @@ bool StartScene::init()
     {
         return false;
     }
-    
+    StartScene::registerWithTouchDispatcher();
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
 
-    // add a "close" icon to exit the progress. it's an autorelease object
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(StartScene::menuCloseCallback));
-    
-	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-                                origin.y + pCloseItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-    pMenu->setPosition(CCPointZero);
-    this->addChild(pMenu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", 24);
-    
-    // position the label on the center of the screen
-    pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - pLabel->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-
-    // add "StartScene" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
-    
-	animationTag = 0;
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("IMRun.ExportJson", this, schedule_selector(StartScene::dataLoaded));
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("ImCrouch.ExportJson", this, schedule_selector(StartScene::ImCrouch));
     
 
+	
     return true;
 }
-void StartScene::dataLoaded(float t)
+void StartScene::ImCrouch(float t)
 {
-	armature = NULL;
-	armature = CCArmature::create("IMRun");
-	armature->getAnimation()->playByIndex(animationTag);
+	armature = CCArmature::create("ImCrouch");
+	armature->getAnimation()->play("crouch");
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(0.6f);
-	armature->setPosition(ccp(130, 100));
+	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setPosition(ccp(50, 50));
+	amaturePosition = armature->getPosition();
+	addChild(armature);
+}
+
+void StartScene::IMRun(float t)
+{
+	armature = CCArmature::create("IMRun");
+	armature->getAnimation()->play("Runing");
+	armature->getAnimation()->setSpeedScale(1.5f);
+	armature->setScale(0.6f);
+	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setPosition(ccp(50, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 }
 
 void StartScene::menuCloseCallback(CCObject* pSender)
 {
-	animationTag++;
-	if(animationTag == 3)
-	{
-		animationTag = 0;
-	}
-	armature->getAnimation()->playByIndex(animationTag);
-	if(animationTag == 0)
-	{
 		armature->setPosition(amaturePosition);
-	}
-	if(animationTag == 1)
-	{
-		
+	
+
 		CCActionInterval * splitCols = CCMoveTo::create(1.0,CCPointMake(armature->getPosition().x+300,armature->getPosition().y));
 
 		armature->runAction(splitCols);
-	}
+
+	
 	/*
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 	CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
@@ -120,4 +81,80 @@ void StartScene::menuCloseCallback(CCObject* pSender)
 #endif
 #endif
 	*/
+}
+
+
+void StartScene::registerWithTouchDispatcher(void)
+{
+    CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 0);
+}
+
+void StartScene::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
+{
+     CCSetIterator it = pTouches->begin();
+    CCTouch* touch = (CCTouch*)(*it);
+        //将位置保存到变量m_tBeginPos中。
+    m_tBeginPos = touch->getLocation();    
+	
+}
+
+void StartScene::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
+{
+	/*
+          //获取第一个触点位置
+    CCSetIterator it = pTouches->begin();
+    CCTouch* touch = (CCTouch*)(*it);
+        //取得这个位置与上一帧移动的Y值之差，即在纵方向的偏移。
+    CCPoint touchLocation = touch->getLocation();    
+    float nMoveY = touchLocation.y - m_tBeginPos.y;
+        //计算菜单在纵方向上也移动相应值后的新位置。
+    CCPoint curPos  = armature->getPosition();
+    CCPoint nextPos = ccp(curPos.x, curPos.y + nMoveY);
+        //这里对新位置的有效范围做个限定
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    if (nextPos.y < 0.0f)
+    {
+        armature->setPosition(CCPointZero);
+        return;
+    }
+	
+    if (nextPos.y > ((TESTS_COUNT + 1)* LINE_SPACE - winSize.height))
+    {
+        armature->setPosition(ccp(0, ((TESTS_COUNT + 1)* LINE_SPACE - winSize.height)));
+        return;
+    }
+	
+        //更新菜单到新位置
+    armature->setPosition(nextPos);
+
+        //记录当前位置为旧位置。
+    m_tBeginPos = touchLocation;
+    s_tCurPos   = nextPos;
+	*/
+}
+
+void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
+{
+        //获取第一个触点位置
+    CCSetIterator it = pTouches->begin();
+    CCTouch* touch = (CCTouch*)(*it);
+        //取得这个位置与上一帧移动的Y值之差，即在纵方向的偏移。
+    CCPoint touchLocation = touch->getLocation();    
+    float nMoveX = touchLocation.x - m_tBeginPos.x;
+	float nMoveY = touchLocation.y - m_tBeginPos.y;
+	CCLog("m_tBeginPos.x = %f",m_tBeginPos.x);
+	CCLog("touchLocation.x = %f",touchLocation.x);
+	CCLog("nMoveX = %f ,nMoveY = %f",nMoveX,nMoveY);
+	if(nMoveX>0 && tan(nMoveY/nMoveX)<fabs(sqrt(3)/3))
+	{
+		armature->stopAllActions();
+		armature->removeFromParentAndCleanup(false);
+		CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("IMRun.ExportJson", this, schedule_selector(StartScene::IMRun));
+	}
+
+}
+
+void StartScene::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
+{
+    ccTouchesEnded(pTouches, pEvent);
 }
