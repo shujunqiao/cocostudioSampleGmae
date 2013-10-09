@@ -237,6 +237,9 @@
 		846AEA8E1803F5A800B71BE0 /* IMRun0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 846AEA8B1803F5A800B71BE0 /* IMRun0.plist */; };
 		846AEA8F1803F5A800B71BE0 /* IMRun0.png in Resources */ = {isa = PBXBuildFile; fileRef = 846AEA8C1803F5A800B71BE0 /* IMRun0.png */; };
 		846AEA921803F5BE00B71BE0 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846AEA901803F5BE00B71BE0 /* StartScene.cpp */; };
+		846AEA961803FD2D00B71BE0 /* IMJump.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 846AEA931803FD2D00B71BE0 /* IMJump.ExportJson */; };
+		846AEA971803FD2D00B71BE0 /* IMJump0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 846AEA941803FD2D00B71BE0 /* IMJump0.plist */; };
+		846AEA981803FD2D00B71BE0 /* IMJump0.png in Resources */ = {isa = PBXBuildFile; fileRef = 846AEA951803FD2D00B71BE0 /* IMJump0.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -735,6 +738,9 @@
 		846AEA8C1803F5A800B71BE0 /* IMRun0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMRun0.png; sourceTree = "<group>"; };
 		846AEA901803F5BE00B71BE0 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
 		846AEA911803F5BE00B71BE0 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
+		846AEA931803FD2D00B71BE0 /* IMJump.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMJump.ExportJson; sourceTree = "<group>"; };
+		846AEA941803FD2D00B71BE0 /* IMJump0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IMJump0.plist; sourceTree = "<group>"; };
+		846AEA951803FD2D00B71BE0 /* IMJump0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMJump0.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1715,9 +1721,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				846AEA8A1803F5A800B71BE0 /* IMRun.ExportJson */,
-				846AEA8B1803F5A800B71BE0 /* IMRun0.plist */,
-				846AEA8C1803F5A800B71BE0 /* IMRun0.png */,
+				846AEA991803FDBF00B71BE0 /* IronManAction */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
@@ -1731,6 +1735,19 @@
 			);
 			name = Resources;
 			path = ../Resources;
+			sourceTree = "<group>";
+		};
+		846AEA991803FDBF00B71BE0 /* IronManAction */ = {
+			isa = PBXGroup;
+			children = (
+				846AEA931803FD2D00B71BE0 /* IMJump.ExportJson */,
+				846AEA941803FD2D00B71BE0 /* IMJump0.plist */,
+				846AEA951803FD2D00B71BE0 /* IMJump0.png */,
+				846AEA8A1803F5A800B71BE0 /* IMRun.ExportJson */,
+				846AEA8B1803F5A800B71BE0 /* IMRun0.plist */,
+				846AEA8C1803F5A800B71BE0 /* IMRun0.png */,
+			);
+			name = IronManAction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1820,6 +1837,9 @@
 				846AEA8D1803F5A800B71BE0 /* IMRun.ExportJson in Resources */,
 				846AEA8E1803F5A800B71BE0 /* IMRun0.plist in Resources */,
 				846AEA8F1803F5A800B71BE0 /* IMRun0.png in Resources */,
+				846AEA961803FD2D00B71BE0 /* IMJump.ExportJson in Resources */,
+				846AEA971803FD2D00B71BE0 /* IMJump0.plist in Resources */,
+				846AEA981803FD2D00B71BE0 /* IMJump0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
