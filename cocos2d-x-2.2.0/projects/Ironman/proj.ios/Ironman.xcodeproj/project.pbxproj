@@ -230,7 +230,11 @@
 		379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* CCSGUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* CCSSceneReader.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
-		846AEA921803F5BE00B71BE0 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846AEA901803F5BE00B71BE0 /* StartScene.cpp */; };
+		842BAE531806983300A90B67 /* MainMenuSceneBK.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE501806983300A90B67 /* MainMenuSceneBK.png */; };
+		842BAE541806983300A90B67 /* StartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE511806983300A90B67 /* StartBtn.png */; };
+		842BAE551806983300A90B67 /* StartBtnPush.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE521806983300A90B67 /* StartBtnPush.png */; };
+		842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */; };
+		842BAE731806B65400A90B67 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE711806B65400A90B67 /* GameScene.cpp */; };
 		848B4EC318059C5100783639 /* ImCrouch.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EBA18059C5000783639 /* ImCrouch.ExportJson */; };
 		848B4EC418059C5100783639 /* ImCrouch0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EBB18059C5000783639 /* ImCrouch0.plist */; };
 		848B4EC518059C5100783639 /* ImCrouch0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EBC18059C5000783639 /* ImCrouch0.png */; };
@@ -730,8 +734,13 @@
 		379BB99317F03F3700829B88 /* CCSSceneReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSSceneReader.cpp; sourceTree = "<group>"; };
 		379BB99417F03F3700829B88 /* CCSSceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSSceneReader.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
-		846AEA901803F5BE00B71BE0 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
-		846AEA911803F5BE00B71BE0 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
+		842BAE501806983300A90B67 /* MainMenuSceneBK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MainMenuSceneBK.png; path = pictures/MainMenuSceneBK.png; sourceTree = "<group>"; };
+		842BAE511806983300A90B67 /* StartBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartBtn.png; path = pictures/StartBtn.png; sourceTree = "<group>"; };
+		842BAE521806983300A90B67 /* StartBtnPush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartBtnPush.png; path = pictures/StartBtnPush.png; sourceTree = "<group>"; };
+		842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScenePlayLayer.cpp; path = ../Classes/GameScenePlayLayer.cpp; sourceTree = "<group>"; };
+		842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScenePlayLayer.h; path = ../Classes/GameScenePlayLayer.h; sourceTree = "<group>"; };
+		842BAE711806B65400A90B67 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
+		842BAE721806B65400A90B67 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
 		848B4EBA18059C5000783639 /* ImCrouch.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImCrouch.ExportJson; path = iphone/ImCrouch.ExportJson; sourceTree = "<group>"; };
 		848B4EBB18059C5000783639 /* ImCrouch0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ImCrouch0.plist; path = iphone/ImCrouch0.plist; sourceTree = "<group>"; };
 		848B4EBC18059C5000783639 /* ImCrouch0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ImCrouch0.png; path = iphone/ImCrouch0.png; sourceTree = "<group>"; };
@@ -1274,9 +1283,9 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				842BAE641806A4C500A90B67 /* Layer */,
+				842BAE631806A48A00A90B67 /* Scene */,
 				848B4ECC18059C8400783639 /* AppMacros.h */,
-				846AEA901803F5BE00B71BE0 /* StartScene.cpp */,
-				846AEA911803F5BE00B71BE0 /* StartScene.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 			);
@@ -1723,6 +1732,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				842BAE4F180697B900A90B67 /* PictureResources */,
 				846AEA991803FDBF00B71BE0 /* IronManAction */,
 				D41A0AD0160F154A004552AE /* Default-568h@2x.png */,
 				7855E0DF153FEF240059DD9A /* Default.png */,
@@ -1734,6 +1744,34 @@
 			);
 			name = Resources;
 			path = ../Resources;
+			sourceTree = "<group>";
+		};
+		842BAE4F180697B900A90B67 /* PictureResources */ = {
+			isa = PBXGroup;
+			children = (
+				842BAE501806983300A90B67 /* MainMenuSceneBK.png */,
+				842BAE511806983300A90B67 /* StartBtn.png */,
+				842BAE521806983300A90B67 /* StartBtnPush.png */,
+			);
+			name = PictureResources;
+			sourceTree = "<group>";
+		};
+		842BAE631806A48A00A90B67 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				842BAE711806B65400A90B67 /* GameScene.cpp */,
+				842BAE721806B65400A90B67 /* GameScene.h */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		842BAE641806A4C500A90B67 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */,
+				842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */,
+			);
+			name = Layer;
 			sourceTree = "<group>";
 		};
 		846AEA991803FDBF00B71BE0 /* IronManAction */ = {
@@ -1842,6 +1880,9 @@
 				848B4EC918059C5100783639 /* IMRun.ExportJson in Resources */,
 				848B4ECA18059C5100783639 /* IMRun0.plist in Resources */,
 				848B4ECB18059C5100783639 /* IMRun0.png in Resources */,
+				842BAE531806983300A90B67 /* MainMenuSceneBK.png in Resources */,
+				842BAE541806983300A90B67 /* StartBtn.png in Resources */,
+				842BAE551806983300A90B67 /* StartBtnPush.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2063,7 +2104,8 @@
 				379BB9D117F03F3700829B88 /* json_writer.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */,
 				379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */,
-				846AEA921803F5BE00B71BE0 /* StartScene.cpp in Sources */,
+				842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */,
+				842BAE731806B65400A90B67 /* GameScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

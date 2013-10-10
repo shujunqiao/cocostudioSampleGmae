@@ -5,7 +5,7 @@ USING_NS_CC;
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
 
-CCScene* StartScene::scene()
+CCScene* StartScene::initStartScene()
 {
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
