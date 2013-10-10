@@ -139,7 +139,7 @@ void StartScene::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
 	CCLog("touchTime == %d",touchTime);
-	if(touchTime>25)
+	if(touchTime>30)
 	{
 		touchTime = 0;
 		return;
@@ -157,8 +157,10 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	CCLog("m_tBeginPos.x = %f",m_tBeginPos.x);
 	CCLog("touchLocation.x = %f",touchLocation.x);
 	CCLog("nMoveX = %f ,nMoveY = %f",nMoveX,nMoveY);
-	CCLog("tan = %f",tan(nMoveY/nMoveX));
-	if(nMoveX>10 && tan(nMoveY/nMoveX)<fabs(sqrt(1)/3))
+	CCLog("tan1 = %f",tan(nMoveY/nMoveX));
+	CCLog("tan2 = %f",fabs(sqrt(3)/10));
+	int radian = 10;
+	if(nMoveX>10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_RUN)
 			return;
@@ -166,7 +168,7 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		imManArmature->removeFromParentAndCleanup(false);
 		this ->IMRun();
 	}
-	if(nMoveX<-10 && tan(nMoveY/nMoveX)<fabs(sqrt(1)/3))
+	if(nMoveX<-10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_CROUCH)
 			return;
@@ -174,7 +176,7 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		imManArmature->removeFromParentAndCleanup(false);
 		this ->ImCrouch();
 	}
-	if(nMoveY>10 && tan(nMoveY/nMoveX)>fabs(sqrt(1)/3))
+	if(nMoveY>10 && fabs(tan(nMoveY/nMoveX))>fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_JUMP)
 			return;
@@ -187,7 +189,7 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
 		imManArmature->runAction(action);
 	}
-	if(nMoveY<-10 && tan(nMoveY/nMoveX)>fabs(sqrt(1)/3))
+	if(nMoveY<-10 && fabs(tan(nMoveY/nMoveX))>fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_CROUCH)
 			return;
