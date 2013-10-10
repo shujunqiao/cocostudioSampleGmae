@@ -235,6 +235,7 @@
 		842BAE551806983300A90B67 /* StartBtnPush.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE521806983300A90B67 /* StartBtnPush.png */; };
 		842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */; };
 		842BAE731806B65400A90B67 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE711806B65400A90B67 /* GameScene.cpp */; };
+		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
 		848B4EC318059C5100783639 /* ImCrouch.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EBA18059C5000783639 /* ImCrouch.ExportJson */; };
 		848B4EC418059C5100783639 /* ImCrouch0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EBB18059C5000783639 /* ImCrouch0.plist */; };
 		848B4EC518059C5100783639 /* ImCrouch0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EBC18059C5000783639 /* ImCrouch0.png */; };
@@ -741,6 +742,8 @@
 		842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScenePlayLayer.h; path = ../Classes/GameScenePlayLayer.h; sourceTree = "<group>"; };
 		842BAE711806B65400A90B67 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		842BAE721806B65400A90B67 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
+		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
+		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
 		848B4EBA18059C5000783639 /* ImCrouch.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImCrouch.ExportJson; path = iphone/ImCrouch.ExportJson; sourceTree = "<group>"; };
 		848B4EBB18059C5000783639 /* ImCrouch0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ImCrouch0.plist; path = iphone/ImCrouch0.plist; sourceTree = "<group>"; };
 		848B4EBC18059C5000783639 /* ImCrouch0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ImCrouch0.png; path = iphone/ImCrouch0.png; sourceTree = "<group>"; };
@@ -1761,6 +1764,8 @@
 			children = (
 				842BAE711806B65400A90B67 /* GameScene.cpp */,
 				842BAE721806B65400A90B67 /* GameScene.h */,
+				844BB879180704B5009BEBC2 /* MainMenuScene.h */,
+				844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -2106,6 +2111,7 @@
 				379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */,
 				842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */,
 				842BAE731806B65400A90B67 /* GameScene.cpp in Sources */,
+				844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

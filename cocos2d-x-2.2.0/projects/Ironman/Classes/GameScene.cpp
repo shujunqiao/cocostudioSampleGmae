@@ -11,9 +11,7 @@
 bool GameScene::init()
 {    
     playLayer = new GameScenePlayLayer();
-    
     playLayer->init();
-
     this->addChild(playLayer, 0);
     
     return true;
