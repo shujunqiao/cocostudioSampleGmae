@@ -42,6 +42,6 @@ void MainMenuScene::startBtnCallFunc()
     GameScene* gameScene = new GameScene();
     gameScene->init();
     
-    CCTransitionFade* gameScneTrancsition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
-    CCDirector::sharedDirector()->replaceScene(gameScneTrancsition);
+    CCTransitionFade* gameScneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
+    CCDirector::sharedDirector()->replaceScene(gameScneTransition);
 }
