@@ -22,6 +22,8 @@ public:
 	void IMRun();
 	void IMJump();
 	void jumpActionCallBack(CCNode* sender, void* data);
+	void ImStand();
+
 	CCArmature *imManArmature;
 	CCPoint amaturePosition;
 
@@ -40,8 +42,9 @@ public:
 	enum
 	{
 		ACTION_CROUCH = 0,
-		 ACTION_RUN,
+		ACTION_RUN,
 		ACTION_JUMP,
+		ACTION_RNNING_STAND,
 	};
 
     // implement the "static node()" method manually

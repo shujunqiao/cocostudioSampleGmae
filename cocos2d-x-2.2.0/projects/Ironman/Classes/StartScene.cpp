@@ -2,6 +2,9 @@
 
 USING_NS_CC;
 
+#define ANIME_RUN 0
+#define ANIME_JUMP 0
+
 CCScene* StartScene::scene()
 {
     // 'scene' is an autorelease object
@@ -68,7 +71,7 @@ void StartScene::IMRun()
 {
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMRun");
-	armature->getAnimation()->playByIndex(0,-1,-1,1,10000);
+	armature->getAnimation()->playByIndex(ANIME_RUN,-1,-1,1,10000);
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(0.6f);
 	armature->setAnchorPoint(ccp(0.5,0));
@@ -82,7 +85,7 @@ void StartScene::IMJump()
 {
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMJump");
-	armature->getAnimation()->playByIndex(0,-1,-1,1,10000);
+	armature->getAnimation()->playByIndex(ANIME_JUMP,-1,-1,1,10000);
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(0.6f);
 	armature->setAnchorPoint(ccp(0.5,0));
@@ -92,6 +95,22 @@ void StartScene::IMJump()
 	imManArmature = armature;
 	actionNum = ACTION_JUMP;
 }
+void StartScene::ImStand()
+{//RunningStand
+	CCArmature *armature = NULL;
+	armature = CCArmature::create("IMRun");
+	armature->getAnimation()->play("RunningStand");
+	armature->getAnimation()->setSpeedScale(1.5f);
+	armature->setScale(0.6f);
+	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setPosition(ccp(50, 50));
+	amaturePosition = armature->getPosition();
+	addChild(armature);
+	imManArmature = armature;
+	actionNum = ACTION_RNNING_STAND;
+}
+
+
 void StartScene::jumpActionCallBack(CCNode* sender, void* data)
 {
 	imManArmature->stopAllActions();
@@ -102,17 +121,6 @@ void StartScene::menuCloseCallback(CCObject* pSender)
 {
 		CCActionInterval * splitCols = CCMoveTo::create(1.0,CCPointMake(imManArmature->getPosition().x+300,imManArmature->getPosition().y));
 		imManArmature->runAction(splitCols);
-
-	/*
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-	CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-#else
-    CCDirector::sharedDirector()->end();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
-#endif
-	*/
 }
 
 
@@ -125,7 +133,7 @@ void StartScene::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
 {
      CCSetIterator it = pTouches->begin();
     CCTouch* touch = (CCTouch*)(*it);
-        //将位置保存到变量m_tBeginPos中。
+   
     m_tBeginPos = touch->getLocation();    
 	
 }
@@ -147,10 +155,10 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	
 		touchTime = 0;
 	
-        //获取第一个触点位置
+    
     CCSetIterator it = pTouches->begin();
     CCTouch* touch = (CCTouch*)(*it);
-        //取得这个位置与上一帧移动的Y值之差，即在纵方向的偏移。
+ 
     CCPoint touchLocation = touch->getLocation();    
     float nMoveX = touchLocation.x - m_tBeginPos.x;
 	float nMoveY = touchLocation.y - m_tBeginPos.y;
@@ -160,6 +168,7 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	CCLog("tan1 = %f",tan(nMoveY/nMoveX));
 	CCLog("tan2 = %f",fabs(sqrt(3)/10));
 	int radian = 10;
+	
 	if(nMoveX>10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_RUN)
@@ -170,11 +179,11 @@ void StartScene::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	}
 	if(nMoveX<-10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))
 	{
-		if(actionNum == ACTION_CROUCH)
+		if(actionNum == ACTION_RNNING_STAND)
 			return;
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);
-		this ->ImCrouch();
+		this ->ImStand();
 	}
 	if(nMoveY>10 && fabs(tan(nMoveY/nMoveX))>fabs(sqrt(3)/radian))
 	{
