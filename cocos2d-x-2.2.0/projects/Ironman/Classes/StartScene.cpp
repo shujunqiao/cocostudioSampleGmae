@@ -68,7 +68,7 @@ void StartScene::IMRun()
 {
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMRun");
-	armature->getAnimation()->play("Runing");
+	armature->getAnimation()->playByIndex(0,-1,-1,1,10000);
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(0.6f);
 	armature->setAnchorPoint(ccp(0.5,0));
@@ -82,7 +82,7 @@ void StartScene::IMJump()
 {
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMJump");
-	armature->getAnimation()->play("RuningJump");
+	armature->getAnimation()->playByIndex(0,-1,-1,1,10000);
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(0.6f);
 	armature->setAnchorPoint(ccp(0.5,0));
