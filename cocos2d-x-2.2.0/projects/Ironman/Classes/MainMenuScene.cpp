@@ -36,7 +36,7 @@ bool MainMenuScene::init()
     return true;
 }
 
-void MainMenuScene::startBtnCallFunc()
+void MainMenuScene::startBtnCallFunc(CCObject* pSender)
 {
     GameScene* gameScene = new GameScene();
     gameScene->init();
