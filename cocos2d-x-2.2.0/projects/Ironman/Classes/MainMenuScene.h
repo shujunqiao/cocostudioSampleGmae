@@ -21,7 +21,7 @@ public:
     
     bool init();
     
-    void startBtnCallFunc();
+    void startBtnCallFunc(CCObject* pSender);
 };
 
 #endif
