@@ -50,13 +50,11 @@ void GameScenePlayLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
     CCTouch* touch = (CCTouch*)(*it);
     
     m_tBeginPos = touch->getLocation();
-	
 }
 
 void GameScenePlayLayer::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 {
-	touchTime++;
-	
+	touchTime++;	
 }
 
 void GameScenePlayLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
@@ -69,8 +67,7 @@ void GameScenePlayLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	}
 	
     touchTime = 0;
-	
-    
+
     CCSetIterator it = pTouches->begin();
     CCTouch* touch = (CCTouch*)(*it);
     

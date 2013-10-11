@@ -10,7 +10,6 @@
 #include "GameScene.h"
 
 bool MainMenuScene::init()
-
 {    
     CCLayer* menuLayer = CCLayer::create();
     CCSize size = CCDirector::sharedDirector()->getWinSize();

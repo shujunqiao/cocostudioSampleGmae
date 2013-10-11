@@ -32,8 +32,7 @@
 
 typedef struct tagResource
 {
-    cocos2d::CCSize size;
-    char directory[100];
+    cocos2d::CCSize size;    char directory[100];
 }Resource;
 
 static Resource smallResource  =  { cocos2d::CCSizeMake(480, 320),   "iphone" };
