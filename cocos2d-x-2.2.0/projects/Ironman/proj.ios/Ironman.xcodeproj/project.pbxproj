@@ -230,9 +230,6 @@
 		379BB9D317F03F3700829B88 /* CCSGUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* CCSGUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* CCSSceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* CCSSceneReader.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
-		842BAE531806983300A90B67 /* MainMenuSceneBK.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE501806983300A90B67 /* MainMenuSceneBK.png */; };
-		842BAE541806983300A90B67 /* StartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE511806983300A90B67 /* StartBtn.png */; };
-		842BAE551806983300A90B67 /* StartBtnPush.png in Resources */ = {isa = PBXBuildFile; fileRef = 842BAE521806983300A90B67 /* StartBtnPush.png */; };
 		842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */; };
 		842BAE731806B65400A90B67 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE711806B65400A90B67 /* GameScene.cpp */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
@@ -1885,9 +1882,6 @@
 				848B4EC918059C5100783639 /* IMRun.ExportJson in Resources */,
 				848B4ECA18059C5100783639 /* IMRun0.plist in Resources */,
 				848B4ECB18059C5100783639 /* IMRun0.png in Resources */,
-				842BAE531806983300A90B67 /* MainMenuSceneBK.png in Resources */,
-				842BAE541806983300A90B67 /* StartBtn.png in Resources */,
-				842BAE551806983300A90B67 /* StartBtnPush.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
