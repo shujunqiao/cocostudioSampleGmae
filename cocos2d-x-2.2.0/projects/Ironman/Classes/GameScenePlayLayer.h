@@ -20,13 +20,15 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     
     bool init();
     
-	void ImCrouch();
-	void IMRun();
-	void IMJump();
-	void jumpActionCallBack(CCNode* sender, void* data);
-	void ImStand();
+	void IMCrouch();
+	void IMRunning();
+    void IMRunJump();
+	void IMStandJump();
+	void IMCrouchJump();
+	void IMRunningStop();
     
-    // a selector callback
+ 	void runJumpActionCallBack(CCNode* sender, void* data);
+ 	void standJumpActionCallBack(CCNode* sender, void* data);
     void menuCloseCallback(CCObject* pSender);
     
     virtual void registerWithTouchDispatcher(void);
@@ -47,8 +49,10 @@ class GameScenePlayLayer : public cocos2d::CCLayer
 	{
 		ACTION_CROUCH = 0,
 		ACTION_RUN,
-		ACTION_JUMP,
-		ACTION_RNNING_STAND,
+		ACTION_STAND_JUMP,
+        ACTION_RUN_JUMP,
+        ACTION_CROUCH_JUMP,
+		ACTION_RUN_STOP,
 	};
     
     CREATE_FUNC(GameScenePlayLayer);
