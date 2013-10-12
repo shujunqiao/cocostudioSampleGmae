@@ -4,16 +4,16 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>IronMan/RightLegBottom.png</key>
+			<key>IronMan/LeftArmTop.png</key>
 			<dict>
 				<key>width</key>
-				<integer>40</integer>
+				<integer>34</integer>
 				<key>height</key>
-				<integer>53</integer>
+				<integer>42</integer>
 				<key>originalWidth</key>
-				<integer>40</integer>
+				<integer>34</integer>
 				<key>originalHeight</key>
-				<integer>53</integer>
+				<integer>42</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -34,7 +34,26 @@
 				<key>originalHeight</key>
 				<integer>36</integer>
 				<key>x</key>
-				<integer>42</integer>
+				<integer>36</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>IronMan/RightLegBottom.png</key>
+			<dict>
+				<key>width</key>
+				<integer>40</integer>
+				<key>height</key>
+				<integer>53</integer>
+				<key>originalWidth</key>
+				<integer>40</integer>
+				<key>originalHeight</key>
+				<integer>53</integer>
+				<key>x</key>
+				<integer>80</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -53,26 +72,7 @@
 				<key>originalHeight</key>
 				<integer>47</integer>
 				<key>x</key>
-				<integer>86</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>IronMan/LeftArmTop.png</key>
-			<dict>
-				<key>width</key>
-				<integer>34</integer>
-				<key>height</key>
-				<integer>42</integer>
-				<key>originalWidth</key>
-				<integer>34</integer>
-				<key>originalHeight</key>
-				<integer>42</integer>
-				<key>x</key>
-				<integer>119</integer>
+				<integer>122</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -137,25 +137,6 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>IronMan/RightArmTop.png</key>
-			<dict>
-				<key>width</key>
-				<integer>27</integer>
-				<key>height</key>
-				<integer>49</integer>
-				<key>originalWidth</key>
-				<integer>27</integer>
-				<key>originalHeight</key>
-				<integer>49</integer>
-				<key>x</key>
-				<integer>233</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
 			<key>IronMan/RightKnee.png</key>
 			<dict>
 				<key>width</key>
@@ -167,7 +148,7 @@
 				<key>originalHeight</key>
 				<integer>21</integer>
 				<key>x</key>
-				<integer>262</integer>
+				<integer>233</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -186,7 +167,26 @@
 				<key>originalHeight</key>
 				<integer>27</integer>
 				<key>x</key>
-				<integer>284</integer>
+				<integer>255</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>IronMan/LeftLegBottom.png</key>
+			<dict>
+				<key>width</key>
+				<integer>27</integer>
+				<key>height</key>
+				<integer>40</integer>
+				<key>originalWidth</key>
+				<integer>27</integer>
+				<key>originalHeight</key>
+				<integer>40</integer>
+				<key>x</key>
+				<integer>295</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -232,25 +232,6 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>IronMan/LeftLegBottom.png</key>
-			<dict>
-				<key>width</key>
-				<integer>27</integer>
-				<key>height</key>
-				<integer>40</integer>
-				<key>originalWidth</key>
-				<integer>27</integer>
-				<key>originalHeight</key>
-				<integer>40</integer>
-				<key>x</key>
-				<integer>367</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
 			<key>IronMan/LeftFoot.png</key>
 			<dict>
 				<key>width</key>
@@ -262,7 +243,7 @@
 				<key>originalHeight</key>
 				<integer>27</integer>
 				<key>x</key>
-				<integer>396</integer>
+				<integer>367</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -270,18 +251,75 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>IronMan/RightArmBottom.png</key>
+			<key>leftTopArmAttack.png</key>
 			<dict>
 				<key>width</key>
-				<integer>29</integer>
+				<integer>37</integer>
 				<key>height</key>
-				<integer>46</integer>
+				<integer>26</integer>
 				<key>originalWidth</key>
-				<integer>29</integer>
+				<integer>37</integer>
 				<key>originalHeight</key>
-				<integer>46</integer>
+				<integer>26</integer>
 				<key>x</key>
-				<integer>430</integer>
+				<integer>401</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>leftBottomArmAttack.png</key>
+			<dict>
+				<key>width</key>
+				<integer>27</integer>
+				<key>height</key>
+				<integer>14</integer>
+				<key>originalWidth</key>
+				<integer>27</integer>
+				<key>originalHeight</key>
+				<integer>14</integer>
+				<key>x</key>
+				<integer>440</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>leftElbowAttack.png</key>
+			<dict>
+				<key>width</key>
+				<integer>15</integer>
+				<key>height</key>
+				<integer>11</integer>
+				<key>originalWidth</key>
+				<integer>15</integer>
+				<key>originalHeight</key>
+				<integer>11</integer>
+				<key>x</key>
+				<integer>469</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>leftHandAttack.png</key>
+			<dict>
+				<key>width</key>
+				<integer>16</integer>
+				<key>height</key>
+				<integer>15</integer>
+				<key>originalWidth</key>
+				<integer>16</integer>
+				<key>originalHeight</key>
+				<integer>15</integer>
+				<key>x</key>
+				<integer>486</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -295,9 +333,9 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>IMCrouch0.png</string>
+			<string>LaserRunAttack0.png</string>
 			<key>realTextureFileName</key>
-			<string>IMCrouch0.png</string>
+			<string>LaserRunAttack0.png</string>
 			<key>size</key>
 			<string>{1024,1024}</string>
 		</dict>
