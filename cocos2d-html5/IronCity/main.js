@@ -63,7 +63,6 @@ var cocos2dApp = cc.Application.extend({
             else {
                 resourceSize = cc.size(480, 320);
                 designSize = cc.size(480, 320);
-                resDirOrders.push("iphone");
             }
         }
 
