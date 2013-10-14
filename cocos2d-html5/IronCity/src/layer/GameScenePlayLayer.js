@@ -19,25 +19,18 @@ var GameScenePlayLayer = cc.Layer.extend({
 
         var size = cc.Director.getInstance().getWinSize();
 
-        this.helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
-        this.helloLabel.setPosition(cc.p(size.width >> 1, this.helloLabel.getContentSize().height>>1));
-        this.addChild(this.helloLabel, 5);
-        this.setTouchEnabled(true);
-
-
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/IMCrouch.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/IMRun.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/IMRunJump.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/IMStandJump.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/IMCrouchJump.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/IMRunStop.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/LaserRunAttack.ExportJson");
-        cc.ArmatureDataManager.getInstance().addArmatureFileInfo("res/LaserStandAttack.ExportJson");
-
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_IMCrouch);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_IMCrouchJump);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_IMRun);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_IMRunJump);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_IMRunStop);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_IMStandJump);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_LaserRunAttack);
+        cc.ArmatureDataManager.getInstance().addArmatureFileInfo(Json_LaserStandAttack);
 
         this.touchTime = 0;
         this.IMCrouch();
-        this.actionNum = ACTION_CROUCH;
+        this.actionNum = this.ACTION_CROUCH;
 
 /*
         var armature = cc.Armature.create("IMRun");
@@ -68,83 +61,83 @@ var GameScenePlayLayer = cc.Layer.extend({
     },
 
     IMCrouch:function(){
-    armature = cc.CCArmature.create("IMCrouch");
+    armature = cc.Armature.create("IMCrouch");
     armature.getAnimation().play("crouch");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
     armature.setAnchorPoint(cc.p(0.5,0));
     armature.setPosition(cc.p(50, 50));
     amaturePosition = armature.getPosition();
-    addChild(armature);
+    this.addChild(armature);
       
-    actionNum = ACTION_CROUCH;
+    actionNum = this.ACTION_CROUCH;
     },
 
   IMRunning:function(){
-    armature = CCArmature.create("IMRun");
+    armature = cc.Armature.create("IMRun");
     armature.getAnimation().play("Running");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
     armature.setAnchorPoint(cc.p(0.5,0));
     armature.setPosition(cc.p(50, 50));
     amaturePosition = armature.getPosition();
-    addChild(armature);
+    this.addChild(armature);
       
-    actionNum = ACTION_RUN;
+    actionNum = this.ACTION_RUN;
 },
 
   IMStandJump:function(){
-    armature = CCArmature.create("IMStandJump");
+    armature = cc.Armature.create("IMStandJump");
     armature.getAnimation().play("StandJump");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
     armature.setAnchorPoint(cc.p(0.5,0));
     armature.setPosition(cc.p(50, 50));
     amaturePosition = armature.getPosition();
-    addChild(armature);
+    this.addChild(armature);
       
-    actionNum = ACTION_STAND_JUMP;
+    actionNum = this.ACTION_STAND_JUMP;
 },
 
   IMRunJump:function(){
-    armature = CCArmature.create("IMRunJump");
+    armature = cc.Armature.create("IMRunJump");
     armature.getAnimation().play("RuningJump");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
     armature.setAnchorPoint(cc.p(0.5,0));
     armature.setPosition(cc.p(50, 50));
     amaturePosition = armature.getPosition();
-    addChild(armature);
+    this.addChild(armature);
       
-    actionNum = ACTION_RUN_JUMP;
+    actionNum = this.ACTION_RUN_JUMP;
 },
 
   IMCrouchJump:function(){
 
     
-    armature = CCArmature.create("IMCrouchJump");
+    armature = cc.Armature.create("IMCrouchJump");
     armature.getAnimation().play("CrouchJump");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
     armature.setAnchorPoint(cc.p(0.5,0));
     armature.setPosition(cc.p(50, 50));
     amaturePosition = armature.getPosition();
-    addChild(armature);
+    this.addChild(armature);
       
-    actionNum = ACTION_CROUCH_JUMP;
+    actionNum = this.ACTION_CROUCH_JUMP;
 },
 
   IMRunningStop:function(){
-    armature = CCArmature.create("IMRunStop");
+    armature = cc.Armature.create("IMRunStop");
     armature.getAnimation().play("RunningStop");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
     armature.setAnchorPoint(cc.p(0.5,0));
     armature.setPosition(cc.p(50, 50));
     amaturePosition = armature.getPosition();
-    addChild(armature);
+    this.addChild(armature);
       
-    actionNum = ACTION_RUN_STOP;
+    actionNum = this.ACTION_RUN_STOP;
 }
 
 });
