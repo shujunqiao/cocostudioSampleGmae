@@ -39,9 +39,9 @@
         //SingleEngineFile:'',
         appFiles:[
             'src/resource.js',
-            'src/GameScene.js',
-            'src/MainMenuScene.js',//add your own files in order here
-            'src/GameScenePlayLayer.js'
+            'src/scene/MainMenuScene.js',
+            'src/scene/GameScene.js',
+            'src/layer/GameScenePlayLayer.js'
         ]
     };
 
