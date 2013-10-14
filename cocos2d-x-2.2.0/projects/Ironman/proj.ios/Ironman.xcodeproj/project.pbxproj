@@ -232,6 +232,13 @@
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */; };
 		842BAE731806B65400A90B67 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE711806B65400A90B67 /* GameScene.cpp */; };
+		842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */; };
+		842F8DCE180BE41000CB8B3D /* brood.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DC8180BE40F00CB8B3D /* brood.png */; };
+		842F8DCF180BE41000CB8B3D /* broodBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DC9180BE41000CB8B3D /* broodBar.png */; };
+		842F8DD0180BE41000CB8B3D /* distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCA180BE41000CB8B3D /* distance.png */; };
+		842F8DD1180BE41000CB8B3D /* IronCityUI_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCB180BE41000CB8B3D /* IronCityUI_1.json */; };
+		842F8DD2180BE41000CB8B3D /* labelatlasimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCC180BE41000CB8B3D /* labelatlasimg.png */; };
+		842F8DD3180BE41000CB8B3D /* settingBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCD180BE41000CB8B3D /* settingBtn.png */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
 		84719CF31807A49D00999C47 /* MainMenuSceneBK.png in Resources */ = {isa = PBXBuildFile; fileRef = 84719CF01807A49D00999C47 /* MainMenuSceneBK.png */; };
 		84719CF41807A49D00999C47 /* StartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 84719CF11807A49D00999C47 /* StartBtn.png */; };
@@ -754,6 +761,14 @@
 		842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScenePlayLayer.h; path = ../Classes/GameScenePlayLayer.h; sourceTree = "<group>"; };
 		842BAE711806B65400A90B67 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		842BAE721806B65400A90B67 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
+		842F8DB1180BCDB600CB8B3D /* GameSceneMenuLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneMenuLayer.h; path = ../Classes/GameSceneMenuLayer.h; sourceTree = "<group>"; };
+		842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMenuLayer.cpp; path = ../Classes/GameSceneMenuLayer.cpp; sourceTree = "<group>"; };
+		842F8DC8180BE40F00CB8B3D /* brood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brood.png; path = iphone/brood.png; sourceTree = "<group>"; };
+		842F8DC9180BE41000CB8B3D /* broodBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = broodBar.png; path = iphone/broodBar.png; sourceTree = "<group>"; };
+		842F8DCA180BE41000CB8B3D /* distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = distance.png; path = iphone/distance.png; sourceTree = "<group>"; };
+		842F8DCB180BE41000CB8B3D /* IronCityUI_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = IronCityUI_1.json; path = iphone/IronCityUI_1.json; sourceTree = "<group>"; };
+		842F8DCC180BE41000CB8B3D /* labelatlasimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labelatlasimg.png; path = iphone/labelatlasimg.png; sourceTree = "<group>"; };
+		842F8DCD180BE41000CB8B3D /* settingBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settingBtn.png; path = iphone/settingBtn.png; sourceTree = "<group>"; };
 		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
 		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
 		84719CF01807A49D00999C47 /* MainMenuSceneBK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MainMenuSceneBK.png; path = iphone/MainMenuSceneBK.png; sourceTree = "<group>"; };
@@ -1782,6 +1797,12 @@
 		842BAE4F180697B900A90B67 /* PictureResources */ = {
 			isa = PBXGroup;
 			children = (
+				842F8DC8180BE40F00CB8B3D /* brood.png */,
+				842F8DC9180BE41000CB8B3D /* broodBar.png */,
+				842F8DCA180BE41000CB8B3D /* distance.png */,
+				842F8DCB180BE41000CB8B3D /* IronCityUI_1.json */,
+				842F8DCC180BE41000CB8B3D /* labelatlasimg.png */,
+				842F8DCD180BE41000CB8B3D /* settingBtn.png */,
 				84719CF01807A49D00999C47 /* MainMenuSceneBK.png */,
 				84719CF11807A49D00999C47 /* StartBtn.png */,
 				84719CF21807A49D00999C47 /* StartBtnPush.png */,
@@ -1805,6 +1826,8 @@
 			children = (
 				842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */,
 				842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */,
+				842F8DB1180BCDB600CB8B3D /* GameSceneMenuLayer.h */,
+				842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1948,6 +1971,12 @@
 				84AE8E0C18092FEE00FB4208 /* IMCrouchJump.ExportJson in Resources */,
 				84AE8E0D18092FEE00FB4208 /* IMCrouchJump0.plist in Resources */,
 				84AE8E0E18092FEE00FB4208 /* IMCrouchJump0.png in Resources */,
+				842F8DCE180BE41000CB8B3D /* brood.png in Resources */,
+				842F8DCF180BE41000CB8B3D /* broodBar.png in Resources */,
+				842F8DD0180BE41000CB8B3D /* distance.png in Resources */,
+				842F8DD1180BE41000CB8B3D /* IronCityUI_1.json in Resources */,
+				842F8DD2180BE41000CB8B3D /* labelatlasimg.png in Resources */,
+				842F8DD3180BE41000CB8B3D /* settingBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2172,6 +2201,7 @@
 				842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */,
 				842BAE731806B65400A90B67 /* GameScene.cpp in Sources */,
 				844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */,
+				842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
