@@ -21,7 +21,7 @@
         "options": {
           "__type": "ComGUIImageViewSurrogate:#EditorCommon.JsonModel.Component.GUI",
           "classname": "ImageView",
-          "name": "ImageView",
+          "name": "SettingBtn",
           "ZOrder": 5,
           "actiontag": 26,
           "anchorPointX": 0.5,
@@ -69,7 +69,7 @@
         "options": {
           "__type": "ComGUILabelAtlasSurrogate:#EditorCommon.JsonModel.Component.GUI",
           "classname": "LabelAtlas",
-          "name": "LabelAtlas",
+          "name": "DistanceScore",
           "ZOrder": 4,
           "actiontag": 25,
           "anchorPointX": 0.5,
@@ -114,7 +114,7 @@
         "options": {
           "__type": "ComGUIImageViewSurrogate:#EditorCommon.JsonModel.Component.GUI",
           "classname": "ImageView",
-          "name": "ImageView",
+          "name": "DistanceIcon",
           "ZOrder": 3,
           "actiontag": 24,
           "anchorPointX": 0.5,
@@ -162,7 +162,7 @@
         "options": {
           "__type": "ComGUILoadingBarSurrogate:#EditorCommon.JsonModel.Component.GUI",
           "classname": "LoadingBar",
-          "name": "LoadingBar",
+          "name": "BroodBar",
           "ZOrder": 2,
           "actiontag": 23,
           "anchorPointX": 0.5,
@@ -210,7 +210,7 @@
         "options": {
           "__type": "ComGUIImageViewSurrogate:#EditorCommon.JsonModel.Component.GUI",
           "classname": "ImageView",
-          "name": "ImageView",
+          "name": "BroodVector",
           "ZOrder": 1,
           "actiontag": 22,
           "anchorPointX": 0.5,

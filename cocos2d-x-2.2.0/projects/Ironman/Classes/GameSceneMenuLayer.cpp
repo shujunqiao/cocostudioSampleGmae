@@ -10,7 +10,10 @@
 
 bool GameSceneMenuLayer::init(){
     
-    this->addWidget(CCUIHELPER->createWidgetFromJsonFile("IronCityUI_1.json"));
-    
-    return true;
+    if(UILayer::init()){
+        
+        this->addWidget(CCUIHELPER->createWidgetFromJsonFile("iphone/IronCityUI_1.json"));
+        return true;
+    }
+    return false;
 }

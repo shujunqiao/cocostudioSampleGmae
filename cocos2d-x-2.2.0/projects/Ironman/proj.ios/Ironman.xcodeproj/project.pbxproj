@@ -233,40 +233,8 @@
 		842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */; };
 		842BAE731806B65400A90B67 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE711806B65400A90B67 /* GameScene.cpp */; };
 		842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */; };
-		842F8DCE180BE41000CB8B3D /* brood.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DC8180BE40F00CB8B3D /* brood.png */; };
-		842F8DCF180BE41000CB8B3D /* broodBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DC9180BE41000CB8B3D /* broodBar.png */; };
-		842F8DD0180BE41000CB8B3D /* distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCA180BE41000CB8B3D /* distance.png */; };
-		842F8DD1180BE41000CB8B3D /* IronCityUI_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCB180BE41000CB8B3D /* IronCityUI_1.json */; };
-		842F8DD2180BE41000CB8B3D /* labelatlasimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCC180BE41000CB8B3D /* labelatlasimg.png */; };
-		842F8DD3180BE41000CB8B3D /* settingBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DCD180BE41000CB8B3D /* settingBtn.png */; };
+		842F8DFB180BE60300CB8B3D /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DFA180BE60300CB8B3D /* iphone */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
-		84719CF31807A49D00999C47 /* MainMenuSceneBK.png in Resources */ = {isa = PBXBuildFile; fileRef = 84719CF01807A49D00999C47 /* MainMenuSceneBK.png */; };
-		84719CF41807A49D00999C47 /* StartBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 84719CF11807A49D00999C47 /* StartBtn.png */; };
-		84719CF51807A49D00999C47 /* StartBtnPush.png in Resources */ = {isa = PBXBuildFile; fileRef = 84719CF21807A49D00999C47 /* StartBtnPush.png */; };
-		848A33FF18091ACB00725432 /* IMRunJump.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848A33ED18091ACB00725432 /* IMRunJump.ExportJson */; };
-		848A340018091ACB00725432 /* IMRunJump0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848A33EE18091ACB00725432 /* IMRunJump0.plist */; };
-		848A340118091ACB00725432 /* IMRunJump0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848A33EF18091ACB00725432 /* IMRunJump0.png */; };
-		848A340218091ACB00725432 /* IMRunStop.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F018091ACB00725432 /* IMRunStop.ExportJson */; };
-		848A340318091ACB00725432 /* IMRunStop0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F118091ACB00725432 /* IMRunStop0.plist */; };
-		848A340418091ACB00725432 /* IMRunStop0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F218091ACB00725432 /* IMRunStop0.png */; };
-		848A340518091ACB00725432 /* IMStandJump.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F318091ACB00725432 /* IMStandJump.ExportJson */; };
-		848A340618091ACB00725432 /* IMStandJump0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F418091ACB00725432 /* IMStandJump0.plist */; };
-		848A340718091ACB00725432 /* IMStandJump0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F518091ACB00725432 /* IMStandJump0.png */; };
-		848A340B18091ACB00725432 /* LaserRunAttack.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848A33F918091ACB00725432 /* LaserRunAttack.ExportJson */; };
-		848A340C18091ACB00725432 /* LaserRunAttack0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848A33FA18091ACB00725432 /* LaserRunAttack0.plist */; };
-		848A340D18091ACB00725432 /* LaserRunAttack0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848A33FB18091ACB00725432 /* LaserRunAttack0.png */; };
-		848A340E18091ACB00725432 /* LaserStandAttack.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848A33FC18091ACB00725432 /* LaserStandAttack.ExportJson */; };
-		848A340F18091ACB00725432 /* LaserStandAttack0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848A33FD18091ACB00725432 /* LaserStandAttack0.plist */; };
-		848A341018091ACB00725432 /* LaserStandAttack0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848A33FE18091ACB00725432 /* LaserStandAttack0.png */; };
-		848B4EC918059C5100783639 /* IMRun.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EC018059C5100783639 /* IMRun.ExportJson */; };
-		848B4ECA18059C5100783639 /* IMRun0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EC118059C5100783639 /* IMRun0.plist */; };
-		848B4ECB18059C5100783639 /* IMRun0.png in Resources */ = {isa = PBXBuildFile; fileRef = 848B4EC218059C5100783639 /* IMRun0.png */; };
-		84AE8E0918092FEE00FB4208 /* IMCrouch.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 84AE8E0318092FED00FB4208 /* IMCrouch.ExportJson */; };
-		84AE8E0A18092FEE00FB4208 /* IMCrouch0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AE8E0418092FED00FB4208 /* IMCrouch0.plist */; };
-		84AE8E0B18092FEE00FB4208 /* IMCrouch0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AE8E0518092FEE00FB4208 /* IMCrouch0.png */; };
-		84AE8E0C18092FEE00FB4208 /* IMCrouchJump.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 84AE8E0618092FEE00FB4208 /* IMCrouchJump.ExportJson */; };
-		84AE8E0D18092FEE00FB4208 /* IMCrouchJump0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AE8E0718092FEE00FB4208 /* IMCrouchJump0.plist */; };
-		84AE8E0E18092FEE00FB4208 /* IMCrouchJump0.png in Resources */ = {isa = PBXBuildFile; fileRef = 84AE8E0818092FEE00FB4208 /* IMCrouchJump0.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -763,42 +731,10 @@
 		842BAE721806B65400A90B67 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
 		842F8DB1180BCDB600CB8B3D /* GameSceneMenuLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneMenuLayer.h; path = ../Classes/GameSceneMenuLayer.h; sourceTree = "<group>"; };
 		842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMenuLayer.cpp; path = ../Classes/GameSceneMenuLayer.cpp; sourceTree = "<group>"; };
-		842F8DC8180BE40F00CB8B3D /* brood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brood.png; path = iphone/brood.png; sourceTree = "<group>"; };
-		842F8DC9180BE41000CB8B3D /* broodBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = broodBar.png; path = iphone/broodBar.png; sourceTree = "<group>"; };
-		842F8DCA180BE41000CB8B3D /* distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = distance.png; path = iphone/distance.png; sourceTree = "<group>"; };
-		842F8DCB180BE41000CB8B3D /* IronCityUI_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = IronCityUI_1.json; path = iphone/IronCityUI_1.json; sourceTree = "<group>"; };
-		842F8DCC180BE41000CB8B3D /* labelatlasimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labelatlasimg.png; path = iphone/labelatlasimg.png; sourceTree = "<group>"; };
-		842F8DCD180BE41000CB8B3D /* settingBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settingBtn.png; path = iphone/settingBtn.png; sourceTree = "<group>"; };
+		842F8DFA180BE60300CB8B3D /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
 		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
 		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
-		84719CF01807A49D00999C47 /* MainMenuSceneBK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MainMenuSceneBK.png; path = iphone/MainMenuSceneBK.png; sourceTree = "<group>"; };
-		84719CF11807A49D00999C47 /* StartBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartBtn.png; path = iphone/StartBtn.png; sourceTree = "<group>"; };
-		84719CF21807A49D00999C47 /* StartBtnPush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartBtnPush.png; path = iphone/StartBtnPush.png; sourceTree = "<group>"; };
-		848A33ED18091ACB00725432 /* IMRunJump.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IMRunJump.ExportJson; path = iphone/IMRunJump.ExportJson; sourceTree = "<group>"; };
-		848A33EE18091ACB00725432 /* IMRunJump0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IMRunJump0.plist; path = iphone/IMRunJump0.plist; sourceTree = "<group>"; };
-		848A33EF18091ACB00725432 /* IMRunJump0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMRunJump0.png; path = iphone/IMRunJump0.png; sourceTree = "<group>"; };
-		848A33F018091ACB00725432 /* IMRunStop.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IMRunStop.ExportJson; path = iphone/IMRunStop.ExportJson; sourceTree = "<group>"; };
-		848A33F118091ACB00725432 /* IMRunStop0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IMRunStop0.plist; path = iphone/IMRunStop0.plist; sourceTree = "<group>"; };
-		848A33F218091ACB00725432 /* IMRunStop0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMRunStop0.png; path = iphone/IMRunStop0.png; sourceTree = "<group>"; };
-		848A33F318091ACB00725432 /* IMStandJump.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IMStandJump.ExportJson; path = iphone/IMStandJump.ExportJson; sourceTree = "<group>"; };
-		848A33F418091ACB00725432 /* IMStandJump0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IMStandJump0.plist; path = iphone/IMStandJump0.plist; sourceTree = "<group>"; };
-		848A33F518091ACB00725432 /* IMStandJump0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMStandJump0.png; path = iphone/IMStandJump0.png; sourceTree = "<group>"; };
-		848A33F918091ACB00725432 /* LaserRunAttack.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LaserRunAttack.ExportJson; path = iphone/LaserRunAttack.ExportJson; sourceTree = "<group>"; };
-		848A33FA18091ACB00725432 /* LaserRunAttack0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = LaserRunAttack0.plist; path = iphone/LaserRunAttack0.plist; sourceTree = "<group>"; };
-		848A33FB18091ACB00725432 /* LaserRunAttack0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaserRunAttack0.png; path = iphone/LaserRunAttack0.png; sourceTree = "<group>"; };
-		848A33FC18091ACB00725432 /* LaserStandAttack.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LaserStandAttack.ExportJson; path = iphone/LaserStandAttack.ExportJson; sourceTree = "<group>"; };
-		848A33FD18091ACB00725432 /* LaserStandAttack0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = LaserStandAttack0.plist; path = iphone/LaserStandAttack0.plist; sourceTree = "<group>"; };
-		848A33FE18091ACB00725432 /* LaserStandAttack0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaserStandAttack0.png; path = iphone/LaserStandAttack0.png; sourceTree = "<group>"; };
-		848B4EC018059C5100783639 /* IMRun.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IMRun.ExportJson; path = iphone/IMRun.ExportJson; sourceTree = "<group>"; };
-		848B4EC118059C5100783639 /* IMRun0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IMRun0.plist; path = iphone/IMRun0.plist; sourceTree = "<group>"; };
-		848B4EC218059C5100783639 /* IMRun0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMRun0.png; path = iphone/IMRun0.png; sourceTree = "<group>"; };
 		848B4ECC18059C8400783639 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
-		84AE8E0318092FED00FB4208 /* IMCrouch.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IMCrouch.ExportJson; path = iphone/IMCrouch.ExportJson; sourceTree = "<group>"; };
-		84AE8E0418092FED00FB4208 /* IMCrouch0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IMCrouch0.plist; path = iphone/IMCrouch0.plist; sourceTree = "<group>"; };
-		84AE8E0518092FEE00FB4208 /* IMCrouch0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMCrouch0.png; path = iphone/IMCrouch0.png; sourceTree = "<group>"; };
-		84AE8E0618092FEE00FB4208 /* IMCrouchJump.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IMCrouchJump.ExportJson; path = iphone/IMCrouchJump.ExportJson; sourceTree = "<group>"; };
-		84AE8E0718092FEE00FB4208 /* IMCrouchJump0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = IMCrouchJump0.plist; path = iphone/IMCrouchJump0.plist; sourceTree = "<group>"; };
-		84AE8E0818092FEE00FB4208 /* IMCrouchJump0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMCrouchJump0.png; path = iphone/IMCrouchJump0.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1780,8 +1716,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				842BAE4F180697B900A90B67 /* PictureResources */,
-				846AEA991803FDBF00B71BE0 /* IronManAction */,
+				842F8DFA180BE60300CB8B3D /* iphone */,
 				D41A0AD0160F154A004552AE /* Default-568h@2x.png */,
 				7855E0DF153FEF240059DD9A /* Default.png */,
 				D446FD6D16102124000ADA7B /* Default@2x.png */,
@@ -1792,22 +1727,6 @@
 			);
 			name = Resources;
 			path = ../Resources;
-			sourceTree = "<group>";
-		};
-		842BAE4F180697B900A90B67 /* PictureResources */ = {
-			isa = PBXGroup;
-			children = (
-				842F8DC8180BE40F00CB8B3D /* brood.png */,
-				842F8DC9180BE41000CB8B3D /* broodBar.png */,
-				842F8DCA180BE41000CB8B3D /* distance.png */,
-				842F8DCB180BE41000CB8B3D /* IronCityUI_1.json */,
-				842F8DCC180BE41000CB8B3D /* labelatlasimg.png */,
-				842F8DCD180BE41000CB8B3D /* settingBtn.png */,
-				84719CF01807A49D00999C47 /* MainMenuSceneBK.png */,
-				84719CF11807A49D00999C47 /* StartBtn.png */,
-				84719CF21807A49D00999C47 /* StartBtnPush.png */,
-			);
-			name = PictureResources;
 			sourceTree = "<group>";
 		};
 		842BAE631806A48A00A90B67 /* Scene */ = {
@@ -1830,37 +1749,6 @@
 				842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */,
 			);
 			name = Layer;
-			sourceTree = "<group>";
-		};
-		846AEA991803FDBF00B71BE0 /* IronManAction */ = {
-			isa = PBXGroup;
-			children = (
-				84AE8E0318092FED00FB4208 /* IMCrouch.ExportJson */,
-				84AE8E0418092FED00FB4208 /* IMCrouch0.plist */,
-				84AE8E0518092FEE00FB4208 /* IMCrouch0.png */,
-				84AE8E0618092FEE00FB4208 /* IMCrouchJump.ExportJson */,
-				84AE8E0718092FEE00FB4208 /* IMCrouchJump0.plist */,
-				84AE8E0818092FEE00FB4208 /* IMCrouchJump0.png */,
-				848A33ED18091ACB00725432 /* IMRunJump.ExportJson */,
-				848A33EE18091ACB00725432 /* IMRunJump0.plist */,
-				848A33EF18091ACB00725432 /* IMRunJump0.png */,
-				848A33F018091ACB00725432 /* IMRunStop.ExportJson */,
-				848A33F118091ACB00725432 /* IMRunStop0.plist */,
-				848A33F218091ACB00725432 /* IMRunStop0.png */,
-				848A33F318091ACB00725432 /* IMStandJump.ExportJson */,
-				848A33F418091ACB00725432 /* IMStandJump0.plist */,
-				848A33F518091ACB00725432 /* IMStandJump0.png */,
-				848A33F918091ACB00725432 /* LaserRunAttack.ExportJson */,
-				848A33FA18091ACB00725432 /* LaserRunAttack0.plist */,
-				848A33FB18091ACB00725432 /* LaserRunAttack0.png */,
-				848A33FC18091ACB00725432 /* LaserStandAttack.ExportJson */,
-				848A33FD18091ACB00725432 /* LaserStandAttack0.plist */,
-				848A33FE18091ACB00725432 /* LaserStandAttack0.png */,
-				848B4EC018059C5100783639 /* IMRun.ExportJson */,
-				848B4EC118059C5100783639 /* IMRun0.plist */,
-				848B4EC218059C5100783639 /* IMRun0.png */,
-			);
-			name = IronManAction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1944,39 +1832,7 @@
 				379BB9CD17F03F3700829B88 /* json_internalmap.inl in Resources */,
 				379BB9D017F03F3700829B88 /* json_valueiterator.inl in Resources */,
 				379BB9D217F03F3700829B88 /* sconscript in Resources */,
-				848B4EC918059C5100783639 /* IMRun.ExportJson in Resources */,
-				848B4ECA18059C5100783639 /* IMRun0.plist in Resources */,
-				848B4ECB18059C5100783639 /* IMRun0.png in Resources */,
-				84719CF31807A49D00999C47 /* MainMenuSceneBK.png in Resources */,
-				84719CF41807A49D00999C47 /* StartBtn.png in Resources */,
-				84719CF51807A49D00999C47 /* StartBtnPush.png in Resources */,
-				848A33FF18091ACB00725432 /* IMRunJump.ExportJson in Resources */,
-				848A340018091ACB00725432 /* IMRunJump0.plist in Resources */,
-				848A340118091ACB00725432 /* IMRunJump0.png in Resources */,
-				848A340218091ACB00725432 /* IMRunStop.ExportJson in Resources */,
-				848A340318091ACB00725432 /* IMRunStop0.plist in Resources */,
-				848A340418091ACB00725432 /* IMRunStop0.png in Resources */,
-				848A340518091ACB00725432 /* IMStandJump.ExportJson in Resources */,
-				848A340618091ACB00725432 /* IMStandJump0.plist in Resources */,
-				848A340718091ACB00725432 /* IMStandJump0.png in Resources */,
-				848A340B18091ACB00725432 /* LaserRunAttack.ExportJson in Resources */,
-				848A340C18091ACB00725432 /* LaserRunAttack0.plist in Resources */,
-				848A340D18091ACB00725432 /* LaserRunAttack0.png in Resources */,
-				848A340E18091ACB00725432 /* LaserStandAttack.ExportJson in Resources */,
-				848A340F18091ACB00725432 /* LaserStandAttack0.plist in Resources */,
-				848A341018091ACB00725432 /* LaserStandAttack0.png in Resources */,
-				84AE8E0918092FEE00FB4208 /* IMCrouch.ExportJson in Resources */,
-				84AE8E0A18092FEE00FB4208 /* IMCrouch0.plist in Resources */,
-				84AE8E0B18092FEE00FB4208 /* IMCrouch0.png in Resources */,
-				84AE8E0C18092FEE00FB4208 /* IMCrouchJump.ExportJson in Resources */,
-				84AE8E0D18092FEE00FB4208 /* IMCrouchJump0.plist in Resources */,
-				84AE8E0E18092FEE00FB4208 /* IMCrouchJump0.png in Resources */,
-				842F8DCE180BE41000CB8B3D /* brood.png in Resources */,
-				842F8DCF180BE41000CB8B3D /* broodBar.png in Resources */,
-				842F8DD0180BE41000CB8B3D /* distance.png in Resources */,
-				842F8DD1180BE41000CB8B3D /* IronCityUI_1.json in Resources */,
-				842F8DD2180BE41000CB8B3D /* labelatlasimg.png in Resources */,
-				842F8DD3180BE41000CB8B3D /* settingBtn.png in Resources */,
+				842F8DFB180BE60300CB8B3D /* iphone in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
