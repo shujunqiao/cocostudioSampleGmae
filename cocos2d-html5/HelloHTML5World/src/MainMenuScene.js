@@ -11,10 +11,11 @@ var MainMenu = cc.Layer.extend({
         this.helloLabel.setPosition(cc.p(size.width >> 1, this.helloLabel.getContentSize().height>>1));
         this.addChild(this.helloLabel, 5);
 
+/*
         var gameScene = new GameScene();
         gameScene.init();
         cc.Director.getInstance().replaceScene(cc.TransitionFade.create(1.0, gameScene));
-
+*/
         return true;
     }
 });

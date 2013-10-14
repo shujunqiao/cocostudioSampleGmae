@@ -68,7 +68,7 @@ var GameScenePlayLayer = cc.Layer.extend({
     },
 
     IMCrouch:function(){
-    armature = cocos2d::extension::CCArmature::create("IMCrouch");
+    armature = cc.CCArmature.create("IMCrouch");
     armature.getAnimation().play("crouch");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
@@ -81,7 +81,7 @@ var GameScenePlayLayer = cc.Layer.extend({
     },
 
   IMRunning:function(){
-    armature = CCArmature::create("IMRun");
+    armature = CCArmature.create("IMRun");
     armature.getAnimation().play("Running");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
@@ -94,7 +94,7 @@ var GameScenePlayLayer = cc.Layer.extend({
 },
 
   IMStandJump:function(){
-    armature = CCArmature::create("IMStandJump");
+    armature = CCArmature.create("IMStandJump");
     armature.getAnimation().play("StandJump");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
@@ -107,7 +107,7 @@ var GameScenePlayLayer = cc.Layer.extend({
 },
 
   IMRunJump:function(){
-    armature = CCArmature::create("IMRunJump");
+    armature = CCArmature.create("IMRunJump");
     armature.getAnimation().play("RuningJump");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
@@ -122,7 +122,7 @@ var GameScenePlayLayer = cc.Layer.extend({
   IMCrouchJump:function(){
 
     
-    armature = CCArmature::create("IMCrouchJump");
+    armature = CCArmature.create("IMCrouchJump");
     armature.getAnimation().play("CrouchJump");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
@@ -135,7 +135,7 @@ var GameScenePlayLayer = cc.Layer.extend({
 },
 
   IMRunningStop:function(){
-    armature = CCArmature::create("IMRunStop");
+    armature = CCArmature.create("IMRunStop");
     armature.getAnimation().play("RunningStop");
     armature.getAnimation().setSpeedScale(1.5);
     armature.setScale(0.6);
