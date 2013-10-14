@@ -17,14 +17,14 @@ bool GameScenePlayLayer::init(){
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMCrouch.ExportJson");
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMRun.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMRunJump.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMStandJump.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMCrouchJump.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMRunStop.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LaserRunAttack.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LaserStandAttack.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMCrouch.ExportJson");
+    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMRun.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMRunJump.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMStandJump.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMCrouchJump.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMRunStop.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/LaserRunAttack.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/LaserStandAttack.ExportJson");
 
 	touchTime = 0;
 	this->IMCrouch();

@@ -5,7 +5,6 @@ var GameScene = cc.Scene.extend({
         var playLayer = new GameScenePlayLayer();
         playLayer.init();
         this.addChild(playLayer, 0);
-
     }
 });
 
