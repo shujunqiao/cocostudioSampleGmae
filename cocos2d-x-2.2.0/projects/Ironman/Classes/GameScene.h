@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "GameScenePlayLayer.h"
+#include "GameSceneMenuLayer.h"
 USING_NS_CC;
 
 using namespace extension;
