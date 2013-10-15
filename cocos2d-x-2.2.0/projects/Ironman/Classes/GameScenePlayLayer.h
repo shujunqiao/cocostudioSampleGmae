@@ -10,7 +10,7 @@
 #define Ironman_GameScenePlayLayer_h
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include <Box2D/Box2D.h>
+
 USING_NS_CC;
 
 using namespace extension;
@@ -54,17 +54,7 @@ class GameScenePlayLayer : public cocos2d::CCLayer
         ACTION_CROUCH_JUMP,
 		ACTION_RUN_STOP,
 	};
-    
-	
-
-	b2World *_world;//box2d中的刚体世界
-	b2Body *_groundBody;//地面刚体
-	b2Fixture *_bottomFixture;//动态刚体
-	b2Fixture *_ballFixture;//刚体的固定装置（夹具）)
-
-
-	void tick(float dt);
-
+ 
     CREATE_FUNC(GameScenePlayLayer);
 };
 

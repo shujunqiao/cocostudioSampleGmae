@@ -30,74 +30,10 @@ bool GameScenePlayLayer::init(){
 	this->IMCrouch();
 	actionNum = ACTION_CROUCH;
     
-/*
-	//创建这个刚体世界
-  b2Vec2 gravity = b2Vec2(0.0f,-10.0f);
-  m_pworld = new b2World(gravity);
 
-  //创建4个物体
-  b2BodyDef groundBodyDef;
-  groundBodyDef.position.Set(0,0);
-  m_pgroundBody = m_pworld->CreateBody(&groundBodyDef);
-  b2EdgeShape groundEdge;
-  b2FixtureDef boxShapeDef;
-  
-  boxShapeDef.shape = &groundEdge;
-  //底边
-  groundEdge.Set(b2Vec2(0,0),b2Vec2(visibleSize.width/PTM_RATIO,0));
-  m_pgroundBody->CreateFixture(&boxShapeDef);
-  //左边
-   groundEdge.Set(b2Vec2(0,0),b2Vec2(0,visibleSize.height/PTM_RATIO));
-   m_pgroundBody->CreateFixture(&boxShapeDef);
-  //上边
-   groundEdge.Set(b2Vec2(0, visibleSize.height/PTM_RATIO), 
-    b2Vec2(visibleSize.width/PTM_RATIO, visibleSize.height/PTM_RATIO));
-   m_pgroundBody->CreateFixture(&boxShapeDef);
-  //右边
-   groundEdge.Set(b2Vec2(visibleSize.width/PTM_RATIO, 
-    visibleSize.height/PTM_RATIO), b2Vec2(visibleSize.width/PTM_RATIO, 0));
-   m_pgroundBody->CreateFixture(&boxShapeDef);
-
-  //creat a ball body and shape
-  b2BodyDef ballBodyDef;
-  //动态物体
-  ballBodyDef.type = b2_dynamicBody;
-  ballBodyDef.position.Set(100/PTM_RATIO, 100/PTM_RATIO);
-  //!!这里很重要：设置userData
-  ballBodyDef.userData = (void*)imManArmature;
-  m_pbody = m_pworld->CreateBody(&ballBodyDef);
-
-  //圆形
-  b2CircleShape circle;
-  circle.m_radius = 26.0/PTM_RATIO;
-  //给这个动态物体创建一个固定装置
-  //即：将一个密度为1，摩擦系数为0.2，弹性为0.8的圆形，
-  //固定在这个刚体之上
-  b2FixtureDef ballShapeDef;
-  ballShapeDef.shape = &circle;
-  ballShapeDef.density = 1.0f;
-  ballShapeDef.friction = 0.2f;
-  ballShapeDef.restitution = 0.8f;
-  m_pBallFixture = m_pbody->CreateFixture(&ballShapeDef);
-  
-  this->schedule(schedule_selector(GameScenePlayLayer::tick), 0, 0, 0);
-  */
     return true;
 }
-void GameScenePlayLayer::tick(float dt)
-{
-	_world->Step(dt, 10, 10);    
-    for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext())
-	{    
-        if (b->GetUserData() != NULL) 
-		{
-			imManArmature = (CCArmature *)b->GetUserData();                        
-            imManArmature->setPosition(ccp(b->GetPosition().x * PTM_RATIO,
-                                    b->GetPosition().y * PTM_RATIO));
-            imManArmature->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
-        }        
-    }
-}
+
 void GameScenePlayLayer::registerWithTouchDispatcher(void)
 {
     CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 0);
@@ -246,55 +182,6 @@ void GameScenePlayLayer::IMCrouch()
 	imManArmature = armature;
 	actionNum = ACTION_CROUCH;
 
-	
-	 CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
-	// Create a world
-	b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
-	bool doSleep = true;
-	_world = new b2World(gravity);
- 
-	// Create edges around the entire screen
-	b2BodyDef groundBodyDef;
-	groundBodyDef.position.Set(0,0);
-	_groundBody = _world->CreateBody(&groundBodyDef);
-	b2PolygonShape groundBox;
-	b2FixtureDef groundBoxDef;
-	groundBoxDef.shape = &groundBox;
-	groundBox.Set(&b2Vec2(0,winSize.width/PTM_RATIO),4);
-	_bottomFixture = _groundBody->CreateFixture(&groundBoxDef);
-	/*
-	groundBox.Set(&b2Vec2(0,winSize.height/PTM_RATIO),1);
-	_groundBody->CreateFixture(&groundBoxDef);
-	groundBox.Set(&b2Vec2(winSize.height/PTM_RATIO, winSize.width/PTM_RATIO),1);
-	_groundBody->CreateFixture(&groundBoxDef);
-	groundBox.Set(&b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO),1);
-	_groundBody->CreateFixture(&groundBoxDef);
-  */
-
-	// Create ball body 
-	b2BodyDef ballBodyDef;
-	ballBodyDef.type = b2_dynamicBody;
-	ballBodyDef.position.Set(100/PTM_RATIO, 100/PTM_RATIO);
-	ballBodyDef.userData = armature;
-	b2Body * ballBody = _world->CreateBody(&ballBodyDef);
- 
-	// Create circle shape
-	b2CircleShape circle;
-	circle.m_radius = 26.0/PTM_RATIO;
- 
-	// Create shape definition and add to body
-	b2FixtureDef ballShapeDef;
-	ballShapeDef.shape = &circle;
-	ballShapeDef.density = 1.0f;
-	ballShapeDef.friction = 0.f;
-	ballShapeDef.restitution = 1.0f;
-	_ballFixture = ballBody->CreateFixture(&ballShapeDef);
-
-
-	b2Vec2 force = b2Vec2(10, 10);
-	ballBody->ApplyLinearImpulse(force, ballBodyDef.position);
-
-	this->schedule(schedule_selector(GameScenePlayLayer::tick), 0, 0, 0);
 }
 
 void GameScenePlayLayer::IMRunning()
