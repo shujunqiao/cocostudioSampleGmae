@@ -26,17 +26,7 @@
  </layer>
  <layer name="cloud" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAoGHogNtAOoBCQH2gGjYFAAAHoIADA=
-  </data>
- </layer>
- <layer name="floor" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYnoAdjxwHBeZyEpAHABCoABk=
-  </data>
- </layer>
- <layer name="pipe0" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYnkAEj5woDe0FABpMACo=
+   eJxjYBgFo2AUjIJRMApGLhAbaAcQAOJEqpOkqStGAakAAIuIAEc=
   </data>
  </layer>
  <layer name="wall" width="30" height="20">
@@ -44,15 +34,14 @@
    eJxjYBgFo2AUjIJRMApGwSgYBTAgjcaXQePLEmEGABpQAFU=
   </data>
  </layer>
- <objectgroup name="object" width="30" height="20">
-  <properties>
-   <property name="name" value="check"/>
-   <property name="ppp" value="1"/>
-  </properties>
-  <object x="1" y="239" width="113" height="80"/>
-  <object x="114" y="131" width="132" height="188"/>
-  <object x="249" y="178" width="118" height="140"/>
-  <object x="369" y="237" width="44" height="81"/>
-  <object x="418" y="252" width="60" height="67"/>
- </objectgroup>
+ <layer name="floor" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYnoCVRvKE9AEADygAFQ==
+  </data>
+ </layer>
+ <layer name="pipe0" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYnkAEj5woDe0FABpMACo=
+  </data>
+ </layer>
 </map>
