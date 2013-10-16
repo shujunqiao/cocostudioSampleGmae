@@ -22,6 +22,10 @@ public:
     bool init();
     
     void startBtnCallFunc(CCObject* pSender);
+private:
+	 CCMenu* mainMenu;
+	 int loadingCount;
+	  void dataLoaded(float percent);
 };
 
 #endif

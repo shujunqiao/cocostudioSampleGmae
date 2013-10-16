@@ -24,10 +24,10 @@ bool MainMenuScene::init()
     CCSprite* start     = CCSprite::create("iphone/StartBtn.png");
     CCSprite* startPush = CCSprite::create("iphone/StartBtnPush.png");
     
-    CCMenuItemSprite* startBtn = CCMenuItemSprite::create(start, startPush, menuLayer, menu_selector(MainMenuScene::startBtnCallFunc));
+    CCMenuItemSprite * startBtn = CCMenuItemSprite::create(start, startPush, this, menu_selector(MainMenuScene::startBtnCallFunc));
     
     //Add Menu
-    CCMenu* mainMenu = CCMenu::create(startBtn, NULL);
+    mainMenu = CCMenu::create(startBtn, NULL);
     mainMenu->setAnchorPoint(ccp(0, 0));
     mainMenu->setPosition(ccp(size.width/2, size.height/5));
 
@@ -38,9 +38,78 @@ bool MainMenuScene::init()
 
 void MainMenuScene::startBtnCallFunc(CCObject* pSender)
 {
-    GameScene* gameScene = new GameScene();
-    gameScene->init();
+	CCMenuItemSprite *  startBtn = (CCMenuItemSprite *  )pSender;
+	startBtn->setOpacity(0);
+	mainMenu->setEnabled(false);
+
+	CCSprite * activity = CCSprite::create("loading.png");
+	activity->setPosition(ccp(240,65));
+	addChild(activity);
+	
+	CCRotateBy * rotateAction = CCRotateBy::create(0.5f,180.0f);
+	activity->runAction(CCRepeatForever::create(rotateAction));
+	
+	loadingCount = 0;
+	dataLoaded(loadingCount);
+
+   
+}
+void MainMenuScene::dataLoaded(float percent)
+{
+	
+	switch (loadingCount)
+	{
+		case 0:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMCrouch.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 1:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRun.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 2:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRunJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 3:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMStandJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 4:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMCrouchJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 5:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRunStop.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 6:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/LaserRunAttack.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case 7:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/LaserStandAttack.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+
+	default:
+		{
+			GameScene* gameScene = new GameScene();
+			gameScene->init();
     
-    CCTransitionFade* gameScneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
-    CCDirector::sharedDirector()->replaceScene(gameScneTransition);
+			CCTransitionFade* gameScneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
+			CCDirector::sharedDirector()->replaceScene(gameScneTransition);
+		}
+		break;
+	}	
+	loadingCount++;
+	
 }
