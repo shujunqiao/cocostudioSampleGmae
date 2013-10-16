@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="sky" tilewidth="480" tileheight="320">
+  <image source="sky.png" width="480" height="320"/>
+ </tileset>
+ <tileset firstgid="2" name="f1" tilewidth="428" tileheight="83">
+  <image source="f1.png" width="428" height="83"/>
+ </tileset>
+ <tileset firstgid="3" name="house" tilewidth="128" tileheight="64">
+  <image source="house.png" width="388" height="64"/>
+ </tileset>
+ <tileset firstgid="6" name="stairs" tilewidth="112" tileheight="50">
+  <image source="stairs.png" width="112" height="50"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="stair"/>
+    <property name="ppp" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="7" name="pipe0" tilewidth="240" tileheight="17">
+  <image source="pipe0.png" width="240" height="17"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="pipe"/>
+    <property name="ppp" value="1"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="sky" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA7YKRALwAClAAC
+  </data>
+ </layer>
+ <layer name="f1" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA7YKJALwAC0AAD
+  </data>
+ </layer>
+ <layer name="house" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwmw0skeAARgAAY=
+  </data>
+ </layer>
+ <layer name="pipe" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA/YCdDDwADxAAI
+  </data>
+ </layer>
+ <layer name="stair" width="15" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4BywIbGBwACuAAH
+  </data>
+ </layer>
+ <objectgroup name="pp" width="15" height="10">
+  <object x="65" y="307" width="238" height="13"/>
+ </objectgroup>
+</map>
