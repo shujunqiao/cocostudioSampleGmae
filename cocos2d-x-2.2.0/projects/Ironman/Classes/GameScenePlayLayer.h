@@ -33,13 +33,16 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     void menuCloseCallback(CCObject* pSender);
     
     virtual void registerWithTouchDispatcher(void);
-    virtual void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchesCancelled(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);    
+    virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+	const char* getMonsterGroundAmount();
+	const char* getMonsterSkyAmount();
     
 	int actionNum;
 	int touchTime;
+    int monsterGroundAmount;
+    int monsterSkyAmount;
 	CCArmature *imManArmature;
 	CCPoint amaturePosition;
 

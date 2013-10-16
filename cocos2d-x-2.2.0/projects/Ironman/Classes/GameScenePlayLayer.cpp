@@ -10,26 +10,19 @@
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
 #define PTM_RATIO 32.0
-bool GameScenePlayLayer::init(){
-       
-    GameScenePlayLayer::registerWithTouchDispatcher();
-//    
-    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
-    
-	
-
+bool GameScenePlayLayer::init()
+{
 	touchTime = 0;
 	this->IMCrouch();
+	this->setTouchEnabled(true);
 	actionNum = ACTION_CROUCH;
     
-
     return true;
 }
 
 void GameScenePlayLayer::registerWithTouchDispatcher(void)
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 0);
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, false);
 }
 
 void GameScenePlayLayer::runJumpActionCallBack(CCNode* sender, void* data)
@@ -52,20 +45,18 @@ void GameScenePlayLayer::menuCloseCallback(CCObject* pSender)
     imManArmature->runAction(splitCols);
 }
 
-void GameScenePlayLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
+bool GameScenePlayLayer::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 {
-    CCSetIterator it = pTouches->begin();
-    CCTouch* touch = (CCTouch*)(*it);
-    
-    m_tBeginPos = touch->getLocation();
+    m_tBeginPos = pTouch->getLocation();
+	return true;
 }
 
-void GameScenePlayLayer::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
+void GameScenePlayLayer::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 {
 	touchTime++;	
 }
 
-void GameScenePlayLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
+void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
 	CCLog("touchTime == %d",touchTime);
 	if(touchTime>30)
@@ -75,11 +66,8 @@ void GameScenePlayLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 	}
 	
     touchTime = 0;
-
-    CCSetIterator it = pTouches->begin();
-    CCTouch* touch = (CCTouch*)(*it);
-    
-    CCPoint touchLocation = touch->getLocation();
+   
+    CCPoint touchLocation = pTouch->getLocation();
     float nMoveX = touchLocation.x - m_tBeginPos.x;
 	float nMoveY = touchLocation.y - m_tBeginPos.y;
 	CCLog("m_tBeginPos.x = %f",m_tBeginPos.x);
@@ -154,12 +142,6 @@ void GameScenePlayLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 		this ->IMCrouch();
 	}
 }
-
-void GameScenePlayLayer::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
-{
-    //  ccTouchesEnded(pTouches, pEvent);
-}
-
 
 void GameScenePlayLayer::IMCrouch()
 {
@@ -252,4 +234,14 @@ void GameScenePlayLayer::IMRunningStop()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_RUN_STOP;
+}
+
+const char* GameScenePlayLayer::getMonsterGroundAmount()
+{
+	return (const char*)monsterGroundAmount;
+}
+
+const char* GameScenePlayLayer::getMonsterSkyAmount()
+{
+	return (const char*)monsterSkyAmount;
 }
