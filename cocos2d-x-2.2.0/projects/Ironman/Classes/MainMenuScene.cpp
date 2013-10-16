@@ -33,6 +33,9 @@ bool MainMenuScene::init()
 
     menuLayer->addChild(mainMenu,1);
     this->addChild(menuLayer);
+
+	
+
     return true;
 }
 
@@ -41,6 +44,11 @@ void MainMenuScene::startBtnCallFunc(CCObject* pSender)
 	CCMenuItemSprite *  startBtn = (CCMenuItemSprite *  )pSender;
 	startBtn->setOpacity(0);
 	mainMenu->setEnabled(false);
+
+	CCParticleSystem *meteor=CCParticleSystemQuad::create("qwe.plist");
+	meteor->setScale(0.5);
+	meteor->setPosition(ccp(240,65)); 
+	this->addChild(meteor); 
 
 	CCSprite * activity = CCSprite::create("loading.png");
 	activity->setPosition(ccp(240,65));
@@ -102,9 +110,7 @@ void MainMenuScene::dataLoaded(float percent)
 
 	default:
 		{
-			GameScene* gameScene = new GameScene();
-			gameScene->init();
-    
+			GameScene* gameScene =  GameScene::shareGameScene();
 			CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
 			CCDirector::sharedDirector()->replaceScene(gameSceneTransition);
 		}

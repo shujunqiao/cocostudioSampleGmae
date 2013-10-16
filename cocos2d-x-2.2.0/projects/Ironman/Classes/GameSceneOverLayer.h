@@ -21,7 +21,7 @@ class GameSceneOverLayer : public UILayer
     
 public:
     
-    bool init(GameScene* gameScene);
+    bool init();
     
 protected:
     

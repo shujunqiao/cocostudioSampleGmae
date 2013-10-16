@@ -8,11 +8,11 @@
 
 #include "GameSceneOverLayer.h"
 
-bool GameSceneOverLayer::init(GameScene* gameScene)
+bool GameSceneOverLayer::init()
 {
     if(UILayer::init()){
         
-		parentScene = gameScene;
+		parentScene = GameScene::shareGameScene();
         this->addWidget(dynamic_cast<Layout*>(CCUIHELPER->createWidgetFromJsonFile("iphone/GameSceneOverLayer_1.json")));
         
         playAgainBtn        = dynamic_cast<UIButton*>(this->getWidgetByName("playAgain"));
@@ -22,13 +22,13 @@ bool GameSceneOverLayer::init(GameScene* gameScene)
         finalScore          = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("finalScore"));
         
         playAgainBtn->addReleaseEvent(this, coco_releaseselector(GameSceneOverLayer::playAgainBtnCallback));
-        monsterGroundAmount->setText(parentScene->getPlayLayer()->getMonsterGroundAmount());
-        monsterSkyAmount->setText(parentScene->getPlayLayer()->getMonsterSkyAmount());
-        distanceScore->setStringValue(parentScene->getMenuLayer()->getDistanceScore());
+        monsterGroundAmount->setText(parentScene->playLayer->getMonsterGroundAmount());
+        monsterSkyAmount->setText(parentScene->playLayer->getMonsterSkyAmount());
+        distanceScore->setStringValue(parentScene->menuLayer->getDistanceScore());
         
         return true;
     }
-    
+
     return false;
 }
 

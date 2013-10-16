@@ -8,11 +8,11 @@
 
 #include "GameSceneMenuLayer.h"
 
-bool GameSceneMenuLayer::init(int broodBarPercent,const char *value, GameScene* gameScene)
+bool GameSceneMenuLayer::init(int broodBarPercent,const char *value)
 {
     if(UILayer::init()){
         
-        parentScene = gameScene;
+        parentScene = GameScene::shareGameScene();
         this->addWidget(dynamic_cast<Layout*>(CCUIHELPER->createWidgetFromJsonFile("iphone/IronCityUI_1.json")));
         
         settingBtn    = dynamic_cast<UIButton*>(this->getWidgetByName("Setting"));

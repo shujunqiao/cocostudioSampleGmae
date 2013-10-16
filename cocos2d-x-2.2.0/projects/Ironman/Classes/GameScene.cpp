@@ -10,8 +10,15 @@
 
 bool GameScene::init()
 {
+	gameSceneMapLayer = new GameSceneMapLayer();
+	gameSceneMapLayer->init();
+	gameSceneMapLayer->move();
+	gameSceneMapLayer->setMovedSpeed(2);
+    gameSceneMapLayer->setPosition(ccp(0, 0));
+    this->addChild(gameSceneMapLayer,0);
+
 	menuLayer = new GameSceneMenuLayer();
-    menuLayer->init(100, "0", this);
+    menuLayer->init(100, "0");
     menuLayer->setAnchorPoint(ccp(0, 0));
     menuLayer->setPosition(ccp(0, 0));
     menuLayer->setScale(0.5);
@@ -24,20 +31,24 @@ bool GameScene::init()
     return true;
 }
 
-GameSceneMenuLayer* GameScene::getMenuLayer()
-{
-	return menuLayer;
-}
+static GameScene *_sharedGameScene = NULL;
 
-GameScenePlayLayer* GameScene::getPlayLayer()
+GameScene* GameScene::shareGameScene()
 {
-	return playLayer;
+    if (!_sharedGameScene) {
+        _sharedGameScene = new GameScene();
+        if (!_sharedGameScene->init())
+        {
+            CC_SAFE_DELETE(_sharedGameScene);
+        }
+    }
+    return _sharedGameScene;
 }
 
 void GameScene::gameOver()
 {
 	GameSceneOverLayer* overLayer = new GameSceneOverLayer();
-	overLayer->init(this);
+	overLayer->init();
 	
 	playLayer->stopAllActions();
 	playLayer->unscheduleUpdate();

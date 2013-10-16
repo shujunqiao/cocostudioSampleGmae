@@ -31,6 +31,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     {
 		searchPaths.push_back("sd");
 		searchPaths.push_back("iphone");
+		searchPaths.push_back("iphone/tiledmap");
         pDirector->setContentScaleFactor(320.0f/designSize.height);
     }
     

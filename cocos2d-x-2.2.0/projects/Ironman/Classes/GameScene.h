@@ -11,13 +11,14 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "GameSceneMapLayer.h"
 #include "GameScenePlayLayer.h"
 #include "GameSceneMenuLayer.h"
 #include "GameSceneOverLayer.h"
 USING_NS_CC;
 
 using namespace extension;
-
+class GameSceneMapLayer;
 class GameScenePlayLayer;
 class GameSceneMenuLayer;
 class GameSceneOverLayer;
@@ -26,11 +27,11 @@ class GameScene : public cocos2d::CCScene
 public:
     
     bool init();
-	GameScenePlayLayer* getPlayLayer();
-	GameSceneMenuLayer* getMenuLayer();
+	static GameScene * shareGameScene();
+	
 	void gameOver();
 	
-protected:
+	GameSceneMapLayer * gameSceneMapLayer;
     GameScenePlayLayer* playLayer;
 	GameSceneMenuLayer* menuLayer;
 };

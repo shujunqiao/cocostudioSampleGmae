@@ -58,7 +58,6 @@ void GameScenePlayLayer::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 
 void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
-	CCLog("touchTime == %d",touchTime);
 	if(touchTime>30)
 	{
 		touchTime = 0;
@@ -70,11 +69,6 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
     CCPoint touchLocation = pTouch->getLocation();
     float nMoveX = touchLocation.x - m_tBeginPos.x;
 	float nMoveY = touchLocation.y - m_tBeginPos.y;
-	CCLog("m_tBeginPos.x = %f",m_tBeginPos.x);
-	CCLog("touchLocation.x = %f",touchLocation.x);
-	CCLog("nMoveX = %f ,nMoveY = %f",nMoveX,nMoveY);
-	CCLog("tan1 = %f",tan(nMoveY/nMoveX));
-	CCLog("tan2 = %f",fabs(sqrt(3)/10));
 	int radian = 10;
 	
 	if(nMoveX>10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))

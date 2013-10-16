@@ -19,7 +19,7 @@ class GameSceneMenuLayer : public UILayer
 {
 public:
     
-    bool init(int broodBarPercent, const char *value, GameScene* gameScene);
+    bool init(int broodBarPercent, const char *value);
     
     virtual void settingBtnCallback(CCObject* sender);
     virtual void setBroodBarPercent(int percent);
