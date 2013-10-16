@@ -7,6 +7,7 @@
 //
 
 #include "GameScenePlayLayer.h"
+#include "GameScene.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
 #define PTM_RATIO 32.0
@@ -29,7 +30,14 @@ void GameScenePlayLayer::runJumpActionCallBack(CCNode* sender, void* data)
 {
 	imManArmature->stopAllActions();
     imManArmature->removeFromParentAndCleanup(false);
-    this ->IMRunning();
+	if(0xbebabebb ==(unsigned int) data)
+	{
+		 this ->IMRunning();
+	}
+	else
+	{
+		this ->IMRunningStop();
+	}
 }
 
 void GameScenePlayLayer::standJumpActionCallBack(CCNode* sender, void* data)
@@ -102,7 +110,17 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
         {
             this->IMRunJump();
             CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),100,1);
-            CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::runJumpActionCallBack), (void*)0xbebabeba);
+            CCCallFunc * callBack;
+			if(nMoveX<0)
+			{
+				callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::runJumpActionCallBack), (void*)0xbebabeba);
+			}
+			else
+			{
+				callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::runJumpActionCallBack), (void*)0xbebabebb);
+			}
+
+				
             CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
             imManArmature->runAction(action);
 
@@ -150,7 +168,7 @@ void GameScenePlayLayer::IMCrouch()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_CROUCH;
-
+	GameScene::shareGameScene()->gameSceneMapLayer->stop();
 }
 
 void GameScenePlayLayer::IMRunning()
@@ -158,7 +176,7 @@ void GameScenePlayLayer::IMRunning()
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMRun");
 	armature->getAnimation()->play("Running");
-	armature->getAnimation()->setSpeedScale(1.5f);
+	armature->getAnimation()->setSpeedScale(2.0f);
 	armature->setScale(0.6f);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(50, 50));
@@ -166,6 +184,7 @@ void GameScenePlayLayer::IMRunning()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_RUN;
+	GameScene::shareGameScene()->gameSceneMapLayer->move();
 }
 
 void GameScenePlayLayer::IMStandJump()
@@ -181,6 +200,7 @@ void GameScenePlayLayer::IMStandJump()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_STAND_JUMP;
+	GameScene::shareGameScene()->gameSceneMapLayer->stop();
 }
 
 void GameScenePlayLayer::IMRunJump()
@@ -197,11 +217,11 @@ void GameScenePlayLayer::IMRunJump()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_RUN_JUMP;
+	GameScene::shareGameScene()->gameSceneMapLayer->move();
 }
 
 void GameScenePlayLayer::IMCrouchJump()
 {
-    
  	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMCrouchJump");
 	armature->getAnimation()->play("CrouchJump");
@@ -213,6 +233,7 @@ void GameScenePlayLayer::IMCrouchJump()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_CROUCH_JUMP;
+	GameScene::shareGameScene()->gameSceneMapLayer->move();
 }
 
 void GameScenePlayLayer::IMRunningStop()
@@ -228,6 +249,7 @@ void GameScenePlayLayer::IMRunningStop()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_RUN_STOP;
+	GameScene::shareGameScene()->gameSceneMapLayer->stop();
 }
 
 const char* GameScenePlayLayer::getMonsterGroundAmount()

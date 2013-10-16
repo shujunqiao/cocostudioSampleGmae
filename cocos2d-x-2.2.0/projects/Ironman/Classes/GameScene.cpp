@@ -12,8 +12,7 @@ bool GameScene::init()
 {
 	gameSceneMapLayer = new GameSceneMapLayer();
 	gameSceneMapLayer->init();
-	gameSceneMapLayer->move();
-	gameSceneMapLayer->setMovedSpeed(2);
+	gameSceneMapLayer->setMovedSpeed(3);
     gameSceneMapLayer->setPosition(ccp(0, 0));
     this->addChild(gameSceneMapLayer,0);
 

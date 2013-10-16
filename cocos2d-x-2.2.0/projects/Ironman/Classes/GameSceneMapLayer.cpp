@@ -180,10 +180,14 @@ int GameSceneMapLayer::getRandN(int n)
 
 void GameSceneMapLayer::stop()
 {
+	if(false == bMove)
+		return;
     bMove = false;
 }
 void GameSceneMapLayer::move()
 {
+	if(true == bMove)
+		return;
     bMove = true;
 }
 float GameSceneMapLayer::getDistance()
