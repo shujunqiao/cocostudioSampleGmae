@@ -235,7 +235,6 @@
 		842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */; };
 		842F8DFB180BE60300CB8B3D /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DFA180BE60300CB8B3D /* iphone */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
-		848A568D180E68E7002BEA6C /* GameSceneOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848A568B180E68E7002BEA6C /* GameSceneOverLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -249,6 +248,33 @@
 		D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949B15BD2D8E00D803EB /* Icon-114.png */; };
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
+		EDF800C4180E73D500F356D4 /* GameSceneOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */; };
+		EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */; };
+		EDF800E2180E760E00F356D4 /* attention_line.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800C9180E760E00F356D4 /* attention_line.png */; };
+		EDF800E3180E760E00F356D4 /* bg0_0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800CA180E760E00F356D4 /* bg0_0.tmx */; };
+		EDF800E4180E760E00F356D4 /* bg0_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800CB180E760E00F356D4 /* bg0_1.tmx */; };
+		EDF800E5180E760E00F356D4 /* bg0_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800CC180E760E00F356D4 /* bg0_2.tmx */; };
+		EDF800E6180E760E00F356D4 /* bg1_0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800CD180E760E00F356D4 /* bg1_0.tmx */; };
+		EDF800E7180E760E00F356D4 /* bg1_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800CE180E760E00F356D4 /* bg1_1.tmx */; };
+		EDF800E8180E760E00F356D4 /* bg1_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800CF180E760E00F356D4 /* bg1_2.tmx */; };
+		EDF800E9180E760E00F356D4 /* bg2_0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D0180E760E00F356D4 /* bg2_0.tmx */; };
+		EDF800EA180E760E00F356D4 /* bg2_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D1180E760E00F356D4 /* bg2_1.tmx */; };
+		EDF800EB180E760E00F356D4 /* bg2_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D2180E760E00F356D4 /* bg2_2.tmx */; };
+		EDF800EC180E760E00F356D4 /* bg_00.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D3180E760E00F356D4 /* bg_00.tmx */; };
+		EDF800ED180E760E00F356D4 /* bg_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D4180E760E00F356D4 /* bg_1.tmx */; };
+		EDF800EE180E760E00F356D4 /* bg_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D5180E760E00F356D4 /* bg_2.tmx */; };
+		EDF800EF180E760E00F356D4 /* bg_3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D6180E760E00F356D4 /* bg_3.tmx */; };
+		EDF800F0180E760E00F356D4 /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D7180E760E00F356D4 /* cloud.png */; };
+		EDF800F1180E760E00F356D4 /* concrete_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D8180E760E00F356D4 /* concrete_wall.png */; };
+		EDF800F2180E760E00F356D4 /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800D9180E760E00F356D4 /* door.png */; };
+		EDF800F3180E760E00F356D4 /* f1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800DA180E760E00F356D4 /* f1.png */; };
+		EDF800F4180E760E00F356D4 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800DB180E760E00F356D4 /* floor.png */; };
+		EDF800F5180E760E00F356D4 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800DC180E760E00F356D4 /* house.png */; };
+		EDF800F6180E760E00F356D4 /* pipe.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800DD180E760E00F356D4 /* pipe.png */; };
+		EDF800F7180E760E00F356D4 /* pipe2.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800DE180E760E00F356D4 /* pipe2.png */; };
+		EDF800F8180E760E00F356D4 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800DF180E760E00F356D4 /* sky.png */; };
+		EDF800F9180E760E00F356D4 /* stairs.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800E0180E760E00F356D4 /* stairs.png */; };
+		EDF800FA180E760E00F356D4 /* wooden_ladder.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF800E1180E760E00F356D4 /* wooden_ladder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -735,9 +761,6 @@
 		842F8DFA180BE60300CB8B3D /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
 		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
 		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
-		848A568B180E68E7002BEA6C /* GameSceneOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSceneOverLayer.cpp; sourceTree = "<group>"; };
-		848A568C180E68E7002BEA6C /* GameSceneOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneOverLayer.h; sourceTree = "<group>"; };
-		848B4ECC18059C8400783639 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -752,6 +775,35 @@
 		D4EF949D15BD2D9600D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneOverLayer.cpp; path = ../Classes/GameSceneOverLayer.cpp; sourceTree = "<group>"; };
+		EDF800C3180E73D500F356D4 /* GameSceneOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneOverLayer.h; path = ../Classes/GameSceneOverLayer.h; sourceTree = "<group>"; };
+		EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMapLayer.cpp; path = ../Classes/GameSceneMapLayer.cpp; sourceTree = "<group>"; };
+		EDF800C6180E75E200F356D4 /* GameSceneMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneMapLayer.h; path = ../Classes/GameSceneMapLayer.h; sourceTree = "<group>"; };
+		EDF800C9180E760E00F356D4 /* attention_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attention_line.png; sourceTree = "<group>"; };
+		EDF800CA180E760E00F356D4 /* bg0_0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg0_0.tmx; sourceTree = "<group>"; };
+		EDF800CB180E760E00F356D4 /* bg0_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg0_1.tmx; sourceTree = "<group>"; };
+		EDF800CC180E760E00F356D4 /* bg0_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg0_2.tmx; sourceTree = "<group>"; };
+		EDF800CD180E760E00F356D4 /* bg1_0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg1_0.tmx; sourceTree = "<group>"; };
+		EDF800CE180E760E00F356D4 /* bg1_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg1_1.tmx; sourceTree = "<group>"; };
+		EDF800CF180E760E00F356D4 /* bg1_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg1_2.tmx; sourceTree = "<group>"; };
+		EDF800D0180E760E00F356D4 /* bg2_0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg2_0.tmx; sourceTree = "<group>"; };
+		EDF800D1180E760E00F356D4 /* bg2_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg2_1.tmx; sourceTree = "<group>"; };
+		EDF800D2180E760E00F356D4 /* bg2_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg2_2.tmx; sourceTree = "<group>"; };
+		EDF800D3180E760E00F356D4 /* bg_00.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg_00.tmx; sourceTree = "<group>"; };
+		EDF800D4180E760E00F356D4 /* bg_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg_1.tmx; sourceTree = "<group>"; };
+		EDF800D5180E760E00F356D4 /* bg_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg_2.tmx; sourceTree = "<group>"; };
+		EDF800D6180E760E00F356D4 /* bg_3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bg_3.tmx; sourceTree = "<group>"; };
+		EDF800D7180E760E00F356D4 /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.png; sourceTree = "<group>"; };
+		EDF800D8180E760E00F356D4 /* concrete_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = concrete_wall.png; sourceTree = "<group>"; };
+		EDF800D9180E760E00F356D4 /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
+		EDF800DA180E760E00F356D4 /* f1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f1.png; sourceTree = "<group>"; };
+		EDF800DB180E760E00F356D4 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
+		EDF800DC180E760E00F356D4 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
+		EDF800DD180E760E00F356D4 /* pipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe.png; sourceTree = "<group>"; };
+		EDF800DE180E760E00F356D4 /* pipe2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pipe2.png; sourceTree = "<group>"; };
+		EDF800DF180E760E00F356D4 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
+		EDF800E0180E760E00F356D4 /* stairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs.png; sourceTree = "<group>"; };
+		EDF800E1180E760E00F356D4 /* wooden_ladder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wooden_ladder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1272,7 +1324,6 @@
 			children = (
 				842BAE641806A4C500A90B67 /* Layer */,
 				842BAE631806A48A00A90B67 /* Scene */,
-				848B4ECC18059C8400783639 /* AppMacros.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 			);
@@ -1719,6 +1770,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDF800C8180E760E00F356D4 /* tiledmap */,
 				842F8DFA180BE60300CB8B3D /* iphone */,
 				D41A0AD0160F154A004552AE /* Default-568h@2x.png */,
 				7855E0DF153FEF240059DD9A /* Default.png */,
@@ -1746,14 +1798,48 @@
 		842BAE641806A4C500A90B67 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
-				848A568B180E68E7002BEA6C /* GameSceneOverLayer.cpp */,
-				848A568C180E68E7002BEA6C /* GameSceneOverLayer.h */,
+				EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */,
+				EDF800C6180E75E200F356D4 /* GameSceneMapLayer.h */,
+				EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */,
+				EDF800C3180E73D500F356D4 /* GameSceneOverLayer.h */,
 				842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */,
 				842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */,
 				842F8DB1180BCDB600CB8B3D /* GameSceneMenuLayer.h */,
 				842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */,
 			);
 			name = Layer;
+			sourceTree = "<group>";
+		};
+		EDF800C8180E760E00F356D4 /* tiledmap */ = {
+			isa = PBXGroup;
+			children = (
+				EDF800C9180E760E00F356D4 /* attention_line.png */,
+				EDF800CA180E760E00F356D4 /* bg0_0.tmx */,
+				EDF800CB180E760E00F356D4 /* bg0_1.tmx */,
+				EDF800CC180E760E00F356D4 /* bg0_2.tmx */,
+				EDF800CD180E760E00F356D4 /* bg1_0.tmx */,
+				EDF800CE180E760E00F356D4 /* bg1_1.tmx */,
+				EDF800CF180E760E00F356D4 /* bg1_2.tmx */,
+				EDF800D0180E760E00F356D4 /* bg2_0.tmx */,
+				EDF800D1180E760E00F356D4 /* bg2_1.tmx */,
+				EDF800D2180E760E00F356D4 /* bg2_2.tmx */,
+				EDF800D3180E760E00F356D4 /* bg_00.tmx */,
+				EDF800D4180E760E00F356D4 /* bg_1.tmx */,
+				EDF800D5180E760E00F356D4 /* bg_2.tmx */,
+				EDF800D6180E760E00F356D4 /* bg_3.tmx */,
+				EDF800D7180E760E00F356D4 /* cloud.png */,
+				EDF800D8180E760E00F356D4 /* concrete_wall.png */,
+				EDF800D9180E760E00F356D4 /* door.png */,
+				EDF800DA180E760E00F356D4 /* f1.png */,
+				EDF800DB180E760E00F356D4 /* floor.png */,
+				EDF800DC180E760E00F356D4 /* house.png */,
+				EDF800DD180E760E00F356D4 /* pipe.png */,
+				EDF800DE180E760E00F356D4 /* pipe2.png */,
+				EDF800DF180E760E00F356D4 /* sky.png */,
+				EDF800E0180E760E00F356D4 /* stairs.png */,
+				EDF800E1180E760E00F356D4 /* wooden_ladder.png */,
+			);
+			path = tiledmap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1838,6 +1924,31 @@
 				379BB9D017F03F3700829B88 /* json_valueiterator.inl in Resources */,
 				379BB9D217F03F3700829B88 /* sconscript in Resources */,
 				842F8DFB180BE60300CB8B3D /* iphone in Resources */,
+				EDF800E2180E760E00F356D4 /* attention_line.png in Resources */,
+				EDF800E3180E760E00F356D4 /* bg0_0.tmx in Resources */,
+				EDF800E4180E760E00F356D4 /* bg0_1.tmx in Resources */,
+				EDF800E5180E760E00F356D4 /* bg0_2.tmx in Resources */,
+				EDF800E6180E760E00F356D4 /* bg1_0.tmx in Resources */,
+				EDF800E7180E760E00F356D4 /* bg1_1.tmx in Resources */,
+				EDF800E8180E760E00F356D4 /* bg1_2.tmx in Resources */,
+				EDF800E9180E760E00F356D4 /* bg2_0.tmx in Resources */,
+				EDF800EA180E760E00F356D4 /* bg2_1.tmx in Resources */,
+				EDF800EB180E760E00F356D4 /* bg2_2.tmx in Resources */,
+				EDF800EC180E760E00F356D4 /* bg_00.tmx in Resources */,
+				EDF800ED180E760E00F356D4 /* bg_1.tmx in Resources */,
+				EDF800EE180E760E00F356D4 /* bg_2.tmx in Resources */,
+				EDF800EF180E760E00F356D4 /* bg_3.tmx in Resources */,
+				EDF800F0180E760E00F356D4 /* cloud.png in Resources */,
+				EDF800F1180E760E00F356D4 /* concrete_wall.png in Resources */,
+				EDF800F2180E760E00F356D4 /* door.png in Resources */,
+				EDF800F3180E760E00F356D4 /* f1.png in Resources */,
+				EDF800F4180E760E00F356D4 /* floor.png in Resources */,
+				EDF800F5180E760E00F356D4 /* house.png in Resources */,
+				EDF800F6180E760E00F356D4 /* pipe.png in Resources */,
+				EDF800F7180E760E00F356D4 /* pipe2.png in Resources */,
+				EDF800F8180E760E00F356D4 /* sky.png in Resources */,
+				EDF800F9180E760E00F356D4 /* stairs.png in Resources */,
+				EDF800FA180E760E00F356D4 /* wooden_ladder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2063,7 +2174,8 @@
 				842BAE731806B65400A90B67 /* GameScene.cpp in Sources */,
 				844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */,
 				842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */,
-				848A568D180E68E7002BEA6C /* GameSceneOverLayer.cpp in Sources */,
+				EDF800C4180E73D500F356D4 /* GameSceneOverLayer.cpp in Sources */,
+				EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
