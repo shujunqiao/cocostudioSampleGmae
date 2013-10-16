@@ -37,17 +37,7 @@
  </layer>
  <layer name="cloud" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGLlCgkjnKVDJnFAwPAACckABE
-  </data>
- </layer>
- <layer name="f1" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYnoAVjxwLmfrYiLAXAA9AABU=
-  </data>
- </layer>
- <layer name="stair" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAddAO2AUDCsAACCAAAs=
+   eJxjYBgFo2AUjIJRMApGLlCgkjnKVDJnoIDCQDtgmAEAxpAAZA==
   </data>
  </layer>
  <layer name="line" width="30" height="20">
@@ -55,14 +45,14 @@
    eJxjYBgFo2AUjIJRMApGwXAE6lQ2T43K5g1nAABvzABO
   </data>
  </layer>
+ <layer name="floor" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYnoCVRvKE9AEADygAFQ==
+  </data>
+ </layer>
  <layer name="pipe1" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMApGwSgYBdgALx45PjxyAA3AABw=
-  </data>
- </layer>
- <layer name="pipe2" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgY2UAMSktQyTwAFwAALw==
   </data>
  </layer>
  <layer name="door" width="30" height="20">
@@ -70,15 +60,4 @@
    eJxjYBgFo2AUjIJRMApGwSgYGYCHTvYAAA5AAA0=
   </data>
  </layer>
- <objectgroup name="object" width="30" height="20">
-  <properties>
-   <property name="name" value="check"/>
-   <property name="ppp" value="1"/>
-  </properties>
-  <object x="3" y="252" width="410" height="66"/>
-  <object x="417" y="240" width="62" height="79"/>
-  <object x="35" y="251">
-   <polyline points="0,0 84,-109 228,-109 315,3"/>
-  </object>
- </objectgroup>
 </map>
