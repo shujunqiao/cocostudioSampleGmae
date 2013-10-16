@@ -32,6 +32,29 @@ var Plist_IMStandJump       = "res/IronManAnimation/IMStandJump0.plist";
 var Plist_LaserRunAttack    = "res/IronManAnimation/LaserRunAttack0.plist";
 var Plist_LaserStandAttack0 = "res/IronManAnimation/LaserStandAttack0.plist";
 
+//tiledmap
+var s_Concreate_wall = "res/tiled/concrete_wall.png";
+var s_attention_line = "res/tiled/attention_line.png";
+var s_cloud = "res/tiled/cloud.png";
+var s_door = "res/tiled/door.png";
+var s_floor = "res/tiled/floor.png";
+var s_house = "res/tiled/house.png";
+var s_pipe = "res/tiled/pipe.png";
+var s_pipe2 = "res/tiled/pipe2.png";
+var s_sky = "res/tiled/sky.png";
+var s_stair = "res/tiled/stairs.png";
+var s_woonden_ladder = "res/tiled/wooden_ladder.png";
+var s_bg_1 = "res/tiled/bg0_0.tmx";
+var s_bg_2 = "res/tiled/bg0_1.tmx";
+var s_bg_3 = "res/tiled/bg0_2.tmx";
+var s_bg_4 = "res/tiled/bg_00.tmx";
+var s_bg_10 = "res/tiled/bg1_0.tmx";
+var s_bg_11 = "res/tiled/bg1_1.tmx";
+var s_bg_12 = "res/tiled/bg1_2.tmx";
+var s_bg_20 = "res/tiled/bg2_0.tmx";
+var s_bg_21 = "res/tiled/bg2_1.tmx";
+var s_bg_22 = "res/tiled/bg2_2.tmx";
+
 var g_resources = [
     //images
     {src:I_HelloWorld},
@@ -60,6 +83,29 @@ var g_resources = [
     {src:Png_MainMenuSceneBK},
     {src:Png_StartBtn},
     {src:Png_StartBtnPush},
+
+    //tiledmap
+    {src:s_Concreate_wall},
+    {src:s_attention_line},
+    {src:s_cloud},
+    {src:s_door},
+    {src:s_floor},
+    {src:s_house},
+    {src:s_pipe},
+    {src:s_pipe2},
+    {src:s_sky},
+    {src:s_stair},
+    {src:s_woonden_ladder},
+    {src:s_bg_1},
+    {src:s_bg_2},
+    {src:s_bg_3},
+    {src:s_bg_4},
+    {src:s_bg_10},
+    {src:s_bg_11},
+    {src:s_bg_12},
+    {src:s_bg_20},
+    {src:s_bg_21},
+    {src:s_bg_22},
 
     //plists
     {src:Plist_IMCrouch},
