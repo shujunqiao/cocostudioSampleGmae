@@ -9,27 +9,28 @@
 #include "GameScenePlayLayer.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
-
+#define PTM_RATIO 32.0
 bool GameScenePlayLayer::init(){
        
     GameScenePlayLayer::registerWithTouchDispatcher();
 //    
-//    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-//    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMCrouch.ExportJson");
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMRun.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMRunJump.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMStandJump.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMCrouchJump.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("IMRunStop.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LaserRunAttack.ExportJson");
-	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LaserStandAttack.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMCrouch.ExportJson");
+    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMRun.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMRunJump.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMStandJump.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMCrouchJump.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/IMRunStop.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/LaserRunAttack.ExportJson");
+	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("iphone/LaserStandAttack.ExportJson");
 
 	touchTime = 0;
 	this->IMCrouch();
 	actionNum = ACTION_CROUCH;
     
+
     return true;
 }
 
@@ -180,8 +181,8 @@ void GameScenePlayLayer::IMCrouch()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_CROUCH;
-}
 
+}
 
 void GameScenePlayLayer::IMRunning()
 {

@@ -15,14 +15,14 @@ bool MainMenuScene::init()
     CCSize size = CCDirector::sharedDirector()->getWinSize();
     
     // Add backgrounbdPic
-    CCSprite* backGroundPic = CCSprite::create("MainMenuSceneBK.png");
+    CCSprite* backGroundPic = CCSprite::create("iphone/MainMenuSceneBK.png");
     backGroundPic->setAnchorPoint(ccp(0, 0));
     
     menuLayer->addChild(backGroundPic,0);
     
     //Add StartBtn
-    CCSprite* start     = CCSprite::create("StartBtn.png");
-    CCSprite* startPush = CCSprite::create("StartBtnPush.png");
+    CCSprite* start     = CCSprite::create("iphone/StartBtn.png");
+    CCSprite* startPush = CCSprite::create("iphone/StartBtnPush.png");
     
     CCMenuItemSprite* startBtn = CCMenuItemSprite::create(start, startPush, menuLayer, menu_selector(MainMenuScene::startBtnCallFunc));
     

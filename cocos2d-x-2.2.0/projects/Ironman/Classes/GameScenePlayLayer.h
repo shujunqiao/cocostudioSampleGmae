@@ -10,6 +10,7 @@
 #define Ironman_GameScenePlayLayer_h
 #include "cocos2d.h"
 #include "cocos-ext.h"
+
 USING_NS_CC;
 
 using namespace extension;
@@ -44,7 +45,6 @@ class GameScenePlayLayer : public cocos2d::CCLayer
 
     CCPoint m_tBeginPos;
 	CCPoint s_tCurPos;
-    
 	enum
 	{
 		ACTION_CROUCH = 0,
@@ -54,7 +54,7 @@ class GameScenePlayLayer : public cocos2d::CCLayer
         ACTION_CROUCH_JUMP,
 		ACTION_RUN_STOP,
 	};
-    
+ 
     CREATE_FUNC(GameScenePlayLayer);
 };
 
