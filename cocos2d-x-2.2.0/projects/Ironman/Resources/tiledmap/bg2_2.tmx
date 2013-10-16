@@ -53,12 +53,4 @@
    eJxjYBgFo2AUjIJRMApGwSgYnkCSTDlxPHJSRNgLACd8AGQ=
   </data>
  </layer>
- <objectgroup name="object" width="30" height="20">
-  <properties>
-   <property name="name" value="check"/>
-   <property name="ppp" value="1"/>
-  </properties>
-  <object x="3" y="252" width="476" height="67"/>
-  <object x="120" y="191" width="144" height="57"/>
- </objectgroup>
 </map>

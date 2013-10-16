@@ -30,7 +30,7 @@
  </layer>
  <layer name="cloud" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGLuAmUT0vAXkech0yCoYVAABXkAAl
+   eJxjYBgFo2AUjIJRMApGLuAmUT0vAXkech2CBEh1E7l6RgHtAAB8LAA7
   </data>
  </layer>
  <layer name="camp" width="30" height="20">
@@ -40,17 +40,7 @@
  </layer>
  <layer name="floor" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYnoCVgDwLAXk2HOLsBPQBAA9IABc=
-  </data>
- </layer>
- <layer name="stair" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAddAO2AUDCsAACCAAAs=
-  </data>
- </layer>
- <layer name="pipe2" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBQpQWo4KZgEAGtgAPw==
+   eJxjYBgFo2AUjIJRMApGwSgYnoCVRvKE9AEADygAFQ==
   </data>
  </layer>
  <layer name="pipe" width="30" height="20">
@@ -58,15 +48,4 @@
    eJxjYBgFo2AUjIJRMApGwSgYnkASj5wUHjkJCs0EACjEAH8=
   </data>
  </layer>
- <objectgroup name="object" width="30" height="20">
-  <properties>
-   <property name="name" value="check"/>
-   <property name="ppp" value="1"/>
-  </properties>
-  <object x="2" y="251" width="319" height="67"/>
-  <object x="338" y="240" width="140" height="79"/>
-  <object x="41" y="250">
-   <polyline points="0,0 82,-109 228,-108 309,1 0,2"/>
-  </object>
- </objectgroup>
 </map>
