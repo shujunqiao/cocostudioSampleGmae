@@ -10,15 +10,28 @@
 #define Ironman_GameSceneMenuLayer_h
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "GameScene.h"
 USING_NS_CC;
 
 using namespace extension;
-
+class GameScene;
 class GameSceneMenuLayer : public UILayer
 {
-    public:
+public:
     
-        bool init();
+    bool init(int broodBarPercent, const char *value, GameScene* gameScene);
+    
+    virtual void settingBtnCallback(CCObject* sender);
+    virtual void setBroodBarPercent(int percent);
+    virtual void setDistanceScore(const char *value);
+    const char* getDistanceScore();
+    
+protected:
+    
+    GameScene*    parentScene;
+    UILoadingBar* broodBar;
+    UIButton*     settingBtn;
+    UILabelAtlas* distanceScore;
 };
 
 #endif

@@ -105,8 +105,8 @@ void MainMenuScene::dataLoaded(float percent)
 			GameScene* gameScene = new GameScene();
 			gameScene->init();
     
-			CCTransitionFade* gameScneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
-			CCDirector::sharedDirector()->replaceScene(gameScneTransition);
+			CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
+			CCDirector::sharedDirector()->replaceScene(gameSceneTransition);
 		}
 		break;
 	}	

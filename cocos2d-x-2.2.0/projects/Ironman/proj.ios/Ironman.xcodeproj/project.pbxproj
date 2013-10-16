@@ -235,6 +235,7 @@
 		842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */; };
 		842F8DFB180BE60300CB8B3D /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = 842F8DFA180BE60300CB8B3D /* iphone */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
+		848A5689180E5425002BEA6C /* GameSceneOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848A5687180E5425002BEA6C /* GameSceneOverLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -734,6 +735,8 @@
 		842F8DFA180BE60300CB8B3D /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
 		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
 		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
+		848A5687180E5425002BEA6C /* GameSceneOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneOverLayer.cpp; path = ../../../../../../../Documents/backup/GameSceneOverLayer.cpp; sourceTree = "<group>"; };
+		848A5688180E5425002BEA6C /* GameSceneOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneOverLayer.h; path = ../../../../../../../Documents/backup/GameSceneOverLayer.h; sourceTree = "<group>"; };
 		848B4ECC18059C8400783639 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1743,6 +1746,8 @@
 		842BAE641806A4C500A90B67 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				848A5687180E5425002BEA6C /* GameSceneOverLayer.cpp */,
+				848A5688180E5425002BEA6C /* GameSceneOverLayer.h */,
 				842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */,
 				842BAE6F1806B64900A90B67 /* GameScenePlayLayer.h */,
 				842F8DB1180BCDB600CB8B3D /* GameSceneMenuLayer.h */,
@@ -2058,6 +2063,7 @@
 				842BAE731806B65400A90B67 /* GameScene.cpp in Sources */,
 				844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */,
 				842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */,
+				848A5689180E5425002BEA6C /* GameSceneOverLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
