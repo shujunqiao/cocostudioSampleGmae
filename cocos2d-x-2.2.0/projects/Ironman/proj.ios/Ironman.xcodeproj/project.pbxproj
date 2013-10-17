@@ -235,6 +235,7 @@
 		842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
 		846006D0180EA25800D04D52 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = 846006CF180EA25800D04D52 /* iphone */; };
+		84A699A0180FE51900855EC6 /* GameSceneSetLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A6999E180FE51900855EC6 /* GameSceneSetLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -738,6 +739,8 @@
 		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
 		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
 		846006CF180EA25800D04D52 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
+		84A6999E180FE51900855EC6 /* GameSceneSetLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneSetLayer.cpp; path = ../Classes/GameSceneSetLayer.cpp; sourceTree = "<group>"; };
+		84A6999F180FE51900855EC6 /* GameSceneSetLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneSetLayer.h; path = ../Classes/GameSceneSetLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1755,6 +1758,8 @@
 		842BAE641806A4C500A90B67 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				84A6999E180FE51900855EC6 /* GameSceneSetLayer.cpp */,
+				84A6999F180FE51900855EC6 /* GameSceneSetLayer.h */,
 				EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */,
 				EDF800C6180E75E200F356D4 /* GameSceneMapLayer.h */,
 				EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */,
@@ -2078,6 +2083,7 @@
 				EDF800C4180E73D500F356D4 /* GameSceneOverLayer.cpp in Sources */,
 				EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */,
 				ED7D5AFE180FC97700BDCFAE /* AudioPlayer.cpp in Sources */,
+				84A699A0180FE51900855EC6 /* GameSceneSetLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

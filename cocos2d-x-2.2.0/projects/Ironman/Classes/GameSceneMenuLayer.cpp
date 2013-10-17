@@ -19,18 +19,30 @@ bool GameSceneMenuLayer::init(int broodBarPercent,const char *value)
         broodBar      = dynamic_cast<UILoadingBar*>(this->getWidgetByName("BroodBar"));
         distanceScore = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("DistanceScore"));
         
-        settingBtn->addReleaseEvent(this, coco_releaseselector(GameSceneMenuLayer::settingBtnCallback));
+        settingBtn->addTouchEventListener(this, toucheventselector(GameSceneMenuLayer::settingBtnCallback));
         this->setBroodBarPercent(broodBarPercent);
         this->setDistanceScore(value);
+		
+		musicEffect = 0;
+		musicVolume = 50;
         
         return true;
     }
     return false;
 }
 
-void GameSceneMenuLayer::settingBtnCallback(CCObject* sender)
+void GameSceneMenuLayer::settingBtnCallback(CCObject *pSender, TouchEventType type)
 {
-    parentScene->gameOver();
+	if(TOUCH_EVENT_BEGAN == type){
+		
+		GameSceneSetLayer* gameSetLayer = new GameSceneSetLayer();
+		gameSetLayer->init(musicEffect, musicVolume);
+		gameSetLayer->setAnchorPoint(ccp(0, 0));
+		gameSetLayer->setPosition(ccp(0, 0));
+		
+		parentScene->addChild(gameSetLayer,4);
+	}
+	
 }
 
 void GameSceneMenuLayer::setBroodBarPercent(int percent)

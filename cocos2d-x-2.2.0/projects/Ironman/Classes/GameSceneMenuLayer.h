@@ -11,20 +11,24 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "GameScene.h"
+#include "GameSceneSetLayer.h"
 USING_NS_CC;
 
 using namespace extension;
 class GameScene;
+class GameSceneSetLayer;
 class GameSceneMenuLayer : public UILayer
 {
 public:
     
     bool init(int broodBarPercent, const char *value);
     
-    virtual void settingBtnCallback(CCObject* sender);
+    virtual void settingBtnCallback(CCObject *pSender, TouchEventType type);
     virtual void setBroodBarPercent(int percent);
     virtual void setDistanceScore(const char *value);
     const char* getDistanceScore();
+	int musicEffect;
+	int musicVolume;
     
 protected:
     
