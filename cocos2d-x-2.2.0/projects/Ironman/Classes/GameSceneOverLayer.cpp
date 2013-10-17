@@ -15,20 +15,20 @@ bool GameSceneOverLayer::init()
 		parentScene = GameScene::shareGameScene();
         this->addWidget(dynamic_cast<Layout*>(CCUIHELPER->createWidgetFromJsonFile("iphone/GameSceneOverLayer_1.json")));
         
-        playAgainBtn        = dynamic_cast<UIButton*>(this->getWidgetByName("playAgain"));
-        monsterGroundAmount = dynamic_cast<UITextField*>(this->getWidgetByName("monsterGroundLabel"));
-        monsterSkyAmount    = dynamic_cast<UITextField*>(this->getWidgetByName("monsterSkyLabel"));
-        distanceScore       = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("distanceScore"));
-        finalScore          = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("finalScore"));
+        UIButton*    playAgainBtn        = dynamic_cast<UIButton*>(this->getWidgetByName("playAgain"));
+        UITextField* monsterGroundAmount = dynamic_cast<UITextField*>(this->getWidgetByName("monsterGroundLabel"));
+        UITextField* monsterSkyAmount    = dynamic_cast<UITextField*>(this->getWidgetByName("monsterSkyLabel"));
+        UILabelAtlas* distanceScore      = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("distanceScore"));
+        finalScore = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("finalScore"));
         
-        playAgainBtn->addReleaseEvent(this, coco_releaseselector(GameSceneOverLayer::playAgainBtnCallback));
+        playAgainBtn->addTouchEventListener(this, toucheventselector(GameSceneOverLayer::playAgainBtnCallback));
         monsterGroundAmount->setText(parentScene->playLayer->getMonsterGroundAmount());
         monsterSkyAmount->setText(parentScene->playLayer->getMonsterSkyAmount());
         distanceScore->setStringValue(parentScene->menuLayer->getDistanceScore());
         
         return true;
     }
-
+	
     return false;
 }
 
@@ -39,11 +39,13 @@ void GameSceneOverLayer::calculateFinalScore(const char* monsterSkyAmountValue,c
     finalScore->setStringValue((const char*)score);
 }
 
-void GameSceneOverLayer::playAgainBtnCallback(CCObject* sender)
+void GameSceneOverLayer::playAgainBtnCallback(CCObject *pSender, TouchEventType type)
 {
-	GameScene* againScene = new GameScene();
-    againScene->init();
-    
-    CCTransitionFade* playAgainTransition =  CCTransitionFade::create(0.5, againScene, ccWHITE);
-    CCDirector::sharedDirector()->replaceScene(playAgainTransition);
+	if(TOUCH_EVENT_BEGAN == type){
+	    GameScene* againScene = new GameScene();
+        againScene->init();
+		
+        CCTransitionFade* playAgainTransition =  CCTransitionFade::create(0.5, againScene, ccWHITE);
+        CCDirector::sharedDirector()->replaceScene(playAgainTransition);
+	}
 }

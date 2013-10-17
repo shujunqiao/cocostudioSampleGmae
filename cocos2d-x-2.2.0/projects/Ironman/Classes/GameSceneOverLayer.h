@@ -26,15 +26,10 @@ public:
 protected:
     
 	GameScene* parentScene;
-    UIButton* playAgainBtn;
-    UITextField* monsterSkyAmount;
-    UITextField* monsterGroundAmount;
-    UILabelAtlas* distanceScore;
     UILabelAtlas* finalScore;
-    
     void calculateFinalScore(const char* monsterSkyAmountValue,const char* monsterGroundAmountValue, const char* distanceScoreValue);
-	virtual void playAgainBtnCallback(CCObject* sender);
-
+	virtual void playAgainBtnCallback(CCObject *pSender, TouchEventType type);
+	
 };
 
 
