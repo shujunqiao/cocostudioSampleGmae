@@ -248,6 +248,8 @@
 		D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949B15BD2D8E00D803EB /* Icon-114.png */; };
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
+		ED7D5AFB180FC8C200BDCFAE /* music in Resources */ = {isa = PBXBuildFile; fileRef = ED7D5AFA180FC8C200BDCFAE /* music */; };
+		ED7D5AFE180FC97700BDCFAE /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED7D5AFC180FC97700BDCFAE /* AudioPlayer.cpp */; };
 		EDF800C4180E73D500F356D4 /* GameSceneOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */; };
 		EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */; };
 /* End PBXBuildFile section */
@@ -750,6 +752,9 @@
 		D4EF949D15BD2D9600D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		ED7D5AFA180FC8C200BDCFAE /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
+		ED7D5AFC180FC97700BDCFAE /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioPlayer.cpp; path = ../Classes/AudioPlayer.cpp; sourceTree = "<group>"; };
+		ED7D5AFD180FC97700BDCFAE /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayer.h; path = ../Classes/AudioPlayer.h; sourceTree = "<group>"; };
 		EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneOverLayer.cpp; path = ../Classes/GameSceneOverLayer.cpp; sourceTree = "<group>"; };
 		EDF800C3180E73D500F356D4 /* GameSceneOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneOverLayer.h; path = ../Classes/GameSceneOverLayer.h; sourceTree = "<group>"; };
 		EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMapLayer.cpp; path = ../Classes/GameSceneMapLayer.cpp; sourceTree = "<group>"; };
@@ -1272,6 +1277,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ED7D5AFC180FC97700BDCFAE /* AudioPlayer.cpp */,
+				ED7D5AFD180FC97700BDCFAE /* AudioPlayer.h */,
 				842BAE641806A4C500A90B67 /* Layer */,
 				842BAE631806A48A00A90B67 /* Scene */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
@@ -1720,6 +1727,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED7D5AFA180FC8C200BDCFAE /* music */,
 				846006CF180EA25800D04D52 /* iphone */,
 				D41A0AD0160F154A004552AE /* Default-568h@2x.png */,
 				7855E0DF153FEF240059DD9A /* Default.png */,
@@ -1841,6 +1849,7 @@
 				379BB9D017F03F3700829B88 /* json_valueiterator.inl in Resources */,
 				379BB9D217F03F3700829B88 /* sconscript in Resources */,
 				846006D0180EA25800D04D52 /* iphone in Resources */,
+				ED7D5AFB180FC8C200BDCFAE /* music in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2068,6 +2077,7 @@
 				842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */,
 				EDF800C4180E73D500F356D4 /* GameSceneOverLayer.cpp in Sources */,
 				EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */,
+				ED7D5AFE180FC97700BDCFAE /* AudioPlayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
