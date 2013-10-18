@@ -26,6 +26,21 @@ private:
 	 CCMenu* mainMenu;
 	 int loadingCount;
 	  void dataLoaded(float percent);
+	  enum
+	{
+		ACTION_CROUCH = 0,
+		ACTION_RUN,
+		ACTION_RUN_JUMP,
+		ACTION_STAND_JUMP,
+        ACTION_CROUCH_JUMP,
+		ACTION_RUN_STOP,
+		ACTION_RUN_ATTACK,
+		ACTION_STAND_ATTACK,
+		ACTION_MONSTER_GROUND,
+		ACTION_MONSTER_SKY,
+		MONSTER_GROUND_MOVING,
+		MONSTER_SKY__MOVING,
+	};
 };
 
 #endif

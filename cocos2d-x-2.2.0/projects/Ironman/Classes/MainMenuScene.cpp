@@ -8,7 +8,7 @@
 
 #include "MainMenuScene.h"
 #include "GameScene.h"
-
+static bool isFirstInGame = true;
 bool MainMenuScene::init()
 {    
     CCLayer* menuLayer = CCLayer::create();
@@ -64,52 +64,73 @@ void MainMenuScene::startBtnCallFunc(CCObject* pSender)
 }
 void MainMenuScene::dataLoaded(float percent)
 {
-	
+		if(isFirstInGame)
+
 	switch (loadingCount)
 	{
-		case 0:
+		case ACTION_CROUCH:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMCrouch.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 1:
+		case ACTION_RUN:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRun.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 2:
+		case ACTION_RUN_JUMP:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRunJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 3:
+		case ACTION_STAND_JUMP:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMStandJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 4:
+		case ACTION_CROUCH_JUMP:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMCrouchJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 5:
+		case ACTION_RUN_STOP:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRunStop.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 6:
+		case ACTION_RUN_ATTACK:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/LaserRunAttack.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-		case 7:
+		case ACTION_STAND_ATTACK:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/LaserStandAttack.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-
+		case ACTION_MONSTER_GROUND:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterGroundAnimation.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+		case ACTION_MONSTER_SKY:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterSkyAnimation.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+			case MONSTER_GROUND_MOVING:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterGroundMoving.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
+			case MONSTER_SKY__MOVING:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterSkyMoving.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
 	default:
 		{
+			isFirstInGame = false;
 			GameScene* gameScene =  GameScene::shareGameScene();
 			CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
 			CCDirector::sharedDirector()->replaceScene(gameSceneTransition);

@@ -27,6 +27,10 @@ bool GameScene::init()
     playLayer->init();
     this->addChild(playLayer, 0);
     
+	gameSceneMonster = new GameSceneMonster();
+    gameSceneMonster->init();
+    this->addChild(gameSceneMonster, 0);
+
     return true;
 }
 

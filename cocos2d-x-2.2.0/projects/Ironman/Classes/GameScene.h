@@ -13,15 +13,19 @@
 #include "cocos-ext.h"
 #include "GameSceneMapLayer.h"
 #include "GameScenePlayLayer.h"
+#include "GameSceneMonster.h"
 #include "GameSceneMenuLayer.h"
 #include "GameSceneOverLayer.h"
+
 USING_NS_CC;
 
 using namespace extension;
 class GameSceneMapLayer;
 class GameScenePlayLayer;
+class GameSceneMonster;
 class GameSceneMenuLayer;
 class GameSceneOverLayer;
+
 class GameScene : public cocos2d::CCScene
 {
 public:
@@ -33,6 +37,7 @@ public:
 	
 	GameSceneMapLayer * gameSceneMapLayer;
     GameScenePlayLayer* playLayer;
+	GameSceneMonster * gameSceneMonster;
 	GameSceneMenuLayer* menuLayer;
 };
 

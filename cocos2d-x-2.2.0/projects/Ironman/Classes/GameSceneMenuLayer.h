@@ -24,7 +24,7 @@ public:
     virtual void settingBtnCallback(CCObject* sender);
     virtual void setBroodBarPercent(int percent);
     virtual void setDistanceScore(const char *value);
-    const char* getDistanceScore();
+    const   char* getDistanceScore();
     
 protected:
     
