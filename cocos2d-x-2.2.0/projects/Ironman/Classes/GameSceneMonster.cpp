@@ -55,10 +55,10 @@ void GameSceneMonster::MonsterGroundMoving(CCPoint position)
 	addChild(armature);
 	MonsterGroundAmature = armature;
 	MonsterIndex = MonsterGround_enum;
-	CCActionInterval * jumpAction = CCJumpTo::create(0.5,MonsterGroundAmature->getPosition(),100,1);
+	CCActionInterval * jumpAction = CCJumpTo::create(1.0,GameScene::shareGameScene()->playLayer->getPosition(),100,3);
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
-	 CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
-            MonsterGroundAmature->runAction(action);
+	CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
+    MonsterGroundAmature->runAction(action);
 }
 void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 {
@@ -73,10 +73,10 @@ void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 	addChild(armature);
 	MonsterSkyAmature = armature;
 	MonsterIndex = MonsterSky_enum;
-	CCActionInterval * jumpAction = CCJumpTo::create(0.5,MonsterSkyAmature->getPosition(),100,1);
+	CCActionInterval * jumpAction = CCJumpTo::create(1.0,GameScene::shareGameScene()->playLayer->getPosition(),100,3);
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
-	 CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
-      MonsterGroundAmature->runAction(action);
+	CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
+    MonsterSkyAmature->runAction(action);
 }
 void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 {
@@ -113,11 +113,13 @@ void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 	 {
 		case MonsterGround_enum:
 		{
+			MonsterGroundAmature->removeAllChildrenWithCleanup(false);
 			MonsterGroundDestroyAction(MonsterGroundAmature->getPosition());
 		}
 			break;
 		case MonsterSky_enum:
 		{
+			MonsterSkyAmature->removeAllChildrenWithCleanup(false);
 			MonsterSkyDestroyAction(MonsterSkyAmature->getPosition());
 		}
 			break;
