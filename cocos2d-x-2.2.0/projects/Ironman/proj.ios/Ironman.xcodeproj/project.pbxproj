@@ -233,6 +233,7 @@
 		842BAE701806B64900A90B67 /* GameScenePlayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE6E1806B64900A90B67 /* GameScenePlayLayer.cpp */; };
 		842BAE731806B65400A90B67 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842BAE711806B65400A90B67 /* GameScene.cpp */; };
 		842F8DB3180BCDC400CB8B3D /* GameSceneMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */; };
+		844233931811085700981BB1 /* Laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844233921811085700981BB1 /* Laser.cpp */; };
 		844BB87B180704C5009BEBC2 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */; };
 		846006D0180EA25800D04D52 /* iphone in Resources */ = {isa = PBXBuildFile; fileRef = 846006CF180EA25800D04D52 /* iphone */; };
 		84A699A0180FE51900855EC6 /* GameSceneSetLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A6999E180FE51900855EC6 /* GameSceneSetLayer.cpp */; };
@@ -737,6 +738,8 @@
 		842BAE721806B65400A90B67 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
 		842F8DB1180BCDB600CB8B3D /* GameSceneMenuLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneMenuLayer.h; path = ../Classes/GameSceneMenuLayer.h; sourceTree = "<group>"; };
 		842F8DB2180BCDC400CB8B3D /* GameSceneMenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMenuLayer.cpp; path = ../Classes/GameSceneMenuLayer.cpp; sourceTree = "<group>"; };
+		844233911811084B00981BB1 /* Laser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Laser.h; path = ../Classes/Laser.h; sourceTree = "<group>"; };
+		844233921811085700981BB1 /* Laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Laser.cpp; path = ../Classes/Laser.cpp; sourceTree = "<group>"; };
 		844BB879180704B5009BEBC2 /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../Classes/MainMenuScene.h; sourceTree = "<group>"; };
 		844BB87A180704C5009BEBC2 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenuScene.cpp; path = ../Classes/MainMenuScene.cpp; sourceTree = "<group>"; };
 		846006CF180EA25800D04D52 /* iphone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = iphone; sourceTree = "<group>"; };
@@ -1289,6 +1292,8 @@
 				842BAE631806A48A00A90B67 /* Scene */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
+				844233911811084B00981BB1 /* Laser.h */,
+				844233921811085700981BB1 /* Laser.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2090,6 +2095,7 @@
 				ED7D5AFE180FC97700BDCFAE /* AudioPlayer.cpp in Sources */,
 				84A699A0180FE51900855EC6 /* GameSceneSetLayer.cpp in Sources */,
 				EDDEB2B11810DF7A009F93B2 /* GameSceneMonster.cpp in Sources */,
+				844233931811085700981BB1 /* Laser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
