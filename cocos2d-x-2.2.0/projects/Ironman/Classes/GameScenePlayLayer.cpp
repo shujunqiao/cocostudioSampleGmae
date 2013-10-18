@@ -252,6 +252,81 @@ void GameScenePlayLayer::IMRunningStop()
 	GameScene::shareGameScene()->gameSceneMapLayer->stop();
 }
 
+float GameScenePlayLayer::getAngle(CCPoint touch)
+{
+    //touch = ccp(240, 290);
+    CCPoint posOrg = ccp(140, 190);
+    if(touch.x == posOrg.x)
+        return -1.57;
+    if (touch.y == posOrg.y) {
+        if (touch.x > posOrg.x) {
+            return 0;
+        }
+        if (touch.x < posOrg.x) {
+            return 3.14;
+        }
+    }
+    float tan = (touch.y - posOrg.y)/(touch.x - posOrg.x);
+    double angle = atan(tan);
+    CCLog("tan: %f, %f", tan, angle);
+    return -angle;
+}
+CCPoint GameScenePlayLayer::getPosHand(float angle)
+{
+    CCPoint posOrg = ccp(140, 190);
+    CCPoint posH;
+    float length = 56.0;
+    posH.x = posOrg.x + length * cos(angle);
+    posH.y = posOrg.y + length * sin(angle);
+    
+    return posH;
+}
+
+void GameScenePlayLayer::IMRunAttack(CCPoint touch)
+{
+    float angle = getAngle(touch);
+    CCPoint posHand = getPosHand(angle);
+    CCArmature *armature = NULL;
+    armature = CCArmature::create("LaserRunAttack");
+    armature->getAnimation()->play("RunningAttack");
+	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setPosition(ccp(100, 50));
+    CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
+    leftArmBone->setRotation(getAngle(touch));
+    amaturePosition = armature->getPosition();
+	addChild(armature);
+    CCPoint pArm = leftArmBone->getPosition();
+    //CCLog("arm pos: %f, %f, %f, %f.", posHand.x, posHand.y, amaturePosition.x, amaturePosition.y);
+	imManArmature = armature;
+	actionNum = ACTION_RUN_ATTACK;
+    armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
+	//LaserManager::shareGameScene()->gameSceneMapLayer->attack();
+}
+
+void GameScenePlayLayer::IMStandAttack(CCPoint touch)
+{
+    
+}
+
+void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
+{
+    std::string id = movementID;
+    
+    CCLog("setAttackEvent %d.", movementType);
+    if (movementType == LOOP_COMPLETE)
+    {
+        CCLog("setAttackEvent end");
+        armature->removeFromParentAndCleanup(true);
+        //        if (id.compare("LOOP_COMPLETE") == 0)
+        //        {
+        //            CCActionInterval *actionToRight = CCMoveTo::create(2, ccp(VisibleRect::right().x - 50, VisibleRect::right().y));
+        //            armature->stopAllActions();
+        //            armature->runAction(CCSequence::create(actionToRight,  CCCallFunc::create(this, callfunc_selector(TestAnimationEvent::callback1)), NULL));
+        //            armature->getAnimation()->play("Walk");
+        //        }
+    }
+}
+
 const char* GameScenePlayLayer::getMonsterGroundAmount()
 {
 	return (const char*)monsterGroundAmount;

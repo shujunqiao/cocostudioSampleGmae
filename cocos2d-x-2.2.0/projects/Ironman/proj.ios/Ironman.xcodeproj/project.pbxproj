@@ -251,6 +251,7 @@
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
 		ED7D5AFB180FC8C200BDCFAE /* music in Resources */ = {isa = PBXBuildFile; fileRef = ED7D5AFA180FC8C200BDCFAE /* music */; };
 		ED7D5AFE180FC97700BDCFAE /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED7D5AFC180FC97700BDCFAE /* AudioPlayer.cpp */; };
+		EDDEB2B11810DF7A009F93B2 /* GameSceneMonster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDDEB2AF1810DF7A009F93B2 /* GameSceneMonster.cpp */; };
 		EDF800C4180E73D500F356D4 /* GameSceneOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */; };
 		EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */; };
 /* End PBXBuildFile section */
@@ -758,6 +759,8 @@
 		ED7D5AFA180FC8C200BDCFAE /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
 		ED7D5AFC180FC97700BDCFAE /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioPlayer.cpp; path = ../Classes/AudioPlayer.cpp; sourceTree = "<group>"; };
 		ED7D5AFD180FC97700BDCFAE /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayer.h; path = ../Classes/AudioPlayer.h; sourceTree = "<group>"; };
+		EDDEB2AF1810DF7A009F93B2 /* GameSceneMonster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMonster.cpp; path = ../Classes/GameSceneMonster.cpp; sourceTree = "<group>"; };
+		EDDEB2B01810DF7A009F93B2 /* GameSceneMonster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneMonster.h; path = ../Classes/GameSceneMonster.h; sourceTree = "<group>"; };
 		EDF800C2180E73D500F356D4 /* GameSceneOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneOverLayer.cpp; path = ../Classes/GameSceneOverLayer.cpp; sourceTree = "<group>"; };
 		EDF800C3180E73D500F356D4 /* GameSceneOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSceneOverLayer.h; path = ../Classes/GameSceneOverLayer.h; sourceTree = "<group>"; };
 		EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSceneMapLayer.cpp; path = ../Classes/GameSceneMapLayer.cpp; sourceTree = "<group>"; };
@@ -1758,6 +1761,8 @@
 		842BAE641806A4C500A90B67 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				EDDEB2AF1810DF7A009F93B2 /* GameSceneMonster.cpp */,
+				EDDEB2B01810DF7A009F93B2 /* GameSceneMonster.h */,
 				84A6999E180FE51900855EC6 /* GameSceneSetLayer.cpp */,
 				84A6999F180FE51900855EC6 /* GameSceneSetLayer.h */,
 				EDF800C5180E75E200F356D4 /* GameSceneMapLayer.cpp */,
@@ -2084,6 +2089,7 @@
 				EDF800C7180E75E200F356D4 /* GameSceneMapLayer.cpp in Sources */,
 				ED7D5AFE180FC97700BDCFAE /* AudioPlayer.cpp in Sources */,
 				84A699A0180FE51900855EC6 /* GameSceneSetLayer.cpp in Sources */,
+				EDDEB2B11810DF7A009F93B2 /* GameSceneMonster.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
