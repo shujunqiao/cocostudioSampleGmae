@@ -23,7 +23,6 @@ public:
     
     bool init(int broodBarPercent, const char *value);
     
-    virtual void settingBtnCallback(CCObject* sender);
     virtual void settingBtnCallback(CCObject *pSender, TouchEventType type);
     virtual void setBroodBarPercent(int percent);
     virtual void setDistanceScore(const char *value);
