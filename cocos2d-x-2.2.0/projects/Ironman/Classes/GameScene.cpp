@@ -60,3 +60,8 @@ void GameScene::gameOver()
 	this->addChild(overLayer);
 }
 
+void GameScene::destroy()
+{
+	delete _sharedGameScene;
+	_sharedGameScene = NULL;
+}

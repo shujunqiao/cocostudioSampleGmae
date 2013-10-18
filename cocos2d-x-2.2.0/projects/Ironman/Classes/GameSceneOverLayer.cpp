@@ -42,9 +42,9 @@ void GameSceneOverLayer::calculateFinalScore(const char* monsterSkyAmountValue,c
 void GameSceneOverLayer::playAgainBtnCallback(CCObject *pSender, TouchEventType type)
 {
 	if(TOUCH_EVENT_BEGAN == type){
-	    GameScene* againScene = new GameScene();
-        againScene->init();
-		
+		GameScene::shareGameScene()->destroy();
+	    GameScene* againScene = GameScene::shareGameScene();
+    
         CCTransitionFade* playAgainTransition =  CCTransitionFade::create(0.5, againScene, ccWHITE);
         CCDirector::sharedDirector()->replaceScene(playAgainTransition);
 	}
