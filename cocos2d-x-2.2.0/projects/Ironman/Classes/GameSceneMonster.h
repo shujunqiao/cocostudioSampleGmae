@@ -34,8 +34,8 @@ private:
 	CCArmature * MonsterGroundAmature;
 	CCArmature * MonsterSkyAmature;
 	int MonsterIndex;
-	float VisibleSize;
-	float VisiblePosition;
+	CCSize VisibleSize;
+	CCPoint VisiblePosition;
     CREATE_FUNC(GameSceneMonster);
 };
 
