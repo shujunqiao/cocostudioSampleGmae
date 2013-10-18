@@ -28,14 +28,16 @@ private:
 	void MonsterSkyMoving(CCPoint position);
 	void MonsterGroundDestroyAction(CCPoint position);
 	void MonsterSkyDestroyAction(CCPoint position);
+	void MonsterDestroyAction();
 	int random(int start, int end);
 	void JumpActionCallBack(CCNode* sender, void* data);
+	void update(float dt);
 
 	CCArmature * MonsterGroundAmature;
 	CCArmature * MonsterSkyAmature;
 	int MonsterIndex;
-	float VisibleSize;
-	float VisiblePosition;
+	CCSize VisibleSize;
+	CCPoint VisiblePosition;
     CREATE_FUNC(GameSceneMonster);
 };
 

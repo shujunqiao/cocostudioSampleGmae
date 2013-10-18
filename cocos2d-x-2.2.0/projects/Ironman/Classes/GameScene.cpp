@@ -59,3 +59,4 @@ void GameScene::gameOver()
 	
 	this->addChild(overLayer);
 }
+
