@@ -14,6 +14,7 @@
 bool GameScenePlayLayer::init()
 {
 	touchTime = 0;
+	imManArmatureBrood = 100;
 	this->IMCrouch();
 	this->setTouchEnabled(true);
 	actionNum = ACTION_CROUCH;
@@ -307,10 +308,27 @@ void GameScenePlayLayer::IMStandAttack(CCPoint touch)
 {
     
 }
-
+void GameScenePlayLayer::IMDeath()
+{
+	this->setTouchEnabled(false);
+	imManArmature->removeFromParentAndCleanup(true);
+	CCArmature *armature = NULL;
+	armature = CCArmature::create("IMDead");
+	armature->getAnimation()->playByIndex(0);
+	armature->getAnimation()->setSpeedScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
+	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setPosition(ccp(100, 50));
+	amaturePosition = armature->getPosition();
+	addChild(armature);
+	imManArmature = armature;
+	actionNum = ACTION_DEATH;
+	armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::Dead));
+	
+}
 void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
 {
-    std::string id = movementID;
+	   std::string id = movementID;
     
     CCLog("setAttackEvent %d.", movementType);
     if (movementType == LOOP_COMPLETE)
@@ -325,6 +343,11 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
         //            armature->getAnimation()->play("Walk");
         //        }
     }
+
+}
+void GameScenePlayLayer::Dead(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
+{
+ 	GameScene::shareGameScene()->gameOver();
 }
 
 const char* GameScenePlayLayer::getMonsterGroundAmount()

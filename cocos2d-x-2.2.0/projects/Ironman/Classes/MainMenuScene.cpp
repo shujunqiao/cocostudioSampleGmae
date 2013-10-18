@@ -108,6 +108,11 @@ void MainMenuScene::dataLoaded(float percent)
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/LaserStandAttack.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
+		case ACTION_IM_DEATH:
+		{
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMDead.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
+		}
+		break;
 		case ACTION_MONSTER_GROUND:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterGroundAnimation.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
@@ -128,6 +133,7 @@ void MainMenuScene::dataLoaded(float percent)
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterSkyMoving.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
+
 	default:
 		{
 			isFirstInGame = false;
