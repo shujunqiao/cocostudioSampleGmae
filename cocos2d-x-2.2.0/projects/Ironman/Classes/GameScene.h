@@ -32,9 +32,8 @@ public:
     
     bool init();
 	static GameScene * shareGameScene();
-	
 	void gameOver();
-	
+
 	GameSceneMapLayer * gameSceneMapLayer;
     GameScenePlayLayer* playLayer;
 	GameSceneMonster * gameSceneMonster;

@@ -10,7 +10,7 @@
 #include "GameScene.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
-#define PTM_RATIO 32.0
+#define PLAYER_SCALE 0.6f
 bool GameScenePlayLayer::init()
 {
 	touchTime = 0;
@@ -109,7 +109,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
         if(0 == armatureName.compare("IMRun"))
         {
             this->IMRunJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),100,1);
+            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),150,1);
             CCCallFunc * callBack;
 			if(nMoveX<0)
 			{
@@ -129,7 +129,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
         if(0 == armatureName.compare("IMRunStop"))
         {
             this ->IMStandJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),100,1);
+            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),150,1);
             CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::standJumpActionCallBack), (void*)0xbebabeba);
             CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
             imManArmature->runAction(action);
@@ -161,7 +161,7 @@ void GameScenePlayLayer::IMCrouch()
 	armature = cocos2d::extension::CCArmature::create("IMCrouch");
 	armature->getAnimation()->play("crouch");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(50, 50));
 	amaturePosition = armature->getPosition();
@@ -177,7 +177,7 @@ void GameScenePlayLayer::IMRunning()
 	armature = CCArmature::create("IMRun");
 	armature->getAnimation()->play("Running");
 	armature->getAnimation()->setSpeedScale(2.0f);
-	armature->setScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(50, 50));
 	amaturePosition = armature->getPosition();
@@ -193,7 +193,7 @@ void GameScenePlayLayer::IMStandJump()
 	armature = CCArmature::create("IMStandJump");
 	armature->getAnimation()->play("StandJump");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(50, 50));
 	amaturePosition = armature->getPosition();
@@ -210,7 +210,7 @@ void GameScenePlayLayer::IMRunJump()
 	armature = CCArmature::create("IMRunJump");
 	armature->getAnimation()->play("RuningJump");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(50, 50));
 	amaturePosition = armature->getPosition();
@@ -226,7 +226,7 @@ void GameScenePlayLayer::IMCrouchJump()
 	armature = CCArmature::create("IMCrouchJump");
 	armature->getAnimation()->play("CrouchJump");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(50, 50));
 	amaturePosition = armature->getPosition();
@@ -242,7 +242,7 @@ void GameScenePlayLayer::IMRunningStop()
 	armature = CCArmature::create("IMRunStop");
 	armature->getAnimation()->play("RunningStop");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(1.0f);
+	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(ccp(100, 50));
 	amaturePosition = armature->getPosition();

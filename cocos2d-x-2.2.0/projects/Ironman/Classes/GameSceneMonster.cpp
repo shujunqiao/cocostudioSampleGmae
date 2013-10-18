@@ -59,6 +59,7 @@ void GameSceneMonster::MonsterGroundMoving(CCPoint position)
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
 	CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
     MonsterGroundAmature->runAction(action);
+	this->scheduleUpdate();
 }
 void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 {
@@ -77,9 +78,11 @@ void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
 	CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
     MonsterSkyAmature->runAction(action);
+	this->scheduleUpdate();
 }
 void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 {
+	this->unscheduleUpdate();  
 	CCArmature *armature = NULL;
 	armature = cocos2d::extension::CCArmature::create("MonsterGroundAnimation");
 	armature->getAnimation()->playByIndex(0);
@@ -92,6 +95,7 @@ void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 }
 void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 {
+	this->unscheduleUpdate();  
 	CCArmature *armature = NULL;
 	armature = cocos2d::extension::CCArmature::create("MonsterSkyAnimation");
 	armature->getAnimation()->playByIndex(0);
@@ -102,14 +106,9 @@ void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 	addChild(armature);
 	MonsterSkyAmature = armature;
 }
-int GameSceneMonster::random(int start, int end)
+void GameSceneMonster::MonsterDestroyAction()
 {
-	float i = CCRANDOM_0_1()*(end-start+1)+start;
-	return (int)i;
-}
-void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
-{
-	 switch (MonsterIndex)
+	switch (MonsterIndex)
 	 {
 		case MonsterGround_enum:
 		{
@@ -133,6 +132,48 @@ void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 	 default:
 		 break;
 	 }
-
+}
+int GameSceneMonster::random(int start, int end)
+{
+	float i = CCRANDOM_0_1()*(end-start+1)+start;
+	return (int)i;
+}
+void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
+{
+	 MonsterDestroyAction();
 	 GameSceneMonster::init();
+}
+void GameSceneMonster::update(float dt)
+{
+	CCArmature * aAmature;
+	switch (MonsterIndex)
+	 {
+		case MonsterGround_enum:
+		{
+			aAmature = MonsterGroundAmature;
+		}
+			break;
+		case MonsterSky_enum:
+		{
+			aAmature = MonsterSkyAmature;
+		}
+			break;
+			/*
+			case 1:
+		{
+
+		}
+			break;
+			*/
+	 default:
+		 break;
+	 }
+
+	if (GameScene::shareGameScene()->playLayer->boundingBox().intersectsRect(aAmature->boundingBox()))
+	{
+		aAmature->stopAllActions();
+		MonsterDestroyAction();
+	    GameSceneMonster::init();
+		this->unscheduleUpdate();  
+	}
 }
