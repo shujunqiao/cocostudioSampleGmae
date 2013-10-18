@@ -32,9 +32,12 @@ private:
 	int random(int start, int end);
 	void JumpActionCallBack(CCNode* sender, void* data);
 	void update(float dt);
-
+	void draw();
+	/*
 	CCArmature * MonsterGroundAmature;
 	CCArmature * MonsterSkyAmature;
+	*/
+	CCArmature * MonsterAmature;
 	int MonsterIndex;
 	CCSize VisibleSize;
 	CCPoint VisiblePosition;
