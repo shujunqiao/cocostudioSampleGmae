@@ -88,8 +88,11 @@ void GameScene::gameOver()
 	
 	playLayer->stopAllActions();
 	playLayer->unscheduleUpdate();
+	gameSceneMonster->stopAllActions();
+	gameSceneMonster->unscheduleUpdate();
+
 	menuLayer->unscheduleUpdate();
-	
+
 	this->addChild(overLayer, 0);
 }
 

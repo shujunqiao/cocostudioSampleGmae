@@ -21,18 +21,15 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     
     bool init();
     
-	void IMCrouch();
 	void IMRunning();
     void IMRunJump();
 	void IMStandJump();
-	void IMCrouchJump();
 	void IMRunningStop();
     void IMRunAttack(CCPoint touch);
     void IMStandAttack(CCPoint touch);
 	void IMDeath();
     
-    float getAngle(CCPoint touch);
-    CCPoint getPosHand(float angle);
+   
     void setAttackEvent(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
     void Dead(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
     
@@ -44,10 +41,12 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+
 	int getMonsterGroundAmount();
 	int getMonsterSkyAmount();
     
 	int actionNum;
+	bool isAttack;
 	int touchTime;
     int monsterGroundAmount;
     int monsterSkyAmount;
@@ -57,13 +56,14 @@ class GameScenePlayLayer : public cocos2d::CCLayer
 
     CCPoint m_tBeginPos;
 	CCPoint s_tCurPos;
+	 float getAngle(CCPoint touch);
+    CCPoint getPosHand(float angle);
+	CCRect playerBoundingBox;
 	enum
 	{
-		ACTION_CROUCH = 0,
-		ACTION_RUN,
+		ACTION_RUN = 0,
 		ACTION_STAND_JUMP,
         ACTION_RUN_JUMP,
-        ACTION_CROUCH_JUMP,
 		ACTION_RUN_STOP,
         ACTION_RUN_ATTACK,
         ACTION_STAND_ATTACK,

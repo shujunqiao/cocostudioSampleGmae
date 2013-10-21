@@ -74,11 +74,6 @@ void MainMenuScene::dataLoaded(float percent)
 
 	switch (loadingCount)
 	{
-		case ACTION_CROUCH:
-		{
-			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMCrouch.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
-		}
-		break;
 		case ACTION_RUN:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMRun.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
@@ -92,11 +87,6 @@ void MainMenuScene::dataLoaded(float percent)
 		case ACTION_STAND_JUMP:
 		{
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMStandJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
-		}
-		break;
-		case ACTION_CROUCH_JUMP:
-		{
-			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/IMCrouchJump.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
 		case ACTION_RUN_STOP:

@@ -20,9 +20,9 @@ bool GameScenePlayLayer::init()
 	monsterGroundAmount = 0;
     monsterSkyAmount = 0;
 
-	this->IMCrouch();
+	this->IMRunningStop();
 	this->setTouchEnabled(true);
-	actionNum = ACTION_CROUCH;
+	actionNum = ACTION_RUN_STOP;
     
     return true;
 }
@@ -128,7 +128,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
     
 	if(nMoveY>10 && fabs(tan(nMoveY/nMoveX))>fabs(sqrt(3)/radian))
 	{
-		if(actionNum == ACTION_STAND_JUMP || actionNum == ACTION_RUN_JUMP || actionNum ==ACTION_CROUCH_JUMP)
+		if(actionNum == ACTION_STAND_JUMP || actionNum == ACTION_RUN_JUMP)
 			return;
         
         std::string armatureName = imManArmature->getName();
@@ -163,42 +163,14 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
             CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
             imManArmature->runAction(action);
         }
-        
-        if(0 == armatureName.compare("IMCrouch"))
-        {
-            this ->IMCrouchJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),100,1);
-            CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::standJumpActionCallBack), (void*)0xbebabeba);
-            CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
-            imManArmature->runAction(action);
-        }
 	}
     
 	if(nMoveY<-10 && fabs(tan(nMoveY/nMoveX))>fabs(sqrt(3)/radian))
 	{
-		if(actionNum == ACTION_CROUCH)
-			return;
-		imManArmature->stopAllActions();
-		imManArmature->removeFromParentAndCleanup(false);
-		this ->IMCrouch();
+		;
 	}
 }
 
-void GameScenePlayLayer::IMCrouch()
-{
-	CCArmature *armature = NULL;
-	armature = cocos2d::extension::CCArmature::create("IMCrouch");
-	armature->getAnimation()->play("crouch");
-	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(PLAYER_SCALE);
-	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
-	amaturePosition = armature->getPosition();
-	addChild(armature);
-	imManArmature = armature;
-	actionNum = ACTION_CROUCH;
-	GameScene::shareGameScene()->gameSceneMapLayer->stop();
-}
 
 void GameScenePlayLayer::IMRunning()
 {
@@ -246,22 +218,6 @@ void GameScenePlayLayer::IMRunJump()
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_RUN_JUMP;
-	GameScene::shareGameScene()->gameSceneMapLayer->move();
-}
-
-void GameScenePlayLayer::IMCrouchJump()
-{
- 	CCArmature *armature = NULL;
-	armature = CCArmature::create("IMCrouchJump");
-	armature->getAnimation()->play("CrouchJump");
-	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(PLAYER_SCALE);
-	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
-	amaturePosition = armature->getPosition();
-	addChild(armature);
-	imManArmature = armature;
-	actionNum = ACTION_CROUCH_JUMP;
 	GameScene::shareGameScene()->gameSceneMapLayer->move();
 }
 
