@@ -77,13 +77,14 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 		touchTime = 0;
 		return;
 	}
-	
-    
-   
+
     CCPoint touchLocation = pTouch->getLocation();
 	
 	if(touchTime<2)
 	{
+		if(actionNum != ACTION_RUN && actionNum != ACTION_RUN_STOP)
+			return;
+
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);
 		if(actionNum == ACTION_RUN)
