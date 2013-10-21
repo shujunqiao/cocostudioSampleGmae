@@ -87,7 +87,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 	{
 		if(actionNum != ACTION_RUN && actionNum != ACTION_RUN_STOP)
 			return;
-
+		isAttack = true;
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);
 		if(actionNum == ACTION_RUN)
