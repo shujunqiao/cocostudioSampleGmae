@@ -14,6 +14,8 @@ bool GameSceneSetLayer::init(int effectStatus, int volumn)
 		
 		GameScene* parentScene = GameScene::shareGameScene();
 		parentScene->gameSceneMapLayer->stop();
+		parentScene->stopAllActions();
+		parentScene->playLayer->stopAllActions();
 		parentScene->playLayer->imManArmature->pauseSchedulerAndActions();
 		
 		this->addWidget(dynamic_cast<Layout*>(CCUIHELPER->createWidgetFromJsonFile("GameSceneSetMenu_1.json")));
@@ -81,7 +83,8 @@ void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType t
 {
 	if(TOUCH_EVENT_ENDED == type){
 
-	    GameScene::shareGameScene()->playLayer->imManArmature->resumeSchedulerAndActions();
+		GameScene::shareGameScene()->resumeSchedulerAndActions();
+//	    GameScene::shareGameScene()->playLayer->imManArmature->resumeSchedulerAndActions();
 	    GameScene::shareGameScene()->gameSceneMapLayer->move();
 	
 	    this->removeAllChildren();

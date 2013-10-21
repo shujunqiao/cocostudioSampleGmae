@@ -27,7 +27,7 @@ protected:
     
 	GameScene* parentScene;
     UILabelAtlas* finalScore;
-    void calculateFinalScore(const char* monsterSkyAmountValue,const char* monsterGroundAmountValue, const char* distanceScoreValue);
+    void calculateFinalScore(int monsterSkyAmountValue, int monsterGroundAmountValue, const char* distanceScoreValue);
 	virtual void playAgainBtnCallback(CCObject *pSender, TouchEventType type);
 	
 };

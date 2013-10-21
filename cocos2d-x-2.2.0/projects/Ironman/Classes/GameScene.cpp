@@ -11,20 +11,44 @@
 bool GameScene::init()
 {
 	gameSceneMapLayer = new GameSceneMapLayer();
-	gameSceneMapLayer->init();
+	
+	if(gameSceneMapLayer && gameSceneMapLayer->init()){
+		
+		gameSceneMapLayer->autorelease();
+	}else{
+		
+		CC_SAFE_DELETE(gameSceneMapLayer);
+	}
+	
 	gameSceneMapLayer->setMovedSpeed(3);
     gameSceneMapLayer->setPosition(ccp(0, 0));
-    this->addChild(gameSceneMapLayer,0);
+    this->addChild(gameSceneMapLayer, 0);
 
 	menuLayer = new GameSceneMenuLayer();
-    menuLayer->init(100, "0");
+	
+	if(menuLayer && menuLayer->init(100, "0")){
+		
+		menuLayer->autorelease();
+	}else{
+		
+		CC_SAFE_DELETE(menuLayer);
+	}
+	
     menuLayer->setAnchorPoint(ccp(0, 0));
     menuLayer->setPosition(ccp(0, 0));
     menuLayer->setScale(0.5);
-    this->addChild(menuLayer,1);
+    this->addChild(menuLayer, 0);
     
     playLayer = new GameScenePlayLayer();
-    playLayer->init();
+	
+	if(playLayer && playLayer->init()){
+		
+		playLayer->autorelease();
+	}else{
+		
+		CC_SAFE_DELETE(playLayer);
+	}
+	
     this->addChild(playLayer, 0);
     
 	gameSceneMonster = new GameSceneMonster();
@@ -66,7 +90,7 @@ void GameScene::gameOver()
 	playLayer->unscheduleUpdate();
 	menuLayer->unscheduleUpdate();
 	
-	this->addChild(overLayer);
+	this->addChild(overLayer, 0);
 }
 
 
