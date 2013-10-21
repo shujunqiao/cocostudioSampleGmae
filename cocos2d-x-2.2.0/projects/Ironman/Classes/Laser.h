@@ -21,11 +21,13 @@ private:
     float dir_y;
 public:
 	
+    CCRect laserAmatureBoundingBox;
 	bool init(int idx, CCPoint position, float direction);
     void releaseLaser();
 	bool ifOutSideWall();
     
     void update();
+    void draw();
 };
 
 #define LASER_NUM_MAX 100
@@ -33,6 +35,7 @@ class LaserManager : public CCLayer {
 private:
     Laser* lasers[LASER_NUM_MAX];
     int topNum;
+    int attackTime;
     
     int getIndex();
 public:
