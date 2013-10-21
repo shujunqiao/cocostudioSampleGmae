@@ -153,7 +153,7 @@ void GameSceneMonster::update(float dt)
 	}
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_STOP)
 	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+30,imManArmature->getPosition().y,imManArmature->getContentSize().width-110,imManArmature->getContentSize().height-45);
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+40,imManArmature->getPosition().y,imManArmature->getContentSize().width-110,imManArmature->getContentSize().height-45);
 
 	}
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_ATTACK)
@@ -174,11 +174,11 @@ void GameSceneMonster::update(float dt)
 
 	if(MonsterIndex == MonsterGround_enum)
 	{
-		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-50);
+		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	}
 	else if(MonsterIndex = MonsterGround_enum)
 	{
-		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
+		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	}
 
 		/*
