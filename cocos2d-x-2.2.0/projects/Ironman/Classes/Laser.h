@@ -25,9 +25,10 @@ public:
 	bool init(int idx, CCPoint position, float direction);
     void releaseLaser();
 	bool ifOutSideWall();
+    CCRect getRect();
     
     void update();
-    void draw();
+    //void draw();
 };
 
 #define LASER_NUM_MAX 100

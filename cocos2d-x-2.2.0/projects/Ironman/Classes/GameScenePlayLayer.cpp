@@ -20,6 +20,9 @@ bool GameScenePlayLayer::init()
 	
 	monsterGroundAmount = 0;
     monsterSkyAmount = 0;
+    
+    _attackPos = CCPoint(0.0f, 0.0f);
+    _attackDir = 0.0f;
 
 	this->IMRunningStop();
 	this->setTouchEnabled(true);
@@ -239,6 +242,7 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
 {
     float angle = getAngle(touch);
     CCPoint posHand = getPosHand(angle);
+    
     CCArmature *armature = NULL;
     armature = CCArmature::create("LaserRunAttack");
     armature->getAnimation()->play("RunningAttack");
@@ -255,13 +259,21 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
 	//actionNum = ACTION_RUN_ATTACK;
 	 armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
 	//LaserManager::shareGameScene()->gameSceneMapLayer->attack();
+    
+    _attackPos = posHand;
+    _attackDir = angle;
 }
 
 void GameScenePlayLayer::IMStandAttack(CCPoint touch)
 {
+    CCPoint posHand = getPosHand(0.1);
+    _attackPos = posHand;
+    float angle = getAngle(touch);
+    
     CCArmature *armature = NULL;
     armature = CCArmature::create("LaserStandAttack");
     armature->getAnimation()->play("StandAttack");
+    armature->getAnimation()->setSpeedScale(0.5);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
 	armature->setPosition(ccp(70, 50));
@@ -269,6 +281,7 @@ void GameScenePlayLayer::IMStandAttack(CCPoint touch)
     imManArmature = armature;
     armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
 	
+    _attackDir = angle;
 }
 void GameScenePlayLayer::IMDeath()
 {
@@ -291,29 +304,27 @@ void GameScenePlayLayer::IMDeath()
 float GameScenePlayLayer::getAngle(CCPoint touch)
 {
     //touch = ccp(240, 290);
-    CCPoint posOrg = ccp(140, 190);
-    if(touch.x == posOrg.x)
-        return -1.57;
+    //CCPoint posOrg = ccp(108, 105);
+    CCPoint posOrg = ccp(135, 112);
+    if(touch.x <= posOrg.x)
+        return -1.57;   //up max->90 degree。
     if (touch.y == posOrg.y) {
         if (touch.x > posOrg.x) {
             return 0;
         }
-        if (touch.x < posOrg.x) {
-            return 3.14;
-        }
     }
+    
     float tan = (touch.y - posOrg.y)/(touch.x - posOrg.x);
+    if (tan < -1) {
+        tan = -1;    //down max->45 degree。
+    }
     double angle = atan(tan);
     CCLog("tan: %f, %f", tan, angle);
     return -angle;
 }
 CCPoint GameScenePlayLayer::getPosHand(float angle)
 {
-    CCPoint posOrg = ccp(140, 190);
-    CCPoint posH;
-    float length = 56.0;
-    posH.x = posOrg.x + length * cos(angle);
-    posH.y = posOrg.y + length * sin(angle);
+    CCPoint posH = ccp(135, 112);
     
     return posH;
 }
@@ -321,11 +332,12 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
 {
     std::string id = movementID;
     
-    CCLog("setAttackEvent %d.", movementType);
+    //CCLog("setAttackEvent %d.", movementType);
     if (movementType == COMPLETE)
     {
-        CCLog("setAttackEvent end");
-        GameScene::shareGameScene()->laser->addLaser(ccp(100, 100), -0.45);
+        //CCLog("setAttackEvent end");
+        CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
+        GameScene::shareGameScene()->laser->addLaser(_attackPos, _attackDir);
         isAttack = false;
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);

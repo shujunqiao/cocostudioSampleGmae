@@ -24,23 +24,24 @@ bool Laser::init(int idx, CCPoint position, float direction)
 	return true;
 }
 
-void Laser::draw()
-{
-    CCRect playerBoundingBoxCopy = laserAmatureBoundingBox;
-	float playerBoundingBoxX = playerBoundingBoxCopy.origin.x;
-	float playerBoundingBoxY = playerBoundingBoxCopy.origin.y;
-	float playerBoundingBoxWidth = playerBoundingBoxCopy.size.width;
-	float playerBoundingBoxHeight = playerBoundingBoxCopy.size.height;
-	CCPoint point1 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY);
-	CCPoint point2 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY);
-	CCPoint point3 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY+playerBoundingBoxHeight);
-	CCPoint point4 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY+playerBoundingBoxHeight);
-    
-    ccDrawColor4B(255, 255, 0, 255);
-    glLineWidth(1);
-    CCPoint vertices1[] = { point1, point2, point3, point4};
-    ccDrawPoly( vertices1, 4, true);
-}
+//void Laser::draw()
+//{
+//    CCRect playerBoundingBoxCopy = laserAmatureBoundingBox;
+//	float playerBoundingBoxX = playerBoundingBoxCopy.origin.x;
+//	float playerBoundingBoxY = playerBoundingBoxCopy.origin.y;
+//    CCLog("playerBoundingBoxY = %f",playerBoundingBoxY);
+//	float playerBoundingBoxWidth = playerBoundingBoxCopy.size.width;
+//	float playerBoundingBoxHeight = playerBoundingBoxCopy.size.height;
+//	CCPoint point1 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY);
+//	CCPoint point2 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY);
+//	CCPoint point3 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY+playerBoundingBoxHeight);
+//	CCPoint point4 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY+playerBoundingBoxHeight);
+//    
+//    ccDrawColor4B(255, 0, 0, 255);
+//    glLineWidth(1);
+//    CCPoint vertices1[] = { point1, point2, point3, point4};
+//    ccDrawPoly( vertices1, 4, true);
+//}
 
 void Laser::releaseLaser()
 {
@@ -62,6 +63,12 @@ bool Laser::ifOutSideWall()
 	return false;
 }
 
+CCRect Laser::getRect()
+{
+    CCRect rect = CCRectMake(this->getPositionX(), this->getPositionY(), laserAmatureBoundingBox.size.width, laserAmatureBoundingBox.size.height);
+    return rect;
+}
+
 void Laser::update()
 {
     if (ifOutSideWall()) {
@@ -69,20 +76,20 @@ void Laser::update()
         return;
     }
     
-    if (GameScene::shareGameScene()->gameSceneMonster->MonsterAmatureBoundingBox.intersectsRect(laserAmatureBoundingBox))
+    if (GameScene::shareGameScene()->gameSceneMonster->MonsterAmatureBoundingBox.intersectsRect(getRect()))
 	{
-        //delete self.
-		releaseLaser();
         //add score.
         int type = GameScene::shareGameScene()->gameSceneMonster->MonsterIndex;
         if (type == MonsterSky_enum) {
             GameScene::shareGameScene()->playLayer->monsterSkyAmount ++;
         }
-        else{
+        else if (type == MonsterGround_enum){
             GameScene::shareGameScene()->playLayer->monsterGroundAmount ++;
         }
         //delete monster.
         GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
+        //delete self.
+		releaseLaser();
         
         return;
 	}
@@ -92,6 +99,7 @@ void Laser::update()
     pos.x += dir_x;
     pos.y += dir_y;
     this->setPosition(pos);
+    //laserAmatureBoundingBox = CCRectMake(pos.x-5, pos.y-5, 90, 10);
 }
 
 /************************LaserManager************************/
@@ -122,7 +130,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
         topNum++;
     }
     
-    attackTime = 60;
+    attackTime = 12;
 }
 void LaserManager::update(float dt)
 {
