@@ -71,19 +71,39 @@ void GameScenePlayLayer::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 
 void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
+	
 	if(touchTime>30)
 	{
 		touchTime = 0;
 		return;
 	}
 	
-    touchTime = 0;
+    
    
     CCPoint touchLocation = pTouch->getLocation();
+	
+	if(touchTime<2)
+	{
+		imManArmature->stopAllActions();
+		imManArmature->removeFromParentAndCleanup(false);
+		if(actionNum == ACTION_RUN)
+		{
+			this ->IMRunAttack(touchLocation);
+		}
+		else if(actionNum == ACTION_RUN_STOP)
+		{
+			this ->IMStandAttack(touchLocation);
+		}
+		
+		touchTime = 0;
+		return;
+	}
+
     float nMoveX = touchLocation.x - m_tBeginPos.x;
 	float nMoveY = touchLocation.y - m_tBeginPos.y;
 	int radian = 10;
-	
+	touchTime = 0;
+
 	if(nMoveX>10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_RUN)
@@ -295,6 +315,7 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     armature = CCArmature::create("LaserRunAttack");
     armature->getAnimation()->play("RunningAttack");
 	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setScale(PLAYER_SCALE);
 	armature->setPosition(ccp(100, 50));
     CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
     leftArmBone->setRotation(getAngle(touch));
