@@ -33,11 +33,9 @@ private:
 	void JumpActionCallBack(CCNode* sender, void* data);
 	void update(float dt);
 	void draw();
-	/*
-	CCArmature * MonsterGroundAmature;
-	CCArmature * MonsterSkyAmature;
-	*/
+
 	CCArmature * MonsterAmature;
+	CCRect MonsterAmatureBoundingBox;
 	int MonsterIndex;
 	CCSize VisibleSize;
 	CCPoint VisiblePosition;

@@ -21,7 +21,6 @@ bool GameSceneMonster::init()
 	 {
 		case 0:
 		{
-
 			MonsterGroundMoving(CCPointMake(VisibleSize.width,20));
 		}
 			break;
@@ -133,23 +132,65 @@ void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 }
 void GameSceneMonster::update(float dt)
 {
-		
-	
 //	CCLog("%f,%f,%f,%f",GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.width,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.height);
 	//CCLog("%f,%f,%f,%f",MonsterAmature->boundingBox().origin.x,MonsterAmature->boundingBox().origin.y,MonsterAmature->boundingBox().size.width,MonsterAmature->boundingBox().size.height);
-	CCArmature * imManArmatureCopy = GameScene::shareGameScene()->playLayer->imManArmature;
-	CCRect imManArmatureBounding= CCRectMake(imManArmatureCopy->getPosition().x-imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y,imManArmatureCopy->getContentSize().width,imManArmatureCopy->getContentSize().height);
-	CCRect MonsterAmatureBounding = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
-	/*
-	CCLog("imManArmatureBounding = %f,%f,%f,%f",imManArmatureCopy->getPosition().x-imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y,imManArmatureCopy->getContentSize().width,imManArmatureCopy->getContentSize().height);
-	CCLog("MonsterAmatureBounding = %f,%f,%f,%f",MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
+	
+	CCArmature * imManArmature = GameScene::shareGameScene()->playLayer->imManArmature;
+	int actionNum = GameScene::shareGameScene()->playLayer->actionNum;
+	if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+	}
+	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_STAND_JUMP)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+
+	}
+	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_JUMP)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+
+	}
+	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_STOP)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+30,imManArmature->getPosition().y,imManArmature->getContentSize().width-110,imManArmature->getContentSize().height-45);
+
+	}
+	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_ATTACK)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+
+	}
+	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_STAND_ATTACK)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+
+	}
+	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_DEATH)
+	{
+		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+
+	}
+
+	if(MonsterIndex == MonsterGround_enum)
+	{
+		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
+	}
+	else if(MonsterIndex = MonsterGround_enum)
+	{
+		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
+	}
+
+		/*
+	CCLog("imManArmatureBounding = %f,%f,%f,%f",playerBoundingBoxX-playerBoundingBoxWidth/2,playerBoundingBoxY,playerBoundingBoxWidth,playerBoundingBoxHeight);
+	CCLog("MonsterAmatureBounding = %f,%f,%f,%f",MonsterAmatureBoundingBox.origin.x-MonsterAmatureBoundingBox.size.width/2,MonsterAmatureBoundingBox.origin.y,MonsterAmatureBoundingBox.size.width,MonsterAmatureBoundingBox.size.height);
 	*/
 	
-	if (imManArmatureBounding.intersectsRect(MonsterAmatureBounding))
+	if (GameScene::shareGameScene()->playLayer->playerBoundingBox.intersectsRect(MonsterAmatureBoundingBox))
 	{
 		
 		MonsterDestroyAction();
-		GameScene::shareGameScene()->playLayer->imManArmatureBrood-=20;
+		GameScene::shareGameScene()->playLayer->imManArmatureBrood-=1;
 		if(GameScene::shareGameScene()->playLayer->imManArmatureBrood<1)
 		{
 			GameScene::shareGameScene()->menuLayer->setBroodBarPercent(0);
@@ -171,11 +212,15 @@ void GameSceneMonster::draw()
 	CCPoint point4 = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x+GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.width,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y);
 	CCLog("(%f,%f),(%f,%f),(%f,%f),(%f,%f),",point1.x,point1.y,point2.x,point2.y,point3.x,point3.y,point4.x,point4.y);
 	*/
-	CCArmature * imManArmatureCopy = GameScene::shareGameScene()->playLayer->imManArmature;
-	CCPoint point1 = CCPointMake(imManArmatureCopy->getPosition().x-imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y);
-		CCPoint point2 = CCPointMake(imManArmatureCopy->getPosition().x+imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y);
-		CCPoint point3 = CCPointMake(imManArmatureCopy->getPosition().x+imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y+imManArmatureCopy->getContentSize().height);
-		CCPoint point4 = CCPointMake(imManArmatureCopy->getPosition().x-imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y+imManArmatureCopy->getContentSize().height);
+	CCRect playerBoundingBoxCopy = GameScene::shareGameScene()->playLayer->playerBoundingBox;
+	float playerBoundingBoxX = playerBoundingBoxCopy.origin.x;
+	float playerBoundingBoxY = playerBoundingBoxCopy.origin.y;
+	float playerBoundingBoxWidth = playerBoundingBoxCopy.size.width;
+	float playerBoundingBoxHeight = playerBoundingBoxCopy.size.height;
+	CCPoint point1 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY);
+	CCPoint point2 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY);
+	CCPoint point3 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY+playerBoundingBoxHeight);
+	CCPoint point4 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY+playerBoundingBoxHeight);
 
 	    //画一个多边形  
     ccDrawColor4B(255, 255, 0, 255);  
@@ -184,13 +229,17 @@ void GameSceneMonster::draw()
     ccDrawPoly( vertices1, 4, true//是否封闭  
         ); 
 
+	float MonsterAmatureBoundingBoxX = MonsterAmatureBoundingBox.origin.x;
+	float MonsterAmatureBoundingBoxY = MonsterAmatureBoundingBox.origin.y;
+	float MonsterAmatureBoundingBoxWidth = MonsterAmatureBoundingBox.size.width;
+	float MonsterAmatureBoundingBoxHeight = MonsterAmatureBoundingBox.size.height;
 
-	CCPoint point5 = CCPointMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y);
-		CCPoint point6 = CCPointMake(MonsterAmature->getPosition().x+MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y);
-		CCPoint point7 = CCPointMake(MonsterAmature->getPosition().x+MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y+MonsterAmature->getContentSize().height);
-		CCPoint point8 = CCPointMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y+MonsterAmature->getContentSize().height);
+	CCPoint point5 = CCPointMake(MonsterAmatureBoundingBoxX,MonsterAmatureBoundingBoxY);
+	CCPoint point6 = CCPointMake(MonsterAmatureBoundingBoxX+MonsterAmatureBoundingBoxWidth,MonsterAmatureBoundingBoxY);
+	CCPoint point7 = CCPointMake(MonsterAmatureBoundingBoxX+MonsterAmatureBoundingBoxWidth,MonsterAmatureBoundingBoxY+MonsterAmatureBoundingBoxHeight);
+	CCPoint point8 = CCPointMake(MonsterAmatureBoundingBoxX,MonsterAmatureBoundingBoxY+MonsterAmatureBoundingBoxHeight);
 
-	 CCPoint vertices2[] = { point5, point6, point7, point8};  
+	CCPoint vertices2[] = { point5, point6, point7, point8};  
     ccDrawPoly( vertices2, 4, true//是否封闭  
         ); 
 
