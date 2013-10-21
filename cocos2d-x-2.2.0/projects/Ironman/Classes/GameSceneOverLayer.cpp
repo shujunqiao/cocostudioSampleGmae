@@ -7,6 +7,7 @@
 //
 
 #include "GameSceneOverLayer.h"
+#include "stdlib.h"
 
 bool GameSceneOverLayer::init()
 {
@@ -32,12 +33,13 @@ bool GameSceneOverLayer::init()
 
 		int monsterSkyCount= parentScene->playLayer->getMonsterSkyAmount();
 		ostringstream oss2;
-        oss2<<monsterGroundCount;
+        oss2<<monsterSkyCount;
 	    string str2= oss2.str();
 	    const char * charStr2= str2.c_str();
         monsterSkyAmount->setText(charStr2);
 
         distanceScore->setStringValue(parentScene->menuLayer->getDistanceScore());
+		this->calculateFinalScore(monsterGroundCount*88 , monsterSkyCount*66 , parentScene->menuLayer->getDistanceScore());
 	
         return true;
     }
@@ -45,11 +47,19 @@ bool GameSceneOverLayer::init()
     return false;
 }
 
-void GameSceneOverLayer::calculateFinalScore(const char* monsterSkyAmountValue,const char* monsterGroundAmountValue, const char* distanceScoreValue)
+void GameSceneOverLayer::calculateFinalScore(int monsterSkyAmountValue,int monsterGroundAmountValue, const char* distanceScoreValue)
 {
-    int score = (int)monsterSkyAmountValue + (int)monsterGroundAmountValue + (int)distanceScoreValue * 3;
+	int distanceScore = 0;
+	distanceScore = atoi(distanceScoreValue);
+	
+    int score = monsterSkyAmountValue + monsterGroundAmountValue + distanceScore * 3;
+	
+	ostringstream oss;
+	oss<<score;
+	string str= oss.str();
+	const char * charStr2= str.c_str();
     
-    finalScore->setStringValue((const char*)score);
+    finalScore->setStringValue(charStr2);
 }
 
 void GameSceneOverLayer::playAgainBtnCallback(CCObject *pSender, TouchEventType type)
