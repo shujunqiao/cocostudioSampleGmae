@@ -7,7 +7,8 @@
 //
 
 #include "GameSceneMapLayer.h"
-
+#include "GameScene.h"
+#include <sstream>
 //
 const static char* map0[3] = {"bg0_0.tmx", "bg0_1.tmx", "bg0_2.tmx"};
 const static char* map1[3] = {"bg1_0.tmx", "bg1_1.tmx", "bg1_2.tmx"};
@@ -106,6 +107,7 @@ CCArray* MapGet::getObjects()
 //move map for game.
 bool GameSceneMapLayer::init()
 {
+	_distance = 0.0f;
     CCLayerColor* colorLy = CCLayerColor::create(ccc4(43,49,62,0));
     this->addChild(colorLy);
     
@@ -137,6 +139,12 @@ void GameSceneMapLayer::update(float dt)
         }
         
         _distance += g_map_move_speed;
+		ostringstream oss;
+		 oss<<_distance;
+		 string disStr = oss.str();
+		 const char *disCharStr = disStr.c_str();
+		GameScene::shareGameScene()->menuLayer->setDistanceScore(disCharStr);
+		
     }
 }
 

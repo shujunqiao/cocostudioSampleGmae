@@ -15,6 +15,10 @@ bool GameScenePlayLayer::init()
 {
 	touchTime = 0;
 	imManArmatureBrood = 100;
+	
+	monsterGroundAmount = 0;
+    monsterSkyAmount = 0;
+
 	this->IMCrouch();
 	this->setTouchEnabled(true);
 	actionNum = ACTION_CROUCH;
@@ -314,7 +318,7 @@ void GameScenePlayLayer::IMDeath()
 	imManArmature->removeFromParentAndCleanup(true);
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMDead");
-	armature->getAnimation()->playByIndex(0);
+	armature->getAnimation()->playByIndex(0.0f, 1.0f, 1.0f,0.0f, 1.0f);
 	armature->getAnimation()->setSpeedScale(1.0f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
@@ -350,12 +354,13 @@ void GameScenePlayLayer::Dead(cocos2d::extension::CCArmature *armature, Movement
  	GameScene::shareGameScene()->gameOver();
 }
 
-const char* GameScenePlayLayer::getMonsterGroundAmount()
+int GameScenePlayLayer::getMonsterGroundAmount()
 {
-	return (const char*)monsterGroundAmount;
+	
+	return monsterGroundAmount;
 }
 
-const char* GameScenePlayLayer::getMonsterSkyAmount()
+int GameScenePlayLayer::getMonsterSkyAmount()
 {
-	return (const char*)monsterSkyAmount;
+	return monsterSkyAmount;
 }

@@ -154,17 +154,17 @@ void GameSceneMonster::update(float dt)
 	CCArmature * imManArmatureCopy = GameScene::shareGameScene()->playLayer->imManArmature;
 	CCRect imManArmatureBounding= CCRectMake(imManArmatureCopy->getPosition().x-imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y,imManArmatureCopy->getContentSize().width,imManArmatureCopy->getContentSize().height);
 	CCRect MonsterAmatureBounding = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
-	
+	/*
 	CCLog("imManArmatureBounding = %f,%f,%f,%f",imManArmatureCopy->getPosition().x-imManArmatureCopy->getContentSize().width/2,imManArmatureCopy->getPosition().y,imManArmatureCopy->getContentSize().width,imManArmatureCopy->getContentSize().height);
 	CCLog("MonsterAmatureBounding = %f,%f,%f,%f",MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
-	
+	*/
 	
 	if (imManArmatureBounding.intersectsRect(MonsterAmatureBounding))
 	{
 		
 		MonsterDestroyAction();
-		GameScene::shareGameScene()->playLayer->imManArmatureBrood-=30;
-		if(GameScene::shareGameScene()->playLayer->imManArmatureBrood<0)
+		GameScene::shareGameScene()->playLayer->imManArmatureBrood-=20;
+		if(GameScene::shareGameScene()->playLayer->imManArmatureBrood<1)
 		{
 			GameScene::shareGameScene()->menuLayer->setBroodBarPercent(0);
 			GameScene::shareGameScene()->playLayer->IMDeath();

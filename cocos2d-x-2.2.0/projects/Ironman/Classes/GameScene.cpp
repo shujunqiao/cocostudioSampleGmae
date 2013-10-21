@@ -47,7 +47,16 @@ GameScene* GameScene::shareGameScene()
     }
     return _sharedGameScene;
 }
-
+GameScene* GameScene::newGameScene()
+{
+     _sharedGameScene = new GameScene();
+    if (!_sharedGameScene->init())
+    {
+		CC_SAFE_DELETE(_sharedGameScene);
+    }
+    
+    return _sharedGameScene;
+}
 void GameScene::gameOver()
 {
 	GameSceneOverLayer* overLayer = new GameSceneOverLayer();
@@ -60,8 +69,4 @@ void GameScene::gameOver()
 	this->addChild(overLayer);
 }
 
-void GameScene::destroy()
-{
-	delete _sharedGameScene;
-	_sharedGameScene = NULL;
-}
+
