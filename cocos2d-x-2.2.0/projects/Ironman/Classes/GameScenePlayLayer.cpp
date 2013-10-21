@@ -14,6 +14,7 @@
 bool GameScenePlayLayer::init()
 {
 	touchTime = 0;
+	isAttack = false;
 	imManArmatureBrood = 100;
 	
 	monsterGroundAmount = 0;
@@ -71,7 +72,9 @@ void GameScenePlayLayer::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 
 void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
-	
+	if(isAttack)
+		return;
+
 	if(touchTime>30)
 	{
 		touchTime = 0;
