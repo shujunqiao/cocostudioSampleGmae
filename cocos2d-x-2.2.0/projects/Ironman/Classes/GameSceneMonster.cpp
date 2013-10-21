@@ -174,7 +174,7 @@ void GameSceneMonster::update(float dt)
 
 	if(MonsterIndex == MonsterGround_enum)
 	{
-		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width,MonsterAmature->getContentSize().height);
+		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2,MonsterAmature->getPosition().y,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-50);
 	}
 	else if(MonsterIndex = MonsterGround_enum)
 	{

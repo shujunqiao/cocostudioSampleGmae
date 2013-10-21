@@ -243,22 +243,31 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     armature->getAnimation()->play("RunningAttack");
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(100, 50));
-    CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
-    leftArmBone->setRotation(getAngle(touch));
+	armature->setPosition(ccp(50, 50));
+    //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
+    //leftArmBone->setRotation(getAngle(touch));
     amaturePosition = armature->getPosition();
 	addChild(armature);
-    CCPoint pArm = leftArmBone->getPosition();
+    //CCPoint pArm = leftArmBone->getPosition();
     //CCLog("arm pos: %f, %f, %f, %f.", posHand.x, posHand.y, amaturePosition.x, amaturePosition.y);
 	imManArmature = armature;
-	actionNum = ACTION_RUN_ATTACK;
+	//actionNum = ACTION_RUN_ATTACK;
 	 armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
 	//LaserManager::shareGameScene()->gameSceneMapLayer->attack();
 }
 
 void GameScenePlayLayer::IMStandAttack(CCPoint touch)
 {
-    
+    CCArmature *armature = NULL;
+    armature = CCArmature::create("LaserStandAttack");
+    armature->getAnimation()->play("StandAttack");
+	armature->setAnchorPoint(ccp(0.5,0));
+	armature->setScale(PLAYER_SCALE);
+	armature->setPosition(ccp(70, 50));
+    addChild(armature);
+    imManArmature = armature;
+    armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
+	
 }
 void GameScenePlayLayer::IMDeath()
 {
@@ -276,8 +285,8 @@ void GameScenePlayLayer::IMDeath()
 	imManArmature = armature;
 	actionNum = ACTION_DEATH;
 	armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::Dead));
-	
 }
+
 float GameScenePlayLayer::getAngle(CCPoint touch)
 {
     //touch = ccp(240, 290);
@@ -307,23 +316,25 @@ CCPoint GameScenePlayLayer::getPosHand(float angle)
     
     return posH;
 }
-
 void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
 {
 	   std::string id = movementID;
     
     CCLog("setAttackEvent %d.", movementType);
-    if (movementType == LOOP_COMPLETE)
+    if (movementType == COMPLETE)
     {
         CCLog("setAttackEvent end");
-        armature->removeFromParentAndCleanup(true);
-        //        if (id.compare("LOOP_COMPLETE") == 0)
-        //        {
-        //            CCActionInterval *actionToRight = CCMoveTo::create(2, ccp(VisibleRect::right().x - 50, VisibleRect::right().y));
-        //            armature->stopAllActions();
-        //            armature->runAction(CCSequence::create(actionToRight,  CCCallFunc::create(this, callfunc_selector(TestAnimationEvent::callback1)), NULL));
-        //            armature->getAnimation()->play("Walk");
-        //        }
+        isAttack = false;
+		imManArmature->stopAllActions();
+		imManArmature->removeFromParentAndCleanup(false);
+		if(actionNum == ACTION_RUN)
+		{
+			this ->IMRunning();
+		}
+		else if(actionNum == ACTION_RUN_STOP)
+		{
+			this ->IMRunningStop();
+		}
     }
 
 }
