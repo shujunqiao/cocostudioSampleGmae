@@ -24,8 +24,8 @@ class GameSceneMonster : public cocos2d::CCLayer
 public:
     bool init();
 
-	CCRect MonsterAmatureBoundingBox;
-private:
+	
+
 	void MonsterGroundMoving(CCPoint position);
 	void MonsterSkyMoving(CCPoint position);
 	void MonsterGroundDestroyAction(CCPoint position);
@@ -37,7 +37,7 @@ private:
 	void draw();
 
 	CCArmature * MonsterAmature;
-	
+	CCRect MonsterAmatureBoundingBox;
 	int MonsterIndex;
 	CCSize VisibleSize;
 	CCPoint VisiblePosition;

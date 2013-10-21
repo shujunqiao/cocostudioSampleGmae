@@ -84,6 +84,7 @@ void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(position);
 	addChild(armature);
+	MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	MonsterAmature = armature;
 }
 void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
@@ -97,6 +98,7 @@ void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(position);
 	addChild(armature);
+	MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	MonsterAmature = armature;
 }
 void GameSceneMonster::MonsterDestroyAction()
@@ -188,7 +190,6 @@ void GameSceneMonster::update(float dt)
 	
 	if (GameScene::shareGameScene()->playLayer->playerBoundingBox.intersectsRect(MonsterAmatureBoundingBox))
 	{
-		
 		MonsterDestroyAction();
 		GameScene::shareGameScene()->playLayer->imManArmatureBrood-=1;
 		if(GameScene::shareGameScene()->playLayer->imManArmatureBrood<1)
