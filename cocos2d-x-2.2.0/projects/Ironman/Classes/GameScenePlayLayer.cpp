@@ -171,8 +171,6 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 		;
 	}
 }
-
-
 void GameScenePlayLayer::IMRunning()
 {
 	CCArmature *armature = NULL;
@@ -206,8 +204,7 @@ void GameScenePlayLayer::IMStandJump()
 }
 
 void GameScenePlayLayer::IMRunJump()
-{
-    
+{  
  	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMRunJump");
 	armature->getAnimation()->play("RuningJump");
@@ -256,7 +253,7 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     //CCLog("arm pos: %f, %f, %f, %f.", posHand.x, posHand.y, amaturePosition.x, amaturePosition.y);
 	imManArmature = armature;
 	//actionNum = ACTION_RUN_ATTACK;
-    armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
+	 armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
 	//LaserManager::shareGameScene()->gameSceneMapLayer->attack();
 }
 
