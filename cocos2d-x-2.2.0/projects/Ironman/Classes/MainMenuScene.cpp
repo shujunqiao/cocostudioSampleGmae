@@ -64,7 +64,13 @@ void MainMenuScene::startBtnCallFunc(CCObject* pSender)
 }
 void MainMenuScene::dataLoaded(float percent)
 {
-		if(isFirstInGame)
+	if(!isFirstInGame)
+	{
+		GameScene* gameScene =  GameScene::shareGameScene();
+		CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
+		CCDirector::sharedDirector()->replaceScene(gameSceneTransition);
+		return;
+	}
 
 	switch (loadingCount)
 	{

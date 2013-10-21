@@ -57,7 +57,6 @@ void GameSceneOverLayer::playAgainBtnCallback(CCObject *pSender, TouchEventType 
 	if(TOUCH_EVENT_BEGAN == type){
 		
 	    GameScene* againScene = GameScene::newGameScene();
-    
         CCTransitionFade* playAgainTransition =  CCTransitionFade::create(0.5, againScene, ccWHITE);
         CCDirector::sharedDirector()->replaceScene(playAgainTransition);
 	}

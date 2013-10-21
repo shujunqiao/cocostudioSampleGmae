@@ -30,13 +30,6 @@ bool GameSceneMonster::init()
 			MonsterSkyMoving(aPosition);
 		}
 			break;
-			/*
-			case 1:
-		{
-
-		}
-			break;
-			*/
 	 default:
 		 break;
 	 }
@@ -124,13 +117,6 @@ void GameSceneMonster::MonsterDestroyAction()
 			MonsterSkyDestroyAction(MonsterAmature->getPosition());
 		}
 			break;
-			/*
-			case 1:
-		{
-
-		}
-			break;
-			*/
 	 default:
 		 break;
 	 }
