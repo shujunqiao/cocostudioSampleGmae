@@ -54,6 +54,10 @@ bool GameScene::init()
 	gameSceneMonster = new GameSceneMonster();
     gameSceneMonster->init();
     this->addChild(gameSceneMonster, 0);
+    
+    laser = LaserManager::create();
+    laser->scheduleUpdate();
+    this->addChild(laser);
 
     return true;
 }

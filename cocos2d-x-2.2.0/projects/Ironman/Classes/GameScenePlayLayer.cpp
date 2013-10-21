@@ -8,6 +8,7 @@
 
 #include "GameScenePlayLayer.h"
 #include "GameScene.h"
+#include "Laser.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
 #define PLAYER_SCALE 0.6f
@@ -321,12 +322,13 @@ CCPoint GameScenePlayLayer::getPosHand(float angle)
 }
 void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
 {
-	   std::string id = movementID;
+    std::string id = movementID;
     
     CCLog("setAttackEvent %d.", movementType);
     if (movementType == COMPLETE)
     {
         CCLog("setAttackEvent end");
+        GameScene::shareGameScene()->laser->addLaser(ccp(100, 100), -0.45);
         isAttack = false;
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);
