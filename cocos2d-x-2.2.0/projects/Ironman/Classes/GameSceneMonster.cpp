@@ -200,6 +200,7 @@ void GameSceneMonster::update(float dt)
 		}
 
 		GameScene::shareGameScene()->menuLayer->setBroodBarPercent(GameScene::shareGameScene()->playLayer->imManArmatureBrood);
+		this->unscheduleUpdate();
 	
 	}
 }

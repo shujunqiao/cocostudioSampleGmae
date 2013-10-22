@@ -16,6 +16,7 @@ bool GameSceneSetLayer::init(int effectStatus, int volumn)
 		parentScene->gameSceneMapLayer->stop();
 		parentScene->stopAllActions();
 		parentScene->playLayer->stopAllActions();
+		parentScene->playLayer->setTouchEnabled(false);
 		parentScene->gameSceneMonster->MonsterAmature->pauseSchedulerAndActions();
 		parentScene->playLayer->imManArmature->pauseSchedulerAndActions();
 		parentScene->menuLayer->settingBtn->setTouchEnable(false);
@@ -37,7 +38,7 @@ bool GameSceneSetLayer::init(int effectStatus, int volumn)
 			musicEffectSlider->setPercent(95);
 		}
 		musicVolumeSlider->setPercent(volumn);
-
+		
 		backGameBtn->addTouchEventListener(this, toucheventselector(GameSceneSetLayer::backGameBtn));
 		returnMainMenuBtn->addTouchEventListener(this, toucheventselector(GameSceneSetLayer::returnMainMenuBtnFunc));
 		musicEffectSlider->addEventListener(this, sliderpercentchangedselector(GameSceneSetLayer::musicEffectSliderCallFunc));
@@ -84,14 +85,21 @@ void GameSceneSetLayer::musicVolumeSliderCallFunc(cocos2d::CCObject *pSender, Sl
 void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType type)
 {
 	if(TOUCH_EVENT_ENDED == type){
-
+		
 		GameScene* parentScene = GameScene::shareGameScene();
 		parentScene->resumeSchedulerAndActions();
 	    parentScene->playLayer->imManArmature->resumeSchedulerAndActions();
-	    parentScene->gameSceneMapLayer->move();
+		parentScene->playLayer->setTouchEnabled(true);
+		
+		std::string currentMovementId = parentScene->playLayer->imManArmature->getAnimation()->getCurrentMovementID();
+		CCLog("currentMovementId is %s", currentMovementId.c_str());
+		if(currentMovementId.compare("") !=0 && (currentMovementId.compare("Running")==0 || currentMovementId.compare("RuningJump")==0))
+			parentScene->gameSceneMapLayer->move();
+		
+		
 		parentScene->gameSceneMonster->MonsterAmature->resumeSchedulerAndActions();
 		parentScene->menuLayer->settingBtn->setTouchEnable(true);
-	
+		
 	    this->removeAllChildren();
 	    this->removeFromParentAndCleanup(true);
 	}

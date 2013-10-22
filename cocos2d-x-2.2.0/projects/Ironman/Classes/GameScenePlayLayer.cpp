@@ -90,7 +90,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 	CCPoint setBtnLocation = GameScene::shareGameScene()->menuLayer->settingBtn->getPosition();
 	CCSize  setBtnSize = GameScene::shareGameScene()->menuLayer->settingBtn->getSize();
 	
-	if(touchTime<2 && checkIfTouchNotInSetBtnArea(touchLocation, setBtnLocation, setBtnSize))
+	if(touchTime<2 && checkIfTouchNotInSetBtnArea(touchLocation,setBtnSize, setBtnLocation))
 	{
 		if(actionNum != ACTION_RUN && actionNum != ACTION_RUN_STOP)
 			return;
@@ -358,13 +358,13 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
 
 bool GameScenePlayLayer::checkIfTouchNotInSetBtnArea(CCPoint touchPosition, CCSize setBtnSize, CCPoint setBtnPosition)
 {
-	if(touchPosition.x < setBtnPosition.x-(setBtnSize.width/2)  ||
-	   touchPosition.x > setBtnPosition.x+(setBtnSize.width/2)  ||
-	   touchPosition.y < setBtnPosition.y-(setBtnSize.height/2) ||
-	   touchPosition.y > setBtnPosition.y+(setBtnSize.height/2)){
-		return false;
-	}else{
+	if(touchPosition.x < setBtnPosition.x/2-(setBtnSize.width/2)  ||
+	   touchPosition.x > setBtnPosition.x/2+(setBtnSize.width/2)  ||
+	   touchPosition.y < setBtnPosition.y/2-(setBtnSize.height/2) ||
+	   touchPosition.y > setBtnPosition.y/2+(setBtnSize.height/2)){
 		return true;
+	}else{
+		return false;
 	}
 }
 
