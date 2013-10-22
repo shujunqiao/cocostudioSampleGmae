@@ -9,6 +9,7 @@
 #include "GameScenePlayLayer.h"
 #include "GameScene.h"
 #include "Laser.h"
+#include "AudioPlayer.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
 #define PLAYER_SCALE 0.6f
@@ -337,6 +338,7 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
     //CCLog("setAttackEvent %d.", movementType);
     if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
     {
+        AudioPlayer::sharedAudio()->playEffect(Effect_Attack_0);
         //CCLog("setAttackEvent end");
         CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
         GameScene::shareGameScene()->laser->addLaser(_attackPos, _attackDir);

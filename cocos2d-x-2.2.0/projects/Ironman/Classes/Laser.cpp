@@ -7,6 +7,7 @@
 //
 
 #include "Laser.h"
+#include "AudioPlayer.h"
 
 bool Laser::init(int idx, CCPoint position, float direction)
 {
@@ -82,9 +83,11 @@ void Laser::update()
         int type = GameScene::shareGameScene()->gameSceneMonster->MonsterIndex;
         if (type == MonsterSky_enum) {
             GameScene::shareGameScene()->playLayer->monsterSkyAmount ++;
+            AudioPlayer::sharedAudio()->playEffect(Effect_Monster_Dead_0);
         }
         else if (type == MonsterGround_enum){
             GameScene::shareGameScene()->playLayer->monsterGroundAmount ++;
+            AudioPlayer::sharedAudio()->playEffect(Effect_Monster_Dead_1);
         }
         //delete monster.
         GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
