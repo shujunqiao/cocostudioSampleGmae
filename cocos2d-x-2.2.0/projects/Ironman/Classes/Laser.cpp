@@ -87,6 +87,7 @@ void Laser::update()
             GameScene::shareGameScene()->playLayer->monsterGroundAmount ++;
         }
         //delete monster.
+				GameScene::shareGameScene()->gameSceneMonster->unscheduleUpdate();
         GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
         //delete self.
 		releaseLaser();
