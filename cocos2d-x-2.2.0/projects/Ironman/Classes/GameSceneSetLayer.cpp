@@ -7,6 +7,7 @@
 //
 
 #include "GameSceneSetLayer.h"
+#include "AudioPlayer.h"
 
 bool GameSceneSetLayer::init(int effectStatus, int volumn)
 {
@@ -66,20 +67,27 @@ void GameSceneSetLayer::musicEffectSliderCallFunc(cocos2d::CCObject *pSender, Sl
 	}
 	
 	GameScene::shareGameScene()->menuLayer->musicEffect = musicEffectStatus;
+    //set audio state.
+    AudioPlayer::sharedAudio()->setBackgroundMusicPlay(musicEffectStatus);
 }
 
 void GameSceneSetLayer::musicVolumeSliderCallFunc(cocos2d::CCObject *pSender, SliderEventType type)
 {
+    float voice = 0.0f;
 	if(type == SLIDER_PERCENTCHANGED){
-		
+		voice = musicVolumeSlider->getPercent();
 		if(musicVolumeSlider->getPercent()<8){
 			musicVolumeSlider->setPercent(8);
+            voice=0.0f;
 		}else if(musicVolumeSlider->getPercent()>95){
 			musicVolumeSlider->setPercent(95);
+            voice=100.0f;
 		}
 	}
 	
 	GameScene::shareGameScene()->menuLayer->musicVolume = musicVolumeSlider->getPercent();
+    //set audio voice.
+    AudioPlayer::sharedAudio()->setVolume(voice/100);
 }
 
 void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType type)
@@ -92,6 +100,7 @@ void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType t
 		parentScene->playLayer->setTouchEnabled(true);
 		
 		std::string currentMovementId = parentScene->playLayer->imManArmature->getAnimation()->getCurrentMovementID();
+		CCLog("currentMovementId is %s", currentMovementId.c_str());
 		if(currentMovementId.compare("") !=0 && (currentMovementId.compare("Running")==0 || currentMovementId.compare("RuningJump")==0))
 			parentScene->gameSceneMapLayer->move();
 		
@@ -106,13 +115,9 @@ void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType t
 
 void GameSceneSetLayer::returnMainMenuBtnFunc(cocos2d::CCObject *pSender, TouchEventType type)
 {
-	MainMenuScene* _mainMenuScene = new MainMenuScene();
+	MainMenuScene* mainMenuScene =  new MainMenuScene();
+	mainMenuScene->init();
 	
-    if (!_mainMenuScene->init())
-    {
-		CC_SAFE_DELETE(_mainMenuScene);
-    }
-    	
-	CCTransitionFade* mainMenuSceneTransition =  CCTransitionFade::create(0.5, _mainMenuScene, ccWHITE);
+	CCTransitionFade* mainMenuSceneTransition =  CCTransitionFade::create(0.5, mainMenuScene, ccWHITE);
 	CCDirector::sharedDirector()->replaceScene(mainMenuSceneTransition);
 }
