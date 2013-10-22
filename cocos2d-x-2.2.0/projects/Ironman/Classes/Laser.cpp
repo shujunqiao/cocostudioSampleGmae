@@ -19,9 +19,9 @@ bool Laser::init(int idx, CCPoint position, float direction)
     laserAmatureBoundingBox = CCRectMake(-5, -5, 90, 10);
     
     _idx = idx;
-    int speed = 3;
-    dir_x = cos(direction) * speed;
-	dir_y = -sin(direction) * speed;
+    speed = 12;
+    dir_x = cos(direction);
+	dir_y = -sin(direction);
 	return true;
 }
 
@@ -60,14 +60,21 @@ bool Laser::ifOutSideWall()
 		return true;
 	}
 	
-
 	return false;
 }
 
-CCRect Laser::getRect()
+bool Laser::intersectsRect(CCRect rect)
 {
-    CCRect rect = CCRectMake(this->getPositionX(), this->getPositionY(), laserAmatureBoundingBox.size.width, laserAmatureBoundingBox.size.height);
-    return rect;
+    //CCRect r1 = CCRectMake(this->getPositionX(), this->getPositionY(), laserAmatureBoundingBox.size.width, laserAmatureBoundingBox.size.height);
+    CCPoint _org = this->getPosition();
+    for (int i=0; i<100; i++) {
+        CCPoint _p = ccpAdd(_org, ccp(dir_x*i, dir_y*i));
+        if (rect.containsPoint(_p)) {
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 void Laser::update()
@@ -77,7 +84,7 @@ void Laser::update()
         return;
     }
     
-    if (GameScene::shareGameScene()->gameSceneMonster->MonsterAmatureBoundingBox.intersectsRect(getRect()))
+    if (intersectsRect(GameScene::shareGameScene()->gameSceneMonster->MonsterAmatureBoundingBox))
 	{
         //add score.
         int type = GameScene::shareGameScene()->gameSceneMonster->MonsterIndex;
@@ -99,8 +106,8 @@ void Laser::update()
     
     CCPoint pos = this->getPosition();
     //CCLog("pos: %f, %f", pos.x, pos.y);
-    pos.x += dir_x;
-    pos.y += dir_y;
+    pos.x += dir_x * speed;
+    pos.y += dir_y * speed;
     this->setPosition(pos);
     //laserAmatureBoundingBox = CCRectMake(pos.x-5, pos.y-5, 90, 10);
 }
@@ -122,7 +129,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
     if (attackTime > 0) {
         return;
     }
-    CCLog("Laser manager addLaser. %d", topNum);
+    //CCLog("Laser manager addLaser. %d", topNum);
     int idx = getIndex();
     Laser* laser = new Laser();
     laser->init(idx, pos, dir);
@@ -133,7 +140,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
         topNum++;
     }
     
-    attackTime = 12;
+    attackTime = 20;
 }
 void LaserManager::update(float dt)
 {

@@ -107,15 +107,15 @@ void GameScene::update(float dt)
 	int actionNum = playLayer->actionNum;
 	if(actionNum ==playLayer->ACTION_RUN)
 	{
-		playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+		playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+46,imManArmature->getPosition().y,imManArmature->getContentSize().width-90,imManArmature->getContentSize().height-50);
 	}
 	else if(actionNum == playLayer->ACTION_STAND_JUMP)
 	{
-		playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+		playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+30,imManArmature->getPosition().y,imManArmature->getContentSize().width-50,imManArmature->getContentSize().height-50);
 	}
 	else if(actionNum == playLayer->ACTION_RUN_JUMP)
 	{
-		playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
+		playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+33,imManArmature->getPosition().y,imManArmature->getContentSize().width-70,imManArmature->getContentSize().height-50);
 	}
 	else if(actionNum == playLayer->ACTION_RUN_STOP)
 	{
@@ -144,7 +144,6 @@ void GameScene::update(float dt)
 	{
 		gameSceneMonster->MonsterAmatureBoundingBox = CCRectMake(gameSceneMonster->MonsterAmature->getPosition().x-gameSceneMonster->MonsterAmature->getContentSize().width/2+25,gameSceneMonster->MonsterAmature->getPosition().y+21,gameSceneMonster->MonsterAmature->getContentSize().width-50,gameSceneMonster->MonsterAmature->getContentSize().height-48);
 	}
-
 
 	if (playLayer->playerBoundingBox.intersectsRect(gameSceneMonster->MonsterAmatureBoundingBox))
 	{

@@ -7,6 +7,7 @@
 //
 
 #include "GameSceneSetLayer.h"
+#include "AudioPlayer.h"
 
 bool GameSceneSetLayer::init(int effectStatus, int volumn)
 {
@@ -66,20 +67,27 @@ void GameSceneSetLayer::musicEffectSliderCallFunc(cocos2d::CCObject *pSender, Sl
 	}
 	
 	GameScene::shareGameScene()->menuLayer->musicEffect = musicEffectStatus;
+    //set audio state.
+    AudioPlayer::sharedAudio()->setBackgroundMusicPlay(musicEffectStatus);
 }
 
 void GameSceneSetLayer::musicVolumeSliderCallFunc(cocos2d::CCObject *pSender, SliderEventType type)
 {
+    float voice = 0.0f;
 	if(type == SLIDER_PERCENTCHANGED){
-		
+		voice = musicVolumeSlider->getPercent();
 		if(musicVolumeSlider->getPercent()<8){
 			musicVolumeSlider->setPercent(8);
+            voice=0.0f;
 		}else if(musicVolumeSlider->getPercent()>95){
 			musicVolumeSlider->setPercent(95);
+            voice=100.0f;
 		}
 	}
 	
 	GameScene::shareGameScene()->menuLayer->musicVolume = musicVolumeSlider->getPercent();
+    //set audio voice.
+    AudioPlayer::sharedAudio()->setVolume(voice/100);
 }
 
 void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType type)
