@@ -47,6 +47,12 @@ class GameScenePlayLayer : public cocos2d::CCLayer
 	int getMonsterGroundAmount();
 	int getMonsterSkyAmount();
     
+    float getAngle(CCPoint touch);
+    CCPoint getPosHand(float angle);
+    
+    float _attackDir;
+    CCPoint _attackPos;
+    
 	int actionNum;
 	bool isAttack;
 	int touchTime;
@@ -58,8 +64,6 @@ class GameScenePlayLayer : public cocos2d::CCLayer
 
     CCPoint m_tBeginPos;
 	CCPoint s_tCurPos;
-	 float getAngle(CCPoint touch);
-    CCPoint getPosHand(float angle);
 	CCRect playerBoundingBox;
 	enum
 	{
