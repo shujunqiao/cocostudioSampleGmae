@@ -308,7 +308,7 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
     //CCPoint posOrg = ccp(108, 105);
     CCPoint posOrg = ccp(135, 112);
     if(touch.x <= posOrg.x)
-        return -1.57;   //up max->90 degreeã€‚
+        return -1.57;   //up max->90 degreeã€?
     if (touch.y == posOrg.y) {
         if (touch.x > posOrg.x) {
             return 0;
@@ -317,7 +317,7 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
     
     float tan = (touch.y - posOrg.y)/(touch.x - posOrg.x);
     if (tan < -1) {
-        tan = -1;    //down max->45 degreeã€‚
+        tan = -1;    //down max->45 degreeã€?
     }
     double angle = atan(tan);
     CCLog("tan: %f, %f", tan, angle);
@@ -360,9 +360,9 @@ bool GameScenePlayLayer::checkIfTouchNotInSetBtnArea(CCPoint touchPosition, CCSi
 	   touchPosition.x > setBtnPosition.x+(setBtnSize.width/2)  ||
 	   touchPosition.y < setBtnPosition.y-(setBtnSize.height/2) ||
 	   touchPosition.y > setBtnPosition.y+(setBtnSize.height/2)){
-		return true;
-	}else{
 		return false;
+	}else{
+		return true;
 	}
 }
 
