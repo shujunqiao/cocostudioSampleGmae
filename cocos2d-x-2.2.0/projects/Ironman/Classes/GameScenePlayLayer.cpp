@@ -248,7 +248,7 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     CCArmature *armature = NULL;
     armature = CCArmature::create("LaserRunAttack");
     armature->getAnimation()->play("RunningAttack");
-    armature->getAnimation()->setSpeedScale(1.5);
+    armature->getAnimation()->setSpeedScale(2.0);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
 	armature->setPosition(ccp(90, 50));
@@ -322,7 +322,7 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
         tan = -1;    //down max->45 degreeã€?
     }
     double angle = atan(tan);
-    CCLog("tan: %f, %f", tan, angle);
+    //CCLog("tan: %f, %f", tan, angle);
     return -angle;
 }
 CCPoint GameScenePlayLayer::getPosHand(float angle)
@@ -340,7 +340,7 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
     {
         AudioPlayer::sharedAudio()->playEffect(Effect_Attack_0);
         //CCLog("setAttackEvent end");
-        CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
+        //CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
         GameScene::shareGameScene()->laser->addLaser(_attackPos, _attackDir);
         isAttack = false;
 		imManArmature->stopAllActions();
