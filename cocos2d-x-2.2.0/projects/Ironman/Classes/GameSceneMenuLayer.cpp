@@ -36,7 +36,14 @@ void GameSceneMenuLayer::settingBtnCallback(CCObject *pSender, TouchEventType ty
 	if(TOUCH_EVENT_BEGAN == type){
 		
 		GameSceneSetLayer* gameSetLayer = new GameSceneSetLayer();
-		gameSetLayer->init(musicEffect, musicVolume);
+		if(gameSetLayer && gameSetLayer->init(musicEffect, musicVolume)){
+			
+			gameSetLayer->autorelease();
+		}else{
+			
+			CC_SAFE_DELETE(gameSetLayer);
+		}
+		
 		gameSetLayer->setAnchorPoint(ccp(0, 0));
 		gameSetLayer->setPosition(ccp(0, 0));
 		

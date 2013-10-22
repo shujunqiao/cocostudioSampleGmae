@@ -74,8 +74,7 @@ void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 	this->scheduleUpdate();
 }
 void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
-{
-	this->unscheduleUpdate();  
+{  
 	CCArmature *armature = NULL;
 	armature = cocos2d::extension::CCArmature::create("MonsterGroundAnimation");
 	armature->getAnimation()->playByIndex(0);
@@ -84,12 +83,11 @@ void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(position);
 	addChild(armature);
-	MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	MonsterAmature = armature;
+	MonsterAmature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameSceneMonster::DestroyActionActionEnded));
 }
 void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 {
-	this->unscheduleUpdate();  
 	CCArmature *armature = NULL;
 	armature = cocos2d::extension::CCArmature::create("MonsterSkyAnimation");
 	armature->getAnimation()->playByIndex(0);
@@ -98,8 +96,12 @@ void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(position);
 	addChild(armature);
-	MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	MonsterAmature = armature;
+	MonsterAmature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameSceneMonster::DestroyActionActionEnded));
+}
+void GameSceneMonster::DestroyActionActionEnded(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
+{
+	 
 }
 void GameSceneMonster::MonsterDestroyAction()
 {
@@ -129,6 +131,7 @@ int GameSceneMonster::random(int start, int end)
 }
 void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 {
+	this->unscheduleUpdate(); 
 	 MonsterDestroyAction();
 	 GameSceneMonster::init();
 }
@@ -178,7 +181,7 @@ void GameSceneMonster::update(float dt)
 	{
 		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	}
-	else if(MonsterIndex = MonsterGround_enum)
+	else if(MonsterIndex == MonsterSky_enum)
 	{
 		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	}
@@ -195,12 +198,14 @@ void GameSceneMonster::update(float dt)
 		if(GameScene::shareGameScene()->playLayer->imManArmatureBrood<1)
 		{
 			GameScene::shareGameScene()->menuLayer->setBroodBarPercent(0);
+			this->unscheduleUpdate();
 			GameScene::shareGameScene()->playLayer->IMDeath();
 			return;
 		}
 
 		GameScene::shareGameScene()->menuLayer->setBroodBarPercent(GameScene::shareGameScene()->playLayer->imManArmatureBrood);
-	    GameSceneMonster::init();
+		this->unscheduleUpdate();
+		GameSceneMonster::init();
 	}
 }
 

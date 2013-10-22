@@ -41,6 +41,8 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+	
+	bool checkIfTouchNotInSetBtnArea(CCPoint touchPosition, CCSize setBtnSize, CCPoint setBtnPosition);
 
 	int getMonsterGroundAmount();
 	int getMonsterSkyAmount();

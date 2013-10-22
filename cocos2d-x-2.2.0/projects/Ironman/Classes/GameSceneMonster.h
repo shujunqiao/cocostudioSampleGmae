@@ -24,8 +24,6 @@ class GameSceneMonster : public cocos2d::CCLayer
 public:
     bool init();
 
-	
-
 	void MonsterGroundMoving(CCPoint position);
 	void MonsterSkyMoving(CCPoint position);
 	void MonsterGroundDestroyAction(CCPoint position);
@@ -35,6 +33,7 @@ public:
 	void JumpActionCallBack(CCNode* sender, void* data);
 	void update(float dt);
 	void draw();
+	void DestroyActionActionEnded(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
 
 	CCArmature * MonsterAmature;
 	CCRect MonsterAmatureBoundingBox;
