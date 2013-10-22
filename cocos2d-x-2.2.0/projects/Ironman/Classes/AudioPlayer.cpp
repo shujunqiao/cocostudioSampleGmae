@@ -42,6 +42,7 @@ bool AudioPlayer::init()
     SimpleAudioEngine::sharedEngine()->playBackgroundMusic("music_background.mp3", true);
     
     _bEffectPlay = true;
+    _bMusicPlay = true;
     
     return true;
 }
@@ -58,6 +59,7 @@ void AudioPlayer::resume()
 
 void AudioPlayer::playEffect(int idx)
 {
+    //CCLog("_bEffectPlay:%d.", _bEffectPlay);
     if(_bEffectPlay)
         SimpleAudioEngine::sharedEngine()->playEffect(g_ArrEffects[idx]);
 }
@@ -75,7 +77,7 @@ void AudioPlayer::setBackgroundMusicPlay(bool play)
         SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
     }
     else{
-        SimpleAudioEngine::sharedEngine()->playBackgroundMusic("music_background.mp3");
+        SimpleAudioEngine::sharedEngine()->playBackgroundMusic("music_background.mp3", true);
     }
 }
 
