@@ -19,7 +19,7 @@ bool Laser::init(int idx, CCPoint position, float direction)
     laserAmatureBoundingBox = CCRectMake(-5, -5, 90, 10);
     
     _idx = idx;
-    int speed = 3;
+    int speed = 18;
     dir_x = cos(direction) * speed;
 	dir_y = -sin(direction) * speed;
 	return true;
@@ -123,7 +123,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
     if (attackTime > 0) {
         return;
     }
-    CCLog("Laser manager addLaser. %d", topNum);
+    //CCLog("Laser manager addLaser. %d", topNum);
     int idx = getIndex();
     Laser* laser = new Laser();
     laser->init(idx, pos, dir);
@@ -134,7 +134,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
         topNum++;
     }
     
-    attackTime = 12;
+    attackTime = 20;
 }
 void LaserManager::update(float dt)
 {
