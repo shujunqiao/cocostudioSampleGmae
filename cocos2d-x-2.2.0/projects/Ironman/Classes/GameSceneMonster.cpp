@@ -103,23 +103,10 @@ void GameSceneMonster::DestroyActionActionEnded(cocos2d::extension::CCArmature *
 {
 
 	std::string id = movementID;
-  //  CCLog("setAttackEvent %d.", movementType);
-    if (movementType == COMPLETE)
+    if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
     {
-       // CCLog("setAttackEvent end");
-		/*
-        isAttack = false;
-		imManArmature->stopAllActions();
-		imManArmature->removeFromParentAndCleanup(false);
-		if(actionNum == ACTION_RUN)
-		{
-			this ->IMRunning();
-		}
-		else if(actionNum == ACTION_RUN_STOP)
-		{
-			this ->IMRunningStop();
-		}
-		*/
+		this->unscheduleUpdate();
+		GameSceneMonster::init();
     }
 	
 }
@@ -166,17 +153,14 @@ void GameSceneMonster::update(float dt)
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_STAND_JUMP)
 	{
 		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-
 	}
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_JUMP)
 	{
 		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-
 	}
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_STOP)
 	{
 		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+40,imManArmature->getPosition().y,imManArmature->getContentSize().width-110,imManArmature->getContentSize().height-45);
-
 	}
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_ATTACK)
 	{
@@ -191,7 +175,6 @@ void GameSceneMonster::update(float dt)
 	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_DEATH)
 	{
 		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-
 	}
 
 	if(MonsterIndex == MonsterGround_enum)
@@ -217,8 +200,7 @@ void GameSceneMonster::update(float dt)
 		}
 
 		GameScene::shareGameScene()->menuLayer->setBroodBarPercent(GameScene::shareGameScene()->playLayer->imManArmatureBrood);
-		this->unscheduleUpdate();
-		GameSceneMonster::init();
+	
 	}
 }
 
