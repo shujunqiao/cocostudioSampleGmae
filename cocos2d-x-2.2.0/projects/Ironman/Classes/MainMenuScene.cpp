@@ -66,7 +66,7 @@ void MainMenuScene::dataLoaded(float percent)
 {
 	if(!isFirstInGame)
 	{
-		GameScene* gameScene =  GameScene::shareGameScene();
+		GameScene* gameScene =  GameScene::newGameScene();
 		CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
 		CCDirector::sharedDirector()->replaceScene(gameSceneTransition);
 		return;
@@ -133,7 +133,7 @@ void MainMenuScene::dataLoaded(float percent)
 	default:
 		{
 			isFirstInGame = false;
-			GameScene* gameScene =  GameScene::shareGameScene();
+			GameScene* gameScene =  GameScene::newGameScene();
 			CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
 			CCDirector::sharedDirector()->replaceScene(gameSceneTransition);
 		}

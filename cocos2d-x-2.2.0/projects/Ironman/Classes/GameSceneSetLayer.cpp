@@ -92,7 +92,6 @@ void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType t
 		parentScene->playLayer->setTouchEnabled(true);
 		
 		std::string currentMovementId = parentScene->playLayer->imManArmature->getAnimation()->getCurrentMovementID();
-		CCLog("currentMovementId is %s", currentMovementId.c_str());
 		if(currentMovementId.compare("") !=0 && (currentMovementId.compare("Running")==0 || currentMovementId.compare("RuningJump")==0))
 			parentScene->gameSceneMapLayer->move();
 		
@@ -107,9 +106,13 @@ void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType t
 
 void GameSceneSetLayer::returnMainMenuBtnFunc(cocos2d::CCObject *pSender, TouchEventType type)
 {
-	MainMenuScene* mainMenuScene =  new MainMenuScene();
-	mainMenuScene->init();
+	MainMenuScene* _mainMenuScene = new MainMenuScene();
 	
-	CCTransitionFade* mainMenuSceneTransition =  CCTransitionFade::create(0.5, mainMenuScene, ccWHITE);
+    if (!_mainMenuScene->init())
+    {
+		CC_SAFE_DELETE(_mainMenuScene);
+    }
+    	
+	CCTransitionFade* mainMenuSceneTransition =  CCTransitionFade::create(0.5, _mainMenuScene, ccWHITE);
 	CCDirector::sharedDirector()->replaceScene(mainMenuSceneTransition);
 }
