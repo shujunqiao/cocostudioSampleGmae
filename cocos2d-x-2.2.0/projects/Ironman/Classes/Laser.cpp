@@ -19,7 +19,7 @@ bool Laser::init(int idx, CCPoint position, float direction)
     laserAmatureBoundingBox = CCRectMake(-5, -5, 90, 10);
     
     _idx = idx;
-    int speed = 18;
+    int speed = 12;
     dir_x = cos(direction) * speed;
 	dir_y = -sin(direction) * speed;
 	return true;

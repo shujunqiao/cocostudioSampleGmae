@@ -90,7 +90,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 	CCPoint setBtnLocation = GameScene::shareGameScene()->menuLayer->settingBtn->getPosition();
 	CCSize  setBtnSize = GameScene::shareGameScene()->menuLayer->settingBtn->getSize();
 	
-	if(touchTime<2 && checkIfTouchNotInSetBtnArea(touchLocation,setBtnSize, setBtnLocation))
+	if(touchTime<8 && checkIfTouchNotInSetBtnArea(touchLocation,setBtnSize, setBtnLocation))
 	{
 		if(actionNum != ACTION_RUN && actionNum != ACTION_RUN_STOP)
 			return;
