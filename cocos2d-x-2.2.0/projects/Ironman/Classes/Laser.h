@@ -15,13 +15,37 @@ USING_NS_CC;
 
 class Laser : public CCSprite
 {
+private:
+    int _idx;
+    float dir_x;
+    float dir_y;
 public:
 	
-	bool init(CCPoint position, float direction);
+    CCRect laserAmatureBoundingBox;
+	bool init(int idx, CCPoint position, float direction);
     void releaseLaser();
 	bool ifOutSideWall();
+    CCRect getRect();
+    
+    void update();
+    //void draw();
 };
 
-
+#define LASER_NUM_MAX 100
+class LaserManager : public CCLayer {
+private:
+    Laser* lasers[LASER_NUM_MAX];
+    int topNum;
+    int attackTime;
+    
+    int getIndex();
+public:
+    CREATE_FUNC(LaserManager);
+    bool init();
+    void update(float dt);
+    
+    void addLaser(CCPoint pos, float dir);
+    void removeLaser(int idx);
+};
 
 #endif

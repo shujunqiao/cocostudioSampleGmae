@@ -16,6 +16,7 @@
 #include "GameSceneMonster.h"
 #include "GameSceneMenuLayer.h"
 #include "GameSceneOverLayer.h"
+#include "Laser.h"
 
 USING_NS_CC;
 
@@ -25,6 +26,7 @@ class GameScenePlayLayer;
 class GameSceneMonster;
 class GameSceneMenuLayer;
 class GameSceneOverLayer;
+class LaserManager;
 
 class GameScene : public cocos2d::CCScene
 {
@@ -39,6 +41,8 @@ public:
     GameScenePlayLayer* playLayer;
 	GameSceneMonster * gameSceneMonster;
 	GameSceneMenuLayer* menuLayer;
+    
+    LaserManager* laser;
 };
 
 #endif
