@@ -101,7 +101,27 @@ void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 }
 void GameSceneMonster::DestroyActionActionEnded(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
 {
-	 
+
+	std::string id = movementID;
+  //  CCLog("setAttackEvent %d.", movementType);
+    if (movementType == COMPLETE)
+    {
+       // CCLog("setAttackEvent end");
+		/*
+        isAttack = false;
+		imManArmature->stopAllActions();
+		imManArmature->removeFromParentAndCleanup(false);
+		if(actionNum == ACTION_RUN)
+		{
+			this ->IMRunning();
+		}
+		else if(actionNum == ACTION_RUN_STOP)
+		{
+			this ->IMRunningStop();
+		}
+		*/
+    }
+	
 }
 void GameSceneMonster::MonsterDestroyAction()
 {
@@ -137,9 +157,6 @@ void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 }
 void GameSceneMonster::update(float dt)
 {
-//	CCLog("%f,%f,%f,%f",GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.width,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.height);
-	//CCLog("%f,%f,%f,%f",MonsterAmature->boundingBox().origin.x,MonsterAmature->boundingBox().origin.y,MonsterAmature->boundingBox().size.width,MonsterAmature->boundingBox().size.height);
-	
 	CCArmature * imManArmature = GameScene::shareGameScene()->playLayer->imManArmature;
 	int actionNum = GameScene::shareGameScene()->playLayer->actionNum;
 	if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN)
@@ -186,11 +203,7 @@ void GameSceneMonster::update(float dt)
 		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
 	}
 
-		/*
-	CCLog("imManArmatureBounding = %f,%f,%f,%f",playerBoundingBoxX-playerBoundingBoxWidth/2,playerBoundingBoxY,playerBoundingBoxWidth,playerBoundingBoxHeight);
-	CCLog("MonsterAmatureBounding = %f,%f,%f,%f",MonsterAmatureBoundingBox.origin.x-MonsterAmatureBoundingBox.size.width/2,MonsterAmatureBoundingBox.origin.y,MonsterAmatureBoundingBox.size.width,MonsterAmatureBoundingBox.size.height);
-	*/
-	
+
 	if (GameScene::shareGameScene()->playLayer->playerBoundingBox.intersectsRect(MonsterAmatureBoundingBox))
 	{
 		MonsterDestroyAction();
@@ -211,13 +224,6 @@ void GameSceneMonster::update(float dt)
 
 void GameSceneMonster::draw()
 {
-	/*
-	CCPoint point1 = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y);
-	CCPoint point2 = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x+GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.width,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y);
-	CCPoint point3 = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x+GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.width,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y+GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.height);
-	CCPoint point4 = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.x+GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().size.width,GameScene::shareGameScene()->playLayer->imManArmature->boundingBox().origin.y);
-	CCLog("(%f,%f),(%f,%f),(%f,%f),(%f,%f),",point1.x,point1.y,point2.x,point2.y,point3.x,point3.y,point4.x,point4.y);
-	*/
 	CCRect playerBoundingBoxCopy = GameScene::shareGameScene()->playLayer->playerBoundingBox;
 	float playerBoundingBoxX = playerBoundingBoxCopy.origin.x;
 	float playerBoundingBoxY = playerBoundingBoxCopy.origin.y;
