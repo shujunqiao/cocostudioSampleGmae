@@ -16,7 +16,9 @@ bool GameSceneSetLayer::init(int effectStatus, int volumn)
 		parentScene->gameSceneMapLayer->stop();
 		parentScene->stopAllActions();
 		parentScene->playLayer->stopAllActions();
+		parentScene->gameSceneMonster->MonsterAmature->pauseSchedulerAndActions();
 		parentScene->playLayer->imManArmature->pauseSchedulerAndActions();
+		parentScene->menuLayer->settingBtn->setTouchEnable(false);
 		
 		this->addWidget(dynamic_cast<Layout*>(CCUIHELPER->createWidgetFromJsonFile("GameSceneSetMenu_1.json")));
 		
@@ -83,9 +85,12 @@ void GameSceneSetLayer::backGameBtn(cocos2d::CCObject *pSender, TouchEventType t
 {
 	if(TOUCH_EVENT_ENDED == type){
 
-		GameScene::shareGameScene()->resumeSchedulerAndActions();
-//	    GameScene::shareGameScene()->playLayer->imManArmature->resumeSchedulerAndActions();
-	    GameScene::shareGameScene()->gameSceneMapLayer->move();
+		GameScene* parentScene = GameScene::shareGameScene();
+		parentScene->resumeSchedulerAndActions();
+	    parentScene->playLayer->imManArmature->resumeSchedulerAndActions();
+	    parentScene->gameSceneMapLayer->move();
+		parentScene->gameSceneMonster->MonsterAmature->resumeSchedulerAndActions();
+		parentScene->menuLayer->settingBtn->setTouchEnable(true);
 	
 	    this->removeAllChildren();
 	    this->removeFromParentAndCleanup(true);
