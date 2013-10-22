@@ -183,7 +183,7 @@ void GameScenePlayLayer::IMRunning()
 	armature->getAnimation()->setSpeedScale(2.0f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(80, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -199,7 +199,7 @@ void GameScenePlayLayer::IMStandJump()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(70, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -215,7 +215,7 @@ void GameScenePlayLayer::IMRunJump()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(70, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -247,9 +247,10 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     CCArmature *armature = NULL;
     armature = CCArmature::create("LaserRunAttack");
     armature->getAnimation()->play("RunningAttack");
+    armature->getAnimation()->setSpeedScale(1.5);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(90, 50));
     //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
     //leftArmBone->setRotation(getAngle(touch));
     amaturePosition = armature->getPosition();
@@ -277,7 +278,7 @@ void GameScenePlayLayer::IMStandAttack(CCPoint touch)
     armature->getAnimation()->setSpeedScale(0.5);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(70, 50));
+	armature->setPosition(ccp(50, 50));
     addChild(armature);
     imManArmature = armature;
     armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
@@ -325,7 +326,7 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
 }
 CCPoint GameScenePlayLayer::getPosHand(float angle)
 {
-    CCPoint posH = ccp(135, 112);
+    CCPoint posH = ccp(141, 121);
     
     return posH;
 }
