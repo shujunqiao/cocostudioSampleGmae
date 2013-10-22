@@ -334,7 +334,7 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
     std::string id = movementID;
     
     //CCLog("setAttackEvent %d.", movementType);
-    if (movementType == COMPLETE)
+    if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
     {
         //CCLog("setAttackEvent end");
         CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
