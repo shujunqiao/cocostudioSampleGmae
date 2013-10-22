@@ -19,13 +19,14 @@ private:
     int _idx;
     float dir_x;
     float dir_y;
+    float speed;
 public:
 	
     CCRect laserAmatureBoundingBox;
 	bool init(int idx, CCPoint position, float direction);
     void releaseLaser();
 	bool ifOutSideWall();
-    CCRect getRect();
+    bool intersectsRect(CCRect rect);
     
     void update();
     //void draw();
