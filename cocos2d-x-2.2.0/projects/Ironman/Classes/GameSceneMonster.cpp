@@ -11,21 +11,23 @@
 
 bool GameSceneMonster::init()
 {
+	isDestroied = false;
 	 int r = random(0, 1);
 	  VisibleSize = CCDirector::sharedDirector()->getVisibleSize();
 	  VisiblePosition  = CCDirector::sharedDirector()->getVisibleOrigin();
-	  float height = ((float)random(0,VisiblePosition.y+200));
-	  CCPoint aPosition = CCPointMake(VisibleSize.width,height);
+
 
 	 switch (r)
 	 {
-		case 0:
+		case MonsterGround_enum:
 		{
 			MonsterGroundMoving(CCPointMake(VisibleSize.width,20));
 		}
 			break;
-		case 1:
+		case MonsterSky_enum:
 		{
+		    float height = ((float)random(0,VisiblePosition.y+100));
+			CCPoint aPosition = CCPointMake(VisibleSize.width-200,height);
 			MonsterSkyMoving(aPosition);
 		}
 			break;
@@ -47,11 +49,12 @@ void GameSceneMonster::MonsterGroundMoving(CCPoint position)
 	addChild(armature);
 	MonsterAmature = armature;
 	MonsterIndex = MonsterGround_enum;
-	CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-100,GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y);
-	CCActionInterval * jumpAction = CCJumpTo::create(3.0,movePoint,50,3);
+	CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-MonsterAmature->getPositionX(),GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y-MonsterAmature->getPositionY());
+	CCActionInterval * jumpAction = CCJumpBy::create(3.0,movePoint,50,3);
+	CCEaseIn * m_grossini = CCEaseIn::create(jumpAction, 3.0f);
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
-	CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
-    MonsterAmature->runAction(action);
+	CCActionInterval*  seq = (CCActionInterval *)CCSequence::create(m_grossini,m_grossini->reverse(),callBack,NULL);
+    MonsterAmature->runAction(CCRepeatForever::create(seq));
 }
 void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 {
@@ -65,12 +68,22 @@ void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 	addChild(armature);
 	MonsterAmature = armature;
 	MonsterIndex = MonsterSky_enum;
-	CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-100,GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y);
-	CCActionInterval * jumpAction = CCJumpTo::create(3.0,movePoint,0,1);
+	CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-MonsterAmature->getPositionX(),GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y-MonsterAmature->getPositionY());
+	
+	float sx = MonsterAmature->getPosition().x;  
+    float sy = MonsterAmature->getPosition().y;   
+    float ex =movePoint.x+50;  
+    float ey =movePoint.y+150;  
+    ccBezierConfig bezier;
+	bezier.controlPoint_1 = MonsterAmature->getPosition();
+    bezier.controlPoint_2 = ccp(sx+(ex-sx)*0.3-100, sy+(ey-sy)*0.5+150);
+    bezier.endPosition = movePoint;
+	CCActionInterval * bezierAction = CCBezierBy::create(3.0,bezier);
+	CCEaseIn * m_grossini = CCEaseIn::create(bezierAction, 1.5f);
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
-	CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
-    MonsterAmature->runAction(action);
-
+	CCActionInterval*  seq = (CCActionInterval *)CCSequence::create(m_grossini,m_grossini->reverse(),callBack,NULL);
+   // MonsterAmature->runAction(seq);
+	 MonsterAmature->runAction(CCRepeatForever::create(seq));
 }
 void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 {  
@@ -87,6 +100,11 @@ void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 }
 void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 {
+	if(isDestroied)
+	{
+		return;
+	}
+	isDestroied = true;
 	CCArmature *armature = NULL;
 	armature = cocos2d::extension::CCArmature::create("MonsterSkyAnimation");
 	armature->getAnimation()->playByIndex(0);
@@ -105,7 +123,6 @@ void GameSceneMonster::DestroyActionActionEnded(cocos2d::extension::CCArmature *
     {
 		GameSceneMonster::init();
     }
-	
 }
 void GameSceneMonster::MonsterDestroyAction()
 {
@@ -133,44 +150,38 @@ int GameSceneMonster::random(int start, int end)
 	float i = CCRANDOM_0_1()*(end-start+1)+start;
 	return (int)i;
 }
-/*
+
 void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 {
-	this->unscheduleUpdate(); 
-	 MonsterDestroyAction();
-	 GameSceneMonster::init();
-}
-*/
-void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
-{
-	/*
-	this->unscheduleUpdate(); 
-	 MonsterDestroyAction();
-	 GameSceneMonster::init();
-	 */
+	
 	switch (MonsterIndex)
 	 {
 		case MonsterGround_enum:
 		{
+			/*
 			CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-100,GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y);
 			CCActionInterval * jumpAction = CCJumpTo::create(3.0,movePoint,50,3);
 			CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
 			CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
 			MonsterAmature->runAction(action);
+			*/
 		}
 			break;
 		case MonsterSky_enum:
 		{
+			/*
 			CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-100,GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y);
 			CCActionInterval * jumpAction = CCJumpTo::create(3.0,movePoint,0,1);
 			CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
 			CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
 			 MonsterAmature->runAction(action);
+			 */
 		}
 			break;
 	 default:
 		 break;
 	 }
+	 
 }
 
 /*

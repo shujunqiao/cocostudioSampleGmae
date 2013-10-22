@@ -90,7 +90,6 @@ void Laser::update()
             AudioPlayer::sharedAudio()->playEffect(Effect_Monster_Dead_1);
         }
         //delete monster.
-				GameScene::shareGameScene()->gameSceneMonster->unscheduleUpdate();
         GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
         //delete self.
 		releaseLaser();

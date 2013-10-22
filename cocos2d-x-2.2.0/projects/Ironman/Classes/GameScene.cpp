@@ -148,8 +148,8 @@ void GameScene::update(float dt)
 
 	if (playLayer->playerBoundingBox.intersectsRect(gameSceneMonster->MonsterAmatureBoundingBox))
 	{
-		this->unscheduleUpdate();
-		gameSceneMonster->MonsterDestroyAction();
+		//this->unscheduleUpdate();
+		//gameSceneMonster->MonsterDestroyAction();
 		playLayer->imManArmatureBrood-=1;
 		if(playLayer->imManArmatureBrood<1)
 		{
@@ -160,42 +160,5 @@ void GameScene::update(float dt)
 		}
 
 		GameScene::shareGameScene()->menuLayer->setBroodBarPercent(playLayer->imManArmatureBrood);
-	//	this->unscheduleUpdate();
 	}
 }
-/*
-void GameScene::draw()
-{
-	CCRect playerBoundingBoxCopy = playLayer->playerBoundingBox;
-	float playerBoundingBoxX = playerBoundingBoxCopy.origin.x;
-	float playerBoundingBoxY = playerBoundingBoxCopy.origin.y;
-	float playerBoundingBoxWidth = playerBoundingBoxCopy.size.width;
-	float playerBoundingBoxHeight = playerBoundingBoxCopy.size.height;
-	CCPoint point1 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY);
-	CCPoint point2 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY);
-	CCPoint point3 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY+playerBoundingBoxHeight);
-	CCPoint point4 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY+playerBoundingBoxHeight);
-
-	    //画一个多边形  
-    ccDrawColor4B(255, 255, 0, 255);  
-    glLineWidth(1);  
-    CCPoint vertices1[] = { point1, point2, point3, point4};  
-    ccDrawPoly( vertices1, 4, true//是否封闭  
-        ); 
-
-	CCRect MonsterAmatureBoundingBoxCopy = gameSceneMonster->MonsterAmatureBoundingBox;
-	float MonsterAmatureBoundingBoxX = MonsterAmatureBoundingBoxCopy.origin.x;
-	float MonsterAmatureBoundingBoxY = MonsterAmatureBoundingBoxCopy.origin.y;
-	float MonsterAmatureBoundingBoxWidth = MonsterAmatureBoundingBoxCopy.size.width;
-	float MonsterAmatureBoundingBoxHeight = MonsterAmatureBoundingBoxCopy.size.height;
-
-	CCPoint point5 = CCPointMake(MonsterAmatureBoundingBoxX,MonsterAmatureBoundingBoxY);
-	CCPoint point6 = CCPointMake(MonsterAmatureBoundingBoxX+MonsterAmatureBoundingBoxWidth,MonsterAmatureBoundingBoxY);
-	CCPoint point7 = CCPointMake(MonsterAmatureBoundingBoxX+MonsterAmatureBoundingBoxWidth,MonsterAmatureBoundingBoxY+MonsterAmatureBoundingBoxHeight);
-	CCPoint point8 = CCPointMake(MonsterAmatureBoundingBoxX,MonsterAmatureBoundingBoxY+MonsterAmatureBoundingBoxHeight);
-
-	CCPoint vertices2[] = { point5, point6, point7, point8};  
-    ccDrawPoly( vertices2, 4, true//是否封闭  
-        ); 
-}
-*/

@@ -37,7 +37,7 @@ public:
 	static GameScene * newGameScene();
 	void gameOver();
 	void update(float dt);
-	//void draw();
+
 
 	GameSceneMapLayer * gameSceneMapLayer;
     GameScenePlayLayer* playLayer;

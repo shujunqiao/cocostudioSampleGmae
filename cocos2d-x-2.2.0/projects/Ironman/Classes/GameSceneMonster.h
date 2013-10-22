@@ -38,6 +38,7 @@ public:
 	CCArmature * MonsterAmature;
 	CCRect MonsterAmatureBoundingBox;
 	int MonsterIndex;
+	bool isDestroied;
 	CCSize VisibleSize;
 	CCPoint VisiblePosition;
     CREATE_FUNC(GameSceneMonster);
