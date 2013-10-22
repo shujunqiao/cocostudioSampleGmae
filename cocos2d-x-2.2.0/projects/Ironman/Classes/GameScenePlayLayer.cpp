@@ -341,7 +341,7 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
         GameScene::shareGameScene()->laser->addLaser(_attackPos, _attackDir);
         isAttack = false;
 		imManArmature->stopAllActions();
-		imManArmature->removeFromParentAndCleanup(false);
+		imManArmature->removeFromParentAndCleanup(false);		
 		if(actionNum == ACTION_RUN)
 		{
 			this ->IMRunning();
@@ -351,7 +351,6 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
 			this ->IMRunningStop();
 		}
     }
-
 }
 
 bool GameScenePlayLayer::checkIfTouchNotInSetBtnArea(CCPoint touchPosition, CCSize setBtnSize, CCPoint setBtnPosition)
