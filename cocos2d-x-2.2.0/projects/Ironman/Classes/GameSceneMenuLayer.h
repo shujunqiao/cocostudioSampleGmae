@@ -29,12 +29,12 @@ public:
     const char* getDistanceScore();
 	int musicEffect;
 	int musicVolume;
+    UIButton*     settingBtn;
     
 protected:
     
     GameScene*    parentScene;
     UILoadingBar* broodBar;
-    UIButton*     settingBtn;
     UILabelAtlas* distanceScore;
 };
 
