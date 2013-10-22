@@ -8,6 +8,7 @@
 
 #include "MainMenuScene.h"
 #include "GameScene.h"
+#include "AudioPlayer.h"
 static bool isFirstInGame = true;
 bool MainMenuScene::init()
 {    
@@ -34,7 +35,7 @@ bool MainMenuScene::init()
     menuLayer->addChild(mainMenu,1);
     this->addChild(menuLayer);
 
-	
+    AudioPlayer::sharedAudio();
 
     return true;
 }

@@ -31,8 +31,8 @@ public:
 	void MonsterDestroyAction();
 	int random(int start, int end);
 	void JumpActionCallBack(CCNode* sender, void* data);
-	void update(float dt);
 	void draw();
+
 	void DestroyActionActionEnded(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
 
 	CCArmature * MonsterAmature;

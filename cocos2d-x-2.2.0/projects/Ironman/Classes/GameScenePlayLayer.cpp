@@ -9,6 +9,7 @@
 #include "GameScenePlayLayer.h"
 #include "GameScene.h"
 #include "Laser.h"
+#include "AudioPlayer.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
 #define PLAYER_SCALE 0.6f
@@ -183,7 +184,7 @@ void GameScenePlayLayer::IMRunning()
 	armature->getAnimation()->setSpeedScale(2.0f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(80, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -199,7 +200,7 @@ void GameScenePlayLayer::IMStandJump()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(70, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -215,7 +216,7 @@ void GameScenePlayLayer::IMRunJump()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(PLAYER_SCALE);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(70, 50));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -247,9 +248,10 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     CCArmature *armature = NULL;
     armature = CCArmature::create("LaserRunAttack");
     armature->getAnimation()->play("RunningAttack");
+    armature->getAnimation()->setSpeedScale(2.0);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(50, 50));
+	armature->setPosition(ccp(90, 50));
     //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
     //leftArmBone->setRotation(getAngle(touch));
     amaturePosition = armature->getPosition();
@@ -277,7 +279,7 @@ void GameScenePlayLayer::IMStandAttack(CCPoint touch)
     armature->getAnimation()->setSpeedScale(0.5);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(70, 50));
+	armature->setPosition(ccp(50, 50));
     addChild(armature);
     imManArmature = armature;
     armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
@@ -320,12 +322,12 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
         tan = -1;    //down max->45 degreeã€?
     }
     double angle = atan(tan);
-    CCLog("tan: %f, %f", tan, angle);
+    //CCLog("tan: %f, %f", tan, angle);
     return -angle;
 }
 CCPoint GameScenePlayLayer::getPosHand(float angle)
 {
-    CCPoint posH = ccp(135, 112);
+    CCPoint posH = ccp(141, 121);
     
     return posH;
 }
@@ -336,8 +338,9 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
     //CCLog("setAttackEvent %d.", movementType);
     if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
     {
+        AudioPlayer::sharedAudio()->playEffect(Effect_Attack_0);
         //CCLog("setAttackEvent end");
-        CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
+        //CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
         GameScene::shareGameScene()->laser->addLaser(_attackPos, _attackDir);
         isAttack = false;
 		imManArmature->stopAllActions();

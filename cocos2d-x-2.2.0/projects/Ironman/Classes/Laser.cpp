@@ -7,6 +7,7 @@
 //
 
 #include "Laser.h"
+#include "AudioPlayer.h"
 
 bool Laser::init(int idx, CCPoint position, float direction)
 {
@@ -18,7 +19,7 @@ bool Laser::init(int idx, CCPoint position, float direction)
     laserAmatureBoundingBox = CCRectMake(-5, -5, 90, 10);
     
     _idx = idx;
-    int speed = 3;
+    int speed = 18;
     dir_x = cos(direction) * speed;
 	dir_y = -sin(direction) * speed;
 	return true;
@@ -82,9 +83,11 @@ void Laser::update()
         int type = GameScene::shareGameScene()->gameSceneMonster->MonsterIndex;
         if (type == MonsterSky_enum) {
             GameScene::shareGameScene()->playLayer->monsterSkyAmount ++;
+            AudioPlayer::sharedAudio()->playEffect(Effect_Monster_Dead_0);
         }
         else if (type == MonsterGround_enum){
             GameScene::shareGameScene()->playLayer->monsterGroundAmount ++;
+            AudioPlayer::sharedAudio()->playEffect(Effect_Monster_Dead_1);
         }
         //delete monster.
 				GameScene::shareGameScene()->gameSceneMonster->unscheduleUpdate();
@@ -120,7 +123,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
     if (attackTime > 0) {
         return;
     }
-    CCLog("Laser manager addLaser. %d", topNum);
+    //CCLog("Laser manager addLaser. %d", topNum);
     int idx = getIndex();
     Laser* laser = new Laser();
     laser->init(idx, pos, dir);
@@ -131,7 +134,7 @@ void LaserManager::addLaser(CCPoint pos, float dir)
         topNum++;
     }
     
-    attackTime = 12;
+    attackTime = 20;
 }
 void LaserManager::update(float dt)
 {
