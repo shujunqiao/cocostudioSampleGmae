@@ -62,6 +62,7 @@ public:
     void setMovedSpeed(float speed);
     
     int getRandN(int n);
+	static int g_map_move_speed;   //map move speed.
 };
 
 
