@@ -20,7 +20,7 @@ bool GameScene::init()
 	}
 	
 	gameSceneMapLayer->setMovedSpeed(3);
-    gameSceneMapLayer->setPosition(VisibleRect::leftBottom());
+    gameSceneMapLayer->setPosition(ccp(0,0));
     this->addChild(gameSceneMapLayer, 0);
 
 	menuLayer = new GameSceneMenuLayer();
@@ -33,8 +33,15 @@ bool GameScene::init()
 		CC_SAFE_DELETE(menuLayer);
 	}
 	
-    menuLayer->setAnchorPoint(ccp(0, 0));
-    menuLayer->setPosition(ccp(VisibleRect::leftBottom().x,VisibleRect::leftBottom().y));
+    menuLayer->setAnchorPoint(ccp(0, 1));
+
+	menuLayer->setPosition(ccp(0,0));
+	
+	if(CCEGLView::sharedOpenGLView()->getFrameSize().width >=960)
+	{
+		menuLayer->setPosition(ccp(0,CCEGLView::sharedOpenGLView()->getVisibleOrigin().y-40));
+	}
+	
     this->addChild(menuLayer, 0);
     
     playLayer = new GameScenePlayLayer();

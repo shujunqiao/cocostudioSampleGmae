@@ -51,7 +51,7 @@ void GameSceneMenuLayer::settingBtnCallback(CCObject *pSender, TouchEventType ty
 		}
 		
 		gameSetLayer->setAnchorPoint(ccp(0, 0));
-		gameSetLayer->setPosition(VisibleRect::leftBottom());
+		gameSetLayer->setPosition(ccp(0,0));
 		
 		parentScene->addChild(gameSetLayer,4);
 	}

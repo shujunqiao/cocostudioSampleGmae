@@ -15,8 +15,8 @@
 
 bool GameScenePlayLayer::init()
 {
-	playerX = VisibleRect::leftBottom().x+50.0;
-    playerY = VisibleRect::leftBottom().y+70.0;
+	playerX = 50.0;
+    playerY = 70.0;
 	playerScale = 0.6f;
 	touchTime = 0;
 	isAttack = false;
@@ -25,7 +25,7 @@ bool GameScenePlayLayer::init()
 	monsterGroundAmount = 0;
     monsterSkyAmount = 0;
     
-    _attackPos = CCPoint(VisibleRect::leftBottom());
+    _attackPos = CCPoint(ccp(0,0));
     _attackDir = 0.0f;
 
 	this->IMRunningStop();
