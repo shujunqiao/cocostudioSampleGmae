@@ -18,7 +18,13 @@ bool GameSceneMenuLayer::init(int broodBarPercent,const char *value)
         settingBtn    = dynamic_cast<UIButton*>(this->getWidgetByName("Setting"));
         broodBar      = dynamic_cast<UILoadingBar*>(this->getWidgetByName("BroodBar"));
         distanceScore = dynamic_cast<UILabelAtlas*>(this->getWidgetByName("DistanceScore"));
-        
+        /*
+		float px = 0;
+		float py = 0;
+		settingBtn->setPosition(ccp(VisibleRect::rightTop().x-px,VisibleRect::rightTop().y-py));
+		broodBar->setPosition(ccp(VisibleRect::rightTop().x-px,VisibleRect::rightTop().y-py));
+		distanceScore->setPosition(ccp(VisibleRect::rightTop().x-px,VisibleRect::rightTop().y-py));
+		*/
         settingBtn->addTouchEventListener(this, toucheventselector(GameSceneMenuLayer::settingBtnCallback));
         this->setBroodBarPercent(broodBarPercent);
         this->setDistanceScore(value);
@@ -45,7 +51,7 @@ void GameSceneMenuLayer::settingBtnCallback(CCObject *pSender, TouchEventType ty
 		}
 		
 		gameSetLayer->setAnchorPoint(ccp(0, 0));
-		gameSetLayer->setPosition(ccp(0, 0));
+		gameSetLayer->setPosition(VisibleRect::leftBottom());
 		
 		parentScene->addChild(gameSetLayer,4);
 	}

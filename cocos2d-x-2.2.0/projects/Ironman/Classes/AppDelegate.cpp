@@ -25,6 +25,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if (screenSize.height > 320)
     {
 		searchPaths.push_back("iphone");
+		searchPaths.push_back("iphone");
+		searchPaths.push_back("music");
+		searchPaths.push_back("iphone/tiledmap");
         pDirector->setContentScaleFactor(320.0f/designSize.height);
     }
     else
