@@ -67,6 +67,7 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     CCPoint m_tBeginPos;
 	CCPoint s_tCurPos;
 	CCRect playerBoundingBox;
+	float playerScale;
 	enum
 	{
 		ACTION_RUN = 0,
