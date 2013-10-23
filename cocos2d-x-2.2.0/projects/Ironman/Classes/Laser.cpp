@@ -99,7 +99,6 @@ void Laser::update()
         }
 		if(!GameScene::shareGameScene()->isRectDetectedLock)
 		 {
-			 CCLOG("asduikashdkahsdkahsdkahsdkjasdsa");
 			 GameScene::shareGameScene()->isRectDetectedLock = true;
 			 //delete monster.
 			GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
@@ -122,7 +121,7 @@ void Laser::update()
 /************************LaserManager************************/
 bool LaserManager::init()
 {
-    CCLog("LaserManager init.");
+    //CCLog("LaserManager init.");
     topNum = 0;
     attackTime = 0;
     for (int i=0; i<LASER_NUM_MAX; i++)
