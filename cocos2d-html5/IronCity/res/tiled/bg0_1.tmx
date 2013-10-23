@@ -32,17 +32,22 @@
  </layer>
  <layer name="house" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMNQA10A7gAaAm8rqRsEoGEgAAGnwACE=
+   eJxjYBgFo2AUjIJRMAqIA1wD7QAaAG4qqxsFowAEAFrwACE=
+  </data>
+ </layer>
+ <layer name="cloud" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAQgoDrQDRsGwAQBVLAAi
+  </data>
+ </layer>
+ <layer name="floor" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYnoCVRvKE9AEADygAFQ==
   </data>
  </layer>
  <layer name="wooden" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMAqGFpAeaAeMgiEFZAbATgBdXAA4
-  </data>
- </layer>
- <layer name="floor" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYnoCdAnlcchxE2AsAEdQAHg==
   </data>
  </layer>
  <layer name="door" width="30" height="20">
@@ -60,18 +65,4 @@
    eJxjYBgFo2AUjIJRMApGwUADCTLkyNEzCugDAKhgAGE=
   </data>
  </layer>
- <layer name="cloud" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAoGF1AcaAeMglFAIQAAZKQAIg==
-  </data>
- </layer>
- <objectgroup name="object" width="30" height="20">
-  <properties>
-   <property name="name" value="check"/>
-   <property name="ppp" value="1"/>
-  </properties>
-  <object x="4" y="239" width="330" height="83"/>
-  <object x="338" y="131" width="136" height="189"/>
-  <object x="49" y="182" width="131" height="55"/>
- </objectgroup>
 </map>

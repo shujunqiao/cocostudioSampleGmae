@@ -67,8 +67,14 @@ void GameSceneSetLayer::musicEffectSliderCallFunc(cocos2d::CCObject *pSender, Sl
 	}
 	
 	GameScene::shareGameScene()->menuLayer->musicEffect = musicEffectStatus;
-    //set audio state.
-    AudioPlayer::sharedAudio()->setBackgroundMusicPlay(musicEffectStatus);
+    //set effect state.
+    CCLog("musicEffectStatus:%d.", musicEffectStatus);
+    if (musicEffectStatus == 1) {
+        AudioPlayer::sharedAudio()->setEffectPlay(false);
+    }
+    else{
+        AudioPlayer::sharedAudio()->setEffectPlay(true);
+    }
 }
 
 void GameSceneSetLayer::musicVolumeSliderCallFunc(cocos2d::CCObject *pSender, SliderEventType type)
