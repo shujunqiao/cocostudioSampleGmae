@@ -89,10 +89,15 @@ GameScene* GameScene::newGameScene()
 void GameScene::gameOver()
 {
 	GameSceneOverLayer* overLayer = new GameSceneOverLayer();
-	overLayer->init();
+	
+    if (!overLayer->init())
+    {
+		CC_SAFE_DELETE(overLayer);
+    }
 	
 	playLayer->stopAllActions();
 	playLayer->unscheduleUpdate();
+	GameScene::gameSceneMapLayer->stop();
 	gameSceneMonster->stopAllActions();
 	gameSceneMonster->unscheduleUpdate();
 
