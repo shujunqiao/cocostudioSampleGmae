@@ -266,15 +266,10 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     armature->getAnimation()->play("RunningAttack");
     armature->getAnimation()->setSpeedScale(2.0);
 	armature->setAnchorPoint(ccp(0.5,0));
-<<<<<<< HEAD
-	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(90, 50));
-=======
 	armature->setScale(playerScale);
 	armature->setPosition(ccp(PLAYER_X+40, PLAYER_Y));
     //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
     //leftArmBone->setRotation(getAngle(touch));
->>>>>>> 9380f6aad5accb4a843f72d5054c23e5cf770fa4
     amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;

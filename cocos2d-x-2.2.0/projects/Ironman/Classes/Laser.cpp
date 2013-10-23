@@ -101,10 +101,6 @@ void Laser::update()
 /************************LaserManager************************/
 bool LaserManager::init()
 {
-<<<<<<< HEAD
-=======
-    //CCLog("LaserManager init.");
->>>>>>> 9380f6aad5accb4a843f72d5054c23e5cf770fa4
     topNum = 0;
     attackTime = 0;
     for (int i=0; i<LASER_NUM_MAX; i++)
