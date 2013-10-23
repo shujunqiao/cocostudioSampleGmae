@@ -25,25 +25,6 @@ bool Laser::init(int idx, CCPoint position, float direction)
 	return true;
 }
 
-//void Laser::draw()
-//{
-//    CCRect playerBoundingBoxCopy = laserAmatureBoundingBox;
-//	float playerBoundingBoxX = playerBoundingBoxCopy.origin.x;
-//	float playerBoundingBoxY = playerBoundingBoxCopy.origin.y;
-//    CCLog("playerBoundingBoxY = %f",playerBoundingBoxY);
-//	float playerBoundingBoxWidth = playerBoundingBoxCopy.size.width;
-//	float playerBoundingBoxHeight = playerBoundingBoxCopy.size.height;
-//	CCPoint point1 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY);
-//	CCPoint point2 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY);
-//	CCPoint point3 = CCPointMake(playerBoundingBoxX+playerBoundingBoxWidth,playerBoundingBoxY+playerBoundingBoxHeight);
-//	CCPoint point4 = CCPointMake(playerBoundingBoxX,playerBoundingBoxY+playerBoundingBoxHeight);
-//    
-//    ccDrawColor4B(255, 0, 0, 255);
-//    glLineWidth(1);
-//    CCPoint vertices1[] = { point1, point2, point3, point4};
-//    ccDrawPoly( vertices1, 4, true);
-//}
-
 void Laser::releaseLaser()
 {
 	//this->removeFromParentAndCleanup(true);
@@ -111,7 +92,6 @@ void Laser::update()
 	}
     
     CCPoint pos = this->getPosition();
-    //CCLog("pos: %f, %f", pos.x, pos.y);
     pos.x += dir_x * speed;
     pos.y += dir_y * speed;
     this->setPosition(pos);
@@ -121,7 +101,6 @@ void Laser::update()
 /************************LaserManager************************/
 bool LaserManager::init()
 {
-    //CCLog("LaserManager init.");
     topNum = 0;
     attackTime = 0;
     for (int i=0; i<LASER_NUM_MAX; i++)
@@ -135,7 +114,6 @@ void LaserManager::addLaser(CCPoint pos, float dir)
     if (attackTime > 0) {
         return;
     }
-    //CCLog("Laser manager addLaser. %d", topNum);
     int idx = getIndex();
     Laser* laser = new Laser();
     laser->init(idx, pos, dir);

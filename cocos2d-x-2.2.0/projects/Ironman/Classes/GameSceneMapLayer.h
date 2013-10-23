@@ -29,6 +29,9 @@ private:
     float _length;
     bool _bInMap;
     CCArray* _objects;
+    bool bCanAddMap;
+    bool hasNextMap;
+    int _mapIdx;
 public:
     CREATE_FUNC(MapGet);
     //bool init();
