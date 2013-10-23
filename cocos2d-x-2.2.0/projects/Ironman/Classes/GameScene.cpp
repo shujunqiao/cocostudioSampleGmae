@@ -20,7 +20,7 @@ bool GameScene::init()
 	}
 	
 	gameSceneMapLayer->setMovedSpeed(3);
-    gameSceneMapLayer->setPosition(ccp(0, 0));
+    gameSceneMapLayer->setPosition(VisibleRect::leftBottom());
     this->addChild(gameSceneMapLayer, 0);
 
 	menuLayer = new GameSceneMenuLayer();
@@ -34,7 +34,7 @@ bool GameScene::init()
 	}
 	
     menuLayer->setAnchorPoint(ccp(0, 0));
-    menuLayer->setPosition(ccp(0, 0));
+    menuLayer->setPosition(VisibleRect::leftBottom());
     menuLayer->setScale(0.5);
     this->addChild(menuLayer, 0);
     

@@ -12,19 +12,18 @@
 bool GameSceneMonster::init()
 {
 	 int r = random(0, 1);
-	 VisibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	 VisiblePosition  = CCDirector::sharedDirector()->getVisibleOrigin();
+	 
 	 switch (r)
 	 {
 		case MonsterGround_enum:
 		{
-			MonsterGroundMoving(CCPointMake(VisibleSize.width,50));
+			MonsterGroundMoving(CCPointMake(VisibleRect::leftBottom().x+VisibleRect::getVisibleRect().size.width,VisibleRect::rightBottom().y+50));
 		}
 			break;
 		case MonsterSky_enum:
 		{
-		    float height = ((float)random(0,VisiblePosition.y+100));
-			CCPoint aPosition = CCPointMake(VisibleSize.width-200,height);
+		    float height = ((float)random(VisibleRect::leftBottom().y,VisibleRect::rightBottom().y+100));
+			CCPoint aPosition = CCPointMake(VisibleRect::getVisibleRect().size.width-200,height);
 			MonsterSkyMoving(aPosition);
 		}
 			break;

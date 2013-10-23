@@ -12,10 +12,11 @@
 #include "AudioPlayer.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
-#define PLAYER_X 50
-#define PLAYER_Y 70
+
 bool GameScenePlayLayer::init()
 {
+	playerX = VisibleRect::leftBottom().x+50.0;
+    playerY = VisibleRect::leftBottom().y+70.0;
 	playerScale = 0.6f;
 	touchTime = 0;
 	isAttack = false;
@@ -24,7 +25,7 @@ bool GameScenePlayLayer::init()
 	monsterGroundAmount = 0;
     monsterSkyAmount = 0;
     
-    _attackPos = CCPoint(0.0f, 0.0f);
+    _attackPos = CCPoint(VisibleRect::leftBottom());
     _attackDir = 0.0f;
 
 	this->IMRunningStop();
@@ -198,7 +199,7 @@ void GameScenePlayLayer::IMRunning()
 	armature->getAnimation()->setSpeedScale(2.0f);
 	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(PLAYER_X+30, PLAYER_Y));
+	armature->setPosition(ccp(playerX+30, playerY));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -214,7 +215,7 @@ void GameScenePlayLayer::IMStandJump()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(PLAYER_X+20, PLAYER_Y));
+	armature->setPosition(ccp(playerX+20, playerY));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -230,7 +231,7 @@ void GameScenePlayLayer::IMRunJump()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(PLAYER_X+20, PLAYER_Y));
+	armature->setPosition(ccp(playerX+20, playerY));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -248,7 +249,7 @@ void GameScenePlayLayer::IMRunningStop()
 	armature->getAnimation()->setSpeedScale(1.5f);
 	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(PLAYER_X+50, PLAYER_Y));
+	armature->setPosition(ccp(playerX+50, playerY));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -267,7 +268,7 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     armature->getAnimation()->setSpeedScale(2.0);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(playerScale);
-	armature->setPosition(ccp(PLAYER_X+40, PLAYER_Y));
+	armature->setPosition(ccp(playerX+40, playerY));
     //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
     //leftArmBone->setRotation(getAngle(touch));
     amaturePosition = armature->getPosition();
@@ -291,7 +292,7 @@ void GameScenePlayLayer::IMStandAttack(CCPoint touch)
     armature->getAnimation()->setSpeedScale(0.5);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(playerScale);
-	armature->setPosition(ccp(PLAYER_X, PLAYER_Y));
+	armature->setPosition(ccp(playerX, playerY));
     addChild(armature);
     imManArmature = armature;
     armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
@@ -308,7 +309,7 @@ void GameScenePlayLayer::IMDeath()
 	armature->getAnimation()->setSpeedScale(1.0f);
 	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(100, PLAYER_Y));
+	armature->setPosition(ccp(100, playerY));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;

@@ -41,8 +41,7 @@ public:
 	int MonsterIndex;
 	bool isDestroied;
 	int timeCount;
-	CCSize VisibleSize;
-	CCPoint VisiblePosition;
+
     CREATE_FUNC(GameSceneMonster);
 };
 
