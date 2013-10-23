@@ -273,7 +273,7 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
-	 armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
+    armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
     
     _attackPos = posHand;
     _attackDir = angle;
@@ -320,7 +320,7 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
 {
     //touch = ccp(240, 290);
     //CCPoint posOrg = ccp(108, 105);
-    CCPoint posOrg = ccp(135, 112);
+    CCPoint posOrg = ccp(135, 132);
     if(touch.x <= posOrg.x)
         return -1.57;   //up max->90 degreeã€?
     if (touch.y == posOrg.y) {
@@ -330,15 +330,15 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
     }
     
     float tan = (touch.y - posOrg.y)/(touch.x - posOrg.x);
-    if (tan < -1) {
-        tan = -1;    //down max->45 degreeã€?
+    if (tan < -6) {
+        tan = -6;    //down max->45 degreeã€?
     }
     double angle = atan(tan);
     return -angle;
 }
 CCPoint GameScenePlayLayer::getPosHand(float angle)
 {
-    CCPoint posH = ccp(141, 121);
+    CCPoint posH = ccp(141, 141);
     
     return posH;
 }

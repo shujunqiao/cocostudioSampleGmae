@@ -62,8 +62,12 @@ bool MapGet::initMap(int mapIdx)
     //CCLog("MapGet _objects: %d", _objects->count());
     
     _length = 3 * g_w;
+    _mapIdx = mapIdx;
     
     _bInMap = true;
+    
+    bCanAddMap = false;
+    hasNextMap = false;
     
     return true;
 }
@@ -79,15 +83,25 @@ void MapGet::update()
         return;
     }
     float p_x = this->getPositionX();
-    if (p_x <= -this->_length) {
+    if (p_x <= -(this->_length)) {
+        _bInMap = false;
         ((GameSceneMapLayer*)this->getParent())->refreshMap();
+        return;
     }
-    if (p_x == -g_w) {
+    if (p_x <= -g_w && p_x >= -g_w*2) {
+        bCanAddMap = true;
+    }
+    if (bCanAddMap && !hasNextMap) {
         ((GameSceneMapLayer*)this->getParent())->addNextMap();
+        bCanAddMap = false;
+        hasNextMap = true;
+        //CCLog("add map.%d, %d, idx:%d.", bCanAddMap, hasNextMap, _mapIdx);
     }
     p_x -= GameSceneMapLayer::g_map_move_speed;
-    if (p_x >= -this->_length) {
-        this->setPositionX(p_x);
+    if (p_x >= -(this->_length+GameSceneMapLayer::g_map_move_speed)) {
+        if (_bInMap) {
+            this->setPositionX(p_x);
+        }
     }
 }
 
@@ -163,12 +177,13 @@ void GameSceneMapLayer::addNextMap()
     }
     MapGet* map_n = MapGet::create();
     map_n->initMap(idx);
-    
+    //CCLog("map_0 pos x:%f.", _maps[0]->getPositionX());
     map_n->setPositionX(_curW + _maps[0]->getPositionX());
     addChild(map_n);
     _curW = map_n->getW();
     _maps[1] = map_n;
     _lastIdx = idx;
+    //CCLog("map_n pos x:%f._curW:%f.", map_n->getPositionX(), _curW);
     //CCLog("addNextMap end, %x, %x.", _maps[0], _maps[1]);
 }
 
