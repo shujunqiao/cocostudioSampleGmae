@@ -383,10 +383,10 @@ void GameScenePlayLayer::amatureActionCallBack(cocos2d::extension::CCArmature *a
 }
 bool GameScenePlayLayer::checkIfTouchNotInSetBtnArea(CCPoint touchPosition, CCSize setBtnSize, CCPoint setBtnPosition)
 {
-	if(touchPosition.x < setBtnPosition.x/2-(setBtnSize.width/2)  ||
-	   touchPosition.x > setBtnPosition.x/2+(setBtnSize.width/2)  ||
-	   touchPosition.y < setBtnPosition.y/2-(setBtnSize.height/2) ||
-	   touchPosition.y > setBtnPosition.y/2+(setBtnSize.height/2)){
+	if(touchPosition.x < setBtnPosition.x-(setBtnSize.width/2)  ||
+	   touchPosition.x > setBtnPosition.x+(setBtnSize.width/2)  ||
+	   touchPosition.y < setBtnPosition.y-(setBtnSize.height/2) ||
+	   touchPosition.y > setBtnPosition.y-(setBtnSize.height/2)){
 		return true;
 	}else{
 		return false;

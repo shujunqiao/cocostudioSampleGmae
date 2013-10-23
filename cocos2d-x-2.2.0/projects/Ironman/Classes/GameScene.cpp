@@ -35,7 +35,6 @@ bool GameScene::init()
 	
     menuLayer->setAnchorPoint(ccp(0, 0));
     menuLayer->setPosition(ccp(VisibleRect::leftBottom().x,VisibleRect::leftBottom().y));
-    menuLayer->setScale(0.5);
     this->addChild(menuLayer, 0);
     
     playLayer = new GameScenePlayLayer();
