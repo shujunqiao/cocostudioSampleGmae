@@ -252,16 +252,10 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setScale(PLAYER_SCALE);
 	armature->setPosition(ccp(90, 50));
-    //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
-    //leftArmBone->setRotation(getAngle(touch));
     amaturePosition = armature->getPosition();
 	addChild(armature);
-    //CCPoint pArm = leftArmBone->getPosition();
-    //CCLog("arm pos: %f, %f, %f, %f.", posHand.x, posHand.y, amaturePosition.x, amaturePosition.y);
 	imManArmature = armature;
-	//actionNum = ACTION_RUN_ATTACK;
 	 armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
-	//LaserManager::shareGameScene()->gameSceneMapLayer->attack();
     
     _attackPos = posHand;
     _attackDir = angle;
@@ -322,7 +316,6 @@ float GameScenePlayLayer::getAngle(CCPoint touch)
         tan = -1;    //down max->45 degreeã€?
     }
     double angle = atan(tan);
-    //CCLog("tan: %f, %f", tan, angle);
     return -angle;
 }
 CCPoint GameScenePlayLayer::getPosHand(float angle)
@@ -335,12 +328,9 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
 {
     std::string id = movementID;
     
-    //CCLog("setAttackEvent %d.", movementType);
     if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
     {
         AudioPlayer::sharedAudio()->playEffect(Effect_Attack_0);
-        //CCLog("setAttackEvent end");
-        //CCLog("attack dir: %f, pos(%f, %f).", _attackDir, _attackPos.x, _attackPos.y);
         GameScene::shareGameScene()->laser->addLaser(_attackPos, _attackDir);
         isAttack = false;
 		imManArmature->stopAllActions();
