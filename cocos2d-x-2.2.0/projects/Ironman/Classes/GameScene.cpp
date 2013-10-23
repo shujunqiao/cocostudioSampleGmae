@@ -7,7 +7,6 @@
 //
 
 #include "GameScene.h"
-
 bool GameScene::init()
 {
 	gameSceneMapLayer = new GameSceneMapLayer();
@@ -59,7 +58,7 @@ bool GameScene::init()
     laser->scheduleUpdate();
     this->addChild(laser);
 	this->scheduleUpdate();
-
+	isRectDetectedLock = false;
     return true;
 }
 

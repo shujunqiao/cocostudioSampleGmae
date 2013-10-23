@@ -83,9 +83,10 @@ void Laser::update()
         releaseLaser();
         return;
     }
-    
+  
     if (intersectsRect(GameScene::shareGameScene()->gameSceneMonster->MonsterAmatureBoundingBox))
 	{
+		 
         //add score.
         int type = GameScene::shareGameScene()->gameSceneMonster->MonsterIndex;
         if (type == MonsterSky_enum) {
@@ -96,12 +97,18 @@ void Laser::update()
             GameScene::shareGameScene()->playLayer->monsterGroundAmount ++;
             AudioPlayer::sharedAudio()->playEffect(Effect_Monster_Dead_1);
         }
-        //delete monster.
-        GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
+		if(!GameScene::shareGameScene()->isRectDetectedLock)
+		 {
+			 CCLOG("asduikashdkahsdkahsdkahsdkjasdsa");
+			 GameScene::shareGameScene()->isRectDetectedLock = true;
+			 //delete monster.
+			GameScene::shareGameScene()->gameSceneMonster->MonsterDestroyAction();
+		}
         //delete self.
 		releaseLaser();
         
         return;
+		 
 	}
     
     CCPoint pos = this->getPosition();

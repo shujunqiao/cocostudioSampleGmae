@@ -34,11 +34,13 @@ public:
 	void draw();
 
 	void DestroyActionActionEnded(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
+	void DelayInit(float t);
 
 	CCArmature * MonsterAmature;
 	CCRect MonsterAmatureBoundingBox;
 	int MonsterIndex;
 	bool isDestroied;
+	int timeCount;
 	CCSize VisibleSize;
 	CCPoint VisiblePosition;
     CREATE_FUNC(GameSceneMonster);

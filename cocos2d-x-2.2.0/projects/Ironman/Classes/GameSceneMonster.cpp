@@ -11,7 +11,6 @@
 
 bool GameSceneMonster::init()
 {
-	isDestroied = false;
 	 int r = random(0, 1);
 	  VisibleSize = CCDirector::sharedDirector()->getVisibleSize();
 	  VisiblePosition  = CCDirector::sharedDirector()->getVisibleOrigin();
@@ -34,7 +33,6 @@ bool GameSceneMonster::init()
 	 default:
 		 break;
 	 }
-
     return true;
 }
 void GameSceneMonster::MonsterGroundMoving(CCPoint position)
@@ -82,8 +80,7 @@ void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 	CCEaseIn * m_grossini = CCEaseIn::create(bezierAction, 1.5f);
 	CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
 	CCActionInterval*  seq = (CCActionInterval *)CCSequence::create(m_grossini,m_grossini->reverse(),callBack,NULL);
-   // MonsterAmature->runAction(seq);
-	 MonsterAmature->runAction(CCRepeatForever::create(seq));
+    MonsterAmature->runAction(seq);
 }
 void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 {  
@@ -100,11 +97,6 @@ void GameSceneMonster::MonsterGroundDestroyAction(CCPoint position)
 }
 void GameSceneMonster::MonsterSkyDestroyAction(CCPoint position)
 {
-	if(isDestroied)
-	{
-		return;
-	}
-	isDestroied = true;
 	CCArmature *armature = NULL;
 	armature = cocos2d::extension::CCArmature::create("MonsterSkyAnimation");
 	armature->getAnimation()->playByIndex(0);
@@ -121,8 +113,13 @@ void GameSceneMonster::DestroyActionActionEnded(cocos2d::extension::CCArmature *
 	std::string id = movementID;
     if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
     {
-		GameSceneMonster::init();
+		this->schedule(schedule_selector(GameSceneMonster::DelayInit),0.0f, 0, 0.0f);
     }
+}
+void GameSceneMonster::DelayInit(float t)
+{
+	GameSceneMonster::init();
+	GameScene::shareGameScene()->isRectDetectedLock = false;
 }
 void GameSceneMonster::MonsterDestroyAction()
 {
@@ -153,7 +150,6 @@ int GameSceneMonster::random(int start, int end)
 
 void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 {
-	
 	switch (MonsterIndex)
 	 {
 		case MonsterGround_enum:
@@ -169,13 +165,39 @@ void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 			break;
 		case MonsterSky_enum:
 		{
-			/*
-			CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-100,GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y);
-			CCActionInterval * jumpAction = CCJumpTo::create(3.0,movePoint,0,1);
+			int randomNumX = random(0, 1);
+			int randomNumY = random(0, 1);
+			if(0==randomNumY)
+			{
+				 randomNumY = random(50, 150);
+			}
+			else
+			{
+				 randomNumY = random(-150, -300);
+			}
+			if(0==randomNumY)
+			{
+				 randomNumY = random(50, 150);
+			}
+			else
+			{
+				 randomNumY = random(-150, -300);
+			}
+			
+			CCPoint movePoint = CCPointMake(GameScene::shareGameScene()->playLayer->imManArmature->getPosition().x-MonsterAmature->getPositionX(),GameScene::shareGameScene()->playLayer->imManArmature->getPosition().y-MonsterAmature->getPositionY());
+			float sx = MonsterAmature->getPosition().x;  
+		    float sy = MonsterAmature->getPosition().y;   
+		    float ex =movePoint.x+50;  
+			float ey =movePoint.y+150;  
+		    ccBezierConfig bezier;
+			bezier.controlPoint_1 = MonsterAmature->getPosition();
+		    bezier.controlPoint_2 = ccp(sx+(ex-sx)*0.5+randomNumX, sy+(ey-sy)*0.5+randomNumY);
+		    bezier.endPosition = movePoint;
+			CCActionInterval * bezierAction = CCBezierBy::create(3.0,bezier);
+			CCEaseIn * m_grossini = CCEaseIn::create(bezierAction, 1.5f);
 			CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameSceneMonster::JumpActionCallBack), (void*)0xbebabeba);
-			CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
-			 MonsterAmature->runAction(action);
-			 */
+			CCActionInterval*  seq = (CCActionInterval *)CCSequence::create(m_grossini,m_grossini->reverse(),callBack,NULL);
+			MonsterAmature->runAction(seq);
 		}
 			break;
 	 default:
@@ -184,69 +206,6 @@ void GameSceneMonster::JumpActionCallBack(CCNode* sender, void* data)
 	 
 }
 
-/*
-void GameSceneMonster::update(float dt)
-{
-	CCArmature * imManArmature = GameScene::shareGameScene()->playLayer->imManArmature;
-	int actionNum = GameScene::shareGameScene()->playLayer->actionNum;
-	if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-	}
-	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_STAND_JUMP)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-	}
-	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_JUMP)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-	}
-	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_STOP)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+40,imManArmature->getPosition().y,imManArmature->getContentSize().width-110,imManArmature->getContentSize().height-45);
-	}
-	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_RUN_ATTACK)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-
-	}
-	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_STAND_ATTACK)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-
-	}
-	else if(actionNum == GameScene::shareGameScene()->playLayer->ACTION_DEATH)
-	{
-		GameScene::shareGameScene()->playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-	}
-
-	if(MonsterIndex == MonsterGround_enum)
-	{
-		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
-	}
-	else if(MonsterIndex == MonsterSky_enum)
-	{
-		MonsterAmatureBoundingBox = CCRectMake(MonsterAmature->getPosition().x-MonsterAmature->getContentSize().width/2+25,MonsterAmature->getPosition().y+21,MonsterAmature->getContentSize().width-50,MonsterAmature->getContentSize().height-48);
-	}
-
-
-	if (GameScene::shareGameScene()->playLayer->playerBoundingBox.intersectsRect(MonsterAmatureBoundingBox))
-	{
-		MonsterDestroyAction();
-		GameScene::shareGameScene()->playLayer->imManArmatureBrood-=1;
-		if(GameScene::shareGameScene()->playLayer->imManArmatureBrood<1)
-		{
-			GameScene::shareGameScene()->menuLayer->setBroodBarPercent(0);
-			this->unscheduleUpdate();
-			GameScene::shareGameScene()->playLayer->IMDeath();
-			return;
-		}
-
-		GameScene::shareGameScene()->menuLayer->setBroodBarPercent(GameScene::shareGameScene()->playLayer->imManArmatureBrood);
-		this->unscheduleUpdate();
-	}
-}
-*/
 void GameSceneMonster::draw()
 {
 	CCRect playerBoundingBoxCopy = GameScene::shareGameScene()->playLayer->playerBoundingBox;

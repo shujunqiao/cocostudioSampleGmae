@@ -43,8 +43,8 @@ public:
     GameScenePlayLayer* playLayer;
 	GameSceneMonster * gameSceneMonster;
 	GameSceneMenuLayer* menuLayer;
-    
     LaserManager* laser;
+	bool isRectDetectedLock;
 };
 
 #endif
