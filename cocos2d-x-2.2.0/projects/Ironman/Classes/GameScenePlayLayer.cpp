@@ -12,9 +12,11 @@
 #include "AudioPlayer.h"
 #define ANIME_RUN 0
 #define ANIME_JUMP 0
-#define PLAYER_SCALE 0.6f
+#define PLAYER_X 50
+#define PLAYER_Y 70
 bool GameScenePlayLayer::init()
 {
+	playerScale = 0.6f;
 	touchTime = 0;
 	isAttack = false;
 	imManArmatureBrood = 100;
@@ -78,7 +80,9 @@ void GameScenePlayLayer::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
 	if(isAttack)
+	{
 		return;
+	}
 
 	if(touchTime>30)
 	{
@@ -93,7 +97,9 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 	if(touchTime<8 && checkIfTouchNotInSetBtnArea(touchLocation,setBtnSize, setBtnLocation))
 	{
 		if(actionNum != ACTION_RUN && actionNum != ACTION_RUN_STOP)
+		{
 			return;
+		}
 		isAttack = true;
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);
@@ -118,7 +124,15 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 	if(nMoveX>10 && fabs(tan(nMoveY/nMoveX))<fabs(sqrt(3)/radian))
 	{
 		if(actionNum == ACTION_RUN)
-			return;
+		{
+			if(GameSceneMapLayer::g_map_move_speed!=6)
+			{
+				GameScene::shareGameScene()->gameSceneMapLayer->setMovedSpeed(6);
+				imManArmature->getAnimation()->setSpeedScale(3.0f);
+				this->schedule(schedule_selector(GameScenePlayLayer::changeSpeed),0.5f, 0, 0.0f);
+				return;
+			}
+		}
 		imManArmature->stopAllActions();
 		imManArmature->removeFromParentAndCleanup(false);
 		this ->IMRunning();
@@ -145,7 +159,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
         if(0 == armatureName.compare("IMRun"))
         {
             this->IMRunJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),150,1);
+            CCActionInterval * jumpAction = CCJumpTo::create(0.3,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),200,1);
             CCCallFunc * callBack;
 			if(nMoveX<0)
 			{
@@ -158,13 +172,12 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 				
             CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
             imManArmature->runAction(action);
-
         }
         
         if(0 == armatureName.compare("IMRunStop"))
         {
             this ->IMStandJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),150,1);
+            CCActionInterval * jumpAction = CCJumpTo::create(0.3,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),200,1);
             CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::standJumpActionCallBack), (void*)0xbebabeba);
             CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
             imManArmature->runAction(action);
@@ -176,15 +189,16 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 		;
 	}
 }
+
 void GameScenePlayLayer::IMRunning()
 {
 	CCArmature *armature = NULL;
 	armature = CCArmature::create("IMRun");
 	armature->getAnimation()->play("Running");
 	armature->getAnimation()->setSpeedScale(2.0f);
-	armature->setScale(PLAYER_SCALE);
+	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(80, 50));
+	armature->setPosition(ccp(PLAYER_X+30, PLAYER_Y));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -198,9 +212,9 @@ void GameScenePlayLayer::IMStandJump()
 	armature = CCArmature::create("IMStandJump");
 	armature->getAnimation()->play("StandJump");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(PLAYER_SCALE);
+	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(70, 50));
+	armature->setPosition(ccp(PLAYER_X+20, PLAYER_Y));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -214,14 +228,16 @@ void GameScenePlayLayer::IMRunJump()
 	armature = CCArmature::create("IMRunJump");
 	armature->getAnimation()->play("RuningJump");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(PLAYER_SCALE);
+	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(70, 50));
+	armature->setPosition(ccp(PLAYER_X+20, PLAYER_Y));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
 	actionNum = ACTION_RUN_JUMP;
 	GameScene::shareGameScene()->gameSceneMapLayer->move();
+	GameScene::shareGameScene()->gameSceneMapLayer->setMovedSpeed(6);
+	armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::amatureActionCallBack));
 }
 
 void GameScenePlayLayer::IMRunningStop()
@@ -230,9 +246,9 @@ void GameScenePlayLayer::IMRunningStop()
 	armature = CCArmature::create("IMRunStop");
 	armature->getAnimation()->play("RunningStop");
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(PLAYER_SCALE);
+	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(100, 50));
+	armature->setPosition(ccp(PLAYER_X+50, PLAYER_Y));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -250,8 +266,15 @@ void GameScenePlayLayer::IMRunAttack(CCPoint touch)
     armature->getAnimation()->play("RunningAttack");
     armature->getAnimation()->setSpeedScale(2.0);
 	armature->setAnchorPoint(ccp(0.5,0));
+<<<<<<< HEAD
 	armature->setScale(PLAYER_SCALE);
 	armature->setPosition(ccp(90, 50));
+=======
+	armature->setScale(playerScale);
+	armature->setPosition(ccp(PLAYER_X+40, PLAYER_Y));
+    //CCBone* leftArmBone = armature->getBone("LeftTopArmAttack");
+    //leftArmBone->setRotation(getAngle(touch));
+>>>>>>> 9380f6aad5accb4a843f72d5054c23e5cf770fa4
     amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -272,8 +295,8 @@ void GameScenePlayLayer::IMStandAttack(CCPoint touch)
     armature->getAnimation()->play("StandAttack");
     armature->getAnimation()->setSpeedScale(0.5);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setScale(PLAYER_SCALE);
-	armature->setPosition(ccp(50, 50));
+	armature->setScale(playerScale);
+	armature->setPosition(ccp(PLAYER_X, PLAYER_Y));
     addChild(armature);
     imManArmature = armature;
     armature->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(GameScenePlayLayer::setAttackEvent));
@@ -288,9 +311,9 @@ void GameScenePlayLayer::IMDeath()
 	armature = CCArmature::create("IMDead");
 	armature->getAnimation()->playByIndex(0.0f, 1.0f, 1.0f,0.0f, 1.0f);
 	armature->getAnimation()->setSpeedScale(1.0f);
-	armature->setScale(PLAYER_SCALE);
+	armature->setScale(playerScale);
 	armature->setAnchorPoint(ccp(0.5,0));
-	armature->setPosition(ccp(100, 50));
+	armature->setPosition(ccp(100, PLAYER_Y));
 	amaturePosition = armature->getPosition();
 	addChild(armature);
 	imManArmature = armature;
@@ -345,7 +368,23 @@ void GameScenePlayLayer::setAttackEvent(cocos2d::extension::CCArmature *armature
 		}
     }
 }
-
+void GameScenePlayLayer::amatureActionCallBack(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID)
+{
+	std::string id = movementID;
+	if (movementType == COMPLETE || movementType == LOOP_COMPLETE)
+	{
+		switch (actionNum)
+		{
+		case ACTION_RUN_JUMP:
+		{
+			 GameScene::shareGameScene()->gameSceneMapLayer->setMovedSpeed(3);
+		}
+			 break;
+		default:
+			break;
+		}
+	}
+}
 bool GameScenePlayLayer::checkIfTouchNotInSetBtnArea(CCPoint touchPosition, CCSize setBtnSize, CCPoint setBtnPosition)
 {
 	if(touchPosition.x < setBtnPosition.x/2-(setBtnSize.width/2)  ||
@@ -373,3 +412,8 @@ int GameScenePlayLayer::getMonsterSkyAmount()
 {
 	return monsterSkyAmount;
 }
+ void GameScenePlayLayer::changeSpeed(float t)
+ {
+	imManArmature->getAnimation()->setSpeedScale(2.0f);
+	GameScene::shareGameScene()->gameSceneMapLayer->setMovedSpeed(3);
+ }

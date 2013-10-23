@@ -31,6 +31,7 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     
    
     void setAttackEvent(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
+	void amatureActionCallBack(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
     void Dead(cocos2d::extension::CCArmature *armature, MovementEventType movementType, const char *movementID);
     
  	void runJumpActionCallBack(CCNode* sender, void* data);
@@ -49,7 +50,8 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     
     float getAngle(CCPoint touch);
     CCPoint getPosHand(float angle);
-    
+    void changeSpeed(float t);
+
     float _attackDir;
     CCPoint _attackPos;
     
@@ -65,6 +67,7 @@ class GameScenePlayLayer : public cocos2d::CCLayer
     CCPoint m_tBeginPos;
 	CCPoint s_tCurPos;
 	CCRect playerBoundingBox;
+	float playerScale;
 	enum
 	{
 		ACTION_RUN = 0,

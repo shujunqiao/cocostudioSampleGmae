@@ -14,7 +14,7 @@ const static char* map0[3] = {"bg0_0.tmx", "bg0_1.tmx", "bg0_2.tmx"};
 const static char* map1[3] = {"bg1_0.tmx", "bg1_1.tmx", "bg1_2.tmx"};
 const static char* map2[3] = {"bg2_0.tmx", "bg2_1.tmx", "bg2_2.tmx"};
 const static float g_w = 480.0;
-static int g_map_move_speed = 3;   //map move speed.
+int GameSceneMapLayer::g_map_move_speed = 3;   //map move speed.
 
 //load one tiledmap.
 bool TiledMap::initMap(int index, int mapIdx)
@@ -85,7 +85,7 @@ void MapGet::update()
     if (p_x == -g_w) {
         ((GameSceneMapLayer*)this->getParent())->addNextMap();
     }
-    p_x -= g_map_move_speed;
+    p_x -= GameSceneMapLayer::g_map_move_speed;
     if (p_x >= -this->_length) {
         this->setPositionX(p_x);
     }
