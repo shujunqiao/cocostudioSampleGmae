@@ -35,14 +35,14 @@
    eJxjYBgFo2AUjIJRMApGAS4gPNAOGAVDEgAAM4gAFA==
   </data>
  </layer>
- <layer name="floor" width="30" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgY2YAdixgnDrWsRJgHAA5gABY=
-  </data>
- </layer>
  <layer name="wall" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMApGwSgYnoCfRL4AlewFACAoAD4=
+  </data>
+ </layer>
+ <layer name="cloud" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGATWBxEA7YBQMOAAAOcAAGQ==
   </data>
  </layer>
  <layer name="wooden" width="30" height="20">
@@ -50,9 +50,9 @@
    eJxjYBgFo2AUjIJRMApGwSgYnoBrgOwFAA4QAAs=
   </data>
  </layer>
- <layer name="cloud" width="30" height="20">
+ <layer name="floor" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGATWBxEA7YBQMOAAAOcAAGQ==
+   eJxjYBgFo2AUjIJRMApGwSgYnoCVRvKE9AEADygAFQ==
   </data>
  </layer>
  <layer name="pipe" width="30" height="20">
@@ -65,10 +65,4 @@
    eJxjYBgFo2AUjIJRMApGwSgYnkBlgOwFABpAACU=
   </data>
  </layer>
- <objectgroup name="object" width="30" height="20">
-  <object x="336" y="196" width="133" height="54"/>
-  <object x="2" y="179" width="221" height="139"/>
-  <object x="225" y="239" width="93" height="80"/>
-  <object x="324" y="254" width="155" height="64"/>
- </objectgroup>
 </map>
