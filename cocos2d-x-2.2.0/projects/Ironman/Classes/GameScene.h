@@ -17,6 +17,7 @@
 #include "GameSceneMenuLayer.h"
 #include "GameSceneOverLayer.h"
 #include "Laser.h"
+#include "VisibleRect.h"
 
 USING_NS_CC;
 
