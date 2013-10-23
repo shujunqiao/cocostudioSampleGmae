@@ -160,7 +160,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
         if(0 == armatureName.compare("IMRun"))
         {
             this->IMRunJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.3,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),200,1);
+            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),200,1);
             CCCallFunc * callBack;
 			if(nMoveX<0)
 			{
@@ -178,7 +178,7 @@ void GameScenePlayLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
         if(0 == armatureName.compare("IMRunStop"))
         {
             this ->IMStandJump();
-            CCActionInterval * jumpAction = CCJumpTo::create(0.3,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),200,1);
+            CCActionInterval * jumpAction = CCJumpTo::create(0.5,CCPointMake(imManArmature->getPosition().x,imManArmature->getPosition().y),200,1);
             CCCallFunc * callBack = CCCallFuncND::create(this, callfuncND_selector(GameScenePlayLayer::standJumpActionCallBack), (void*)0xbebabeba);
             CCFiniteTimeAction*  action = CCSequence::create(jumpAction,callBack,NULL);
             imManArmature->runAction(action);
