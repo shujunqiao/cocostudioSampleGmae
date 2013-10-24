@@ -19,25 +19,17 @@ bool AppDelegate::applicationDidFinishLaunching() {
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
     
     CCSize screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
-    CCSize designSize = CCSizeMake(480, 320);
+    CCSize designSize = CCSizeMake(480.0f, 320.0f);
     std::vector<std::string> searchPaths;
     
-    if (screenSize.height > 320)
+    if (screenSize.height >= 320)
     {
-		searchPaths.push_back("iphone");
 		searchPaths.push_back("iphone");
 		searchPaths.push_back("music");
 		searchPaths.push_back("iphone/tiledmap");
-        pDirector->setContentScaleFactor(320.0f/designSize.height);
+        //pDirector->setContentScaleFactor(screenSize.height/designSize.height);
     }
-    else
-    {
-		searchPaths.push_back("sd");
-		searchPaths.push_back("iphone");
-		searchPaths.push_back("music");
-		searchPaths.push_back("iphone/tiledmap");
-        pDirector->setContentScaleFactor(320.0f/designSize.height);
-    }
+    
     
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
     

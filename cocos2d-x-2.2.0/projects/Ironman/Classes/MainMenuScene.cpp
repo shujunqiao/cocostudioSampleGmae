@@ -130,10 +130,12 @@ void MainMenuScene::dataLoaded(float percent)
 			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync("iphone/MonsterSkyMoving.ExportJson",this, schedule_selector(MainMenuScene::dataLoaded));
 		}
 		break;
-
+	
 	default:
 		{
 			isFirstInGame = false;
+
+			CCScene * newscene  = CCScene::create();
 			GameScene* gameScene =  GameScene::newGameScene();
 			CCTransitionFade* gameSceneTransition =  CCTransitionFade::create(0.5, gameScene, ccWHITE);
 			CCDirector::sharedDirector()->replaceScene(gameSceneTransition);
