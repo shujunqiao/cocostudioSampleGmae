@@ -1,8 +1,11 @@
+
 var GameScene = cc.Scene.extend({
     moveMap:null,
     playerLayer:null,
     menuLayer:null,
     gameSceneMonster:null,
+    isRectDetectedLock:false,
+    laser:null,
     onEnter:function () {
         this._super();
 
@@ -30,6 +33,18 @@ var GameScene = cc.Scene.extend({
         this.gameSceneMonster.init();
         this.addChild(this.gameSceneMonster, 0);
 
+        //laser
+        this.laser = new LaserManager();
+        this.laser.init();
+        this.laser.scheduleUpdate();
+        this.addChild(this.laser);
+
+        //
+        this.scheduleUpdate();
+
+        //
+        this.isRectDetectedLock = false;
+
         //this.scheduleUpdate();
     },
     gameOver:function(){
@@ -48,69 +63,82 @@ var GameScene = cc.Scene.extend({
         this.gameSceneMonster.stopAllActions();
         this.gameSceneMonster.unscheduleUpdate();
 
+        //this.gameSceneMonster.unscheduleUpdate();
+
         this.menuLayer.unscheduleUpdate();
 
-        this.addChild(overLayer, 0);
+        this.addChild(overLayer, 10);
     },
     update:function(dt){
-        console.log("update.");
-//        CCArmature * imManArmature = playLayer->imManArmature;
-//        int actionNum = playLayer->actionNum;
-//        if(actionNum ==playLayer->ACTION_RUN)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+46,imManArmature->getPosition().y,imManArmature->getContentSize().width-90,imManArmature->getContentSize().height-50);
-//        }
-//        else if(actionNum == playLayer->ACTION_STAND_JUMP)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+30,imManArmature->getPosition().y,imManArmature->getContentSize().width-50,imManArmature->getContentSize().height-50);
-//        }
-//        else if(actionNum == playLayer->ACTION_RUN_JUMP)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+33,imManArmature->getPosition().y,imManArmature->getContentSize().width-70,imManArmature->getContentSize().height-50);
-//        }
-//        else if(actionNum == playLayer->ACTION_RUN_STOP)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2+40,imManArmature->getPosition().y,imManArmature->getContentSize().width-110,imManArmature->getContentSize().height-45);
-//        }
-//        else if(actionNum == playLayer->ACTION_RUN_ATTACK)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-//
-//        }
-//        else if(actionNum == playLayer->ACTION_STAND_ATTACK)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-//
-//        }
-//        else if(actionNum == playLayer->ACTION_DEATH)
-//        {
-//            playLayer->playerBoundingBox = CCRectMake(imManArmature->getPosition().x-imManArmature->getContentSize().width/2,imManArmature->getPosition().y,imManArmature->getContentSize().width,imManArmature->getContentSize().height);
-//        }
-//
-//        if(gameSceneMonster->MonsterIndex == MonsterGround_enum)
-//        {
-//            gameSceneMonster->MonsterAmatureBoundingBox = CCRectMake(gameSceneMonster->MonsterAmature->getPosition().x-gameSceneMonster->MonsterAmature->getContentSize().width/2+45,gameSceneMonster->MonsterAmature->getPosition().y+21,gameSceneMonster->MonsterAmature->getContentSize().width-90,gameSceneMonster->MonsterAmature->getContentSize().height-90);
-//        }
-//        else if(gameSceneMonster->MonsterIndex == MonsterSky_enum)
-//        {
-//            gameSceneMonster->MonsterAmatureBoundingBox = CCRectMake(gameSceneMonster->MonsterAmature->getPosition().x-gameSceneMonster->MonsterAmature->getContentSize().width/2+45,gameSceneMonster->MonsterAmature->getPosition().y+21,gameSceneMonster->MonsterAmature->getContentSize().width-90,gameSceneMonster->MonsterAmature->getContentSize().height-90);
-//        }
-//
-//        if (playLayer->playerBoundingBox.intersectsRect(gameSceneMonster->MonsterAmatureBoundingBox))
-//        {
-//            //this->unscheduleUpdate();
-//            //gameSceneMonster->MonsterDestroyAction();
-//            playLayer->imManArmatureBrood-=1;
-//            if(playLayer->imManArmatureBrood<1)
-//            {
-//                GameScene::shareGameScene()->menuLayer->setBroodBarPercent(0);
-//                this->unscheduleUpdate();
-//                playLayer->IMDeath();
-//                return;
-//            }
-//
-//            GameScene::shareGameScene()->menuLayer->setBroodBarPercent(playLayer->imManArmatureBrood);
-//        }
+        //console.log("update.");
+        var imManArmature = this.playLayer.imManArmature;
+        var actionNum = this.playLayer.actionNum;
+        if(actionNum == this.playLayer.ACTION_RUN)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2+46,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width-90,imManArmature.getContentSize().height-50);
+        }
+        else if(actionNum == this.playLayer.ACTION_STAND_JUMP)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2+30,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width-50,imManArmature.getContentSize().height-50);
+        }
+        else if(actionNum == this.playLayer.ACTION_RUN_JUMP)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2+33,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width-70,imManArmature.getContentSize().height-50);
+        }
+        else if(actionNum == this.playLayer.ACTION_RUN_STOP)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2+40,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width-110,imManArmature.getContentSize().height-45);
+        }
+        else if(actionNum == this.playLayer.ACTION_RUN_ATTACK)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width,imManArmature.getContentSize().height);
+
+        }
+        else if(actionNum == this.playLayer.ACTION_STAND_ATTACK)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width,imManArmature.getContentSize().height);
+
+        }
+        else if(actionNum == this.playLayer.ACTION_DEATH)
+        {
+            this.playLayer.playerBoundingBox = cc.rect(imManArmature.getPosition().x-imManArmature.getContentSize().width/2,
+                imManArmature.getPosition().y,imManArmature.getContentSize().width,imManArmature.getContentSize().height);
+        }
+
+        if(this.gameSceneMonster.MonsterIndex == MonsterType.MonsterGround_enum)
+        {
+            this.gameSceneMonster.MonsterAmatureBoundingBox = cc.rect(this.gameSceneMonster.MonsterAmature.getPosition().x-
+                this.gameSceneMonster.MonsterAmature.getContentSize().width/2+45,this.gameSceneMonster.MonsterAmature.getPosition().y+21,
+                this.gameSceneMonster.MonsterAmature.getContentSize().width-90,this.gameSceneMonster.MonsterAmature.getContentSize().height-90);
+        }
+        else if(this.gameSceneMonster.MonsterIndex == MonsterType.MonsterSky_enum)
+        {
+            this.gameSceneMonster.MonsterAmatureBoundingBox = cc.rect(this.gameSceneMonster.MonsterAmature.getPosition().x-
+                this.gameSceneMonster.MonsterAmature.getContentSize().width/2+45,this.gameSceneMonster.MonsterAmature.getPosition().y+21,
+                this.gameSceneMonster.MonsterAmature.getContentSize().width-90,this.gameSceneMonster.MonsterAmature.getContentSize().height-90);
+        }
+
+        if (cc.rectIntersectsRect(this.playLayer.playerBoundingBox, this.gameSceneMonster.MonsterAmatureBoundingBox))
+        {
+            //this.unscheduleUpdate();
+            //gameSceneMonster.MonsterDestroyAction();
+            this.playLayer.imManArmatureBrood-=1;
+            if(this.playLayer.imManArmatureBrood<1)
+            {
+                GameScene.getScene().menuLayer.setBroodBarPercent(0);
+                this.unscheduleUpdate();
+                this.playLayer.IMDeath();
+                return;
+            }
+
+            GameScene.getScene().menuLayer.setBroodBarPercent(this.playLayer.imManArmatureBrood);
+        }
     }
 });
 

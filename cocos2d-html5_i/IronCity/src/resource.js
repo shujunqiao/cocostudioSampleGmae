@@ -19,6 +19,7 @@ var Png_MainMenuSceneBK     = "res/normal/MainMenuSceneBK.png";
 var Png_StartBtn            = "res/normal/StartBtn.png";
 var Png_StartBtnPush        = "res/normal/StartBtnPush.png";
 var Png_loadingPng          = "res/normal/loading.png";
+var Png_laser               = "res/normal/laser.png";
 
 var Plist_IMCrouch          = "res/IronManAnimation/IMCrouch0.plist";
 var Plist_IMCrouchJump      = "res/IronManAnimation/IMCrouchJump0.plist";
@@ -84,6 +85,17 @@ var Plist_IMDead             = "res/IronManAnimation/IMDead0.plist";
 var Png_IMDead             = "res/IronManAnimation/IMDead0.png";
 
 var g_resources = [
+    //
+    {src:s_monsterGround},
+    {src:s_monsterSky},
+    {src:p_MonsterGroundAnimation_plist},
+    {src:s_MonsterGroundAnimation_png},
+    {src:p_MonsterSkyAnimation_plist},
+    {src:s_MonsterSkyAnimation_png},
+    {src:p_MonsterGroundMoving_plist},
+    {src:s_MonsterGroundMoving_png},
+    {src:p_MonsterSkyMoving_plist},
+    {src:s_MonsterSkyMoving_png},
     //Jsons
     {src:Json_IMCrouch},
     {src:Json_IMCrouchJump},
@@ -98,17 +110,6 @@ var g_resources = [
     {src:Json_GameSceneOverLayer_1},
     {src:Json_MonsterSkyMoving},
     {src:Json_MonsterGroundMoving},
-    //
-    {src:s_monsterGround},
-    {src:s_monsterSky},
-    {src:p_MonsterGroundAnimation_plist},
-    {src:s_MonsterGroundAnimation_png},
-    {src:p_MonsterSkyAnimation_plist},
-    {src:s_MonsterSkyAnimation_png},
-    {src:p_MonsterGroundMoving_plist},
-    {src:s_MonsterGroundMoving_png},
-    {src:p_MonsterSkyMoving_plist},
-    {src:s_MonsterSkyMoving_png},
 
     //Pngs
     {src:Png_IMCrouch},
@@ -132,6 +133,7 @@ var g_resources = [
     {src:s_musicVolumeSwitch},
     {src:s_musicVolumeOn},
     {src:s_musicVolumeBK},
+    {src:Png_laser},
 
     //tiledmap
     {src:s_Concreate_wall},
