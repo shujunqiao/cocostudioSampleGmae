@@ -20,7 +20,9 @@ var GameSceneOverLayer = cc.UILayer.extend({
             var distanceScore      = this.getWidgetByName("distanceScore");
             this.finalScore = this.getWidgetByName("finalScore");
 
+            //playAgainBtn.setTouchEnabled(true);
             playAgainBtn.addTouchEventListener(this, this.playAgainBtnCallback);
+            console.log("playAgainBtn: ", playAgainBtn);
 
             var monsterGroundCount= this.parentScene.playLayer.getMonsterGroundAmount();
             monsterGroundAmount.setText(monsterGroundCount);
@@ -30,10 +32,19 @@ var GameSceneOverLayer = cc.UILayer.extend({
 
             distanceScore.setStringValue(this.parentScene.menuLayer.getDistanceScore());
             this.calculateFinalScore(monsterGroundCount*88 , monsterSkyCount*66 , this.parentScene.menuLayer.getDistanceScore());
+
+            //this.setTouchEnabled(true);
+            //this.setTouchMode(cc.TouchMode);
             return true;
         }
         return false;
     },
+//    onTouchBegan:function(touch){
+//        console.log("touch", touch);
+//    },
+//    onTouchesBegan:function(touch){
+//        console.log("touches", touch);
+//    },
     calculateFinalScore:function(monsterSkyAmountValue, monsterGroundAmountValue, distanceScoreValue){
         var distanceScore = 0;
         distanceScore = distanceScoreValue;
@@ -42,6 +53,7 @@ var GameSceneOverLayer = cc.UILayer.extend({
         this.finalScore.setStringValue(score);
     },
     playAgainBtnCallback:function(pSender, type){
+        console.log("playAgainBtnCallback: ", pSender, type);
         if(cc.TouchEventType.BEGAN == type){
             var againScene = new GameScene();
             againScene.init();
