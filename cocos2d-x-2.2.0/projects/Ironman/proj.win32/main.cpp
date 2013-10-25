@@ -17,5 +17,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     CCEGLView* eglView = CCEGLView::sharedOpenGLView();
     eglView->setViewName("Ironman");
     eglView->setFrameSize(1920, 1080);
+	eglView->setFrameZoomFactor(0.5f);
     return CCApplication::sharedApplication()->run();
 }

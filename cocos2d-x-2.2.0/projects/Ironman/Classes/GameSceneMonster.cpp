@@ -17,12 +17,12 @@ bool GameSceneMonster::init()
 	 {
 		case MonsterGround_enum:
 		{
-			MonsterGroundMoving(CCPointMake(VisibleRect::leftBottom().x+VisibleRect::getVisibleRect().size.width,VisibleRect::rightBottom().y+50));
+			MonsterGroundMoving(CCPointMake(VisibleRect::getVisibleRect().size.width,50));
 		}
 			break;
 		case MonsterSky_enum:
 		{
-		    float height = ((float)random(VisibleRect::leftBottom().y,VisibleRect::rightBottom().y+100));
+		    float height = ((float)random(0,100));
 			CCPoint aPosition = CCPointMake(VisibleRect::getVisibleRect().size.width-200,height);
 			MonsterSkyMoving(aPosition);
 		}
@@ -58,7 +58,7 @@ void GameSceneMonster::MonsterSkyMoving(CCPoint position)
 	armature = cocos2d::extension::CCArmature::create("MonsterSkyMoving");
 	armature->getAnimation()->playByIndex(0);
 	armature->getAnimation()->setSpeedScale(1.5f);
-	armature->setScale(0.6f);
+	armature->setScale(0.5f);
 	armature->setAnchorPoint(ccp(0.5,0));
 	armature->setPosition(position);
 	addChild(armature);
